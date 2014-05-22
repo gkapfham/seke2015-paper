@@ -1,0 +1,43 @@
+\begin{thebibliography}{6}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{DOI~\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{DOI~\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{Ammann and Offutt(2008)}]{Ammann:Testing}
+Ammann P, Offutt J (2008) Introduction to software testing. Cambridge
+  University Press
+
+\bibitem[{Goodrich and Tamassia(1998)}]{Goodrich:Data}
+Goodrich MT, Tamassia R (1998) Data structures and algorithms in Java. World
+  wide series in computer science, Wiley
+
+\bibitem[{Kapfhammer et~al(2013)Kapfhammer, McMinn, and
+  Wright}]{Kapfhammer2013}
+Kapfhammer GM, McMinn P, Wright CJ (2013) Search-based testing of relational
+  schema integrity constraints across multiple database management systems. In:
+  International Conference on Software Testing, Verification and Validation
+  (ICST 2013), IEEE
+
+\bibitem[{McGeoch(2012)}]{Mcgeoch:Algorithmics}
+McGeoch CC (2012) A Guide to Experimental Algorithmics. Cambridge University
+  Press
+
+\bibitem[{McMinn(2005)}]{McMinn:Thesis}
+McMinn P (2005) Evolutionary search for test data in the presence of state
+  behaviour. PhD thesis, The University of Sheffield,
+  \urlprefix\url{http://philmcminn.staff.shef.ac.uk/publications/pdfs/2005-thesis.pdf}
+
+\bibitem[{Walcott et~al(2006)Walcott, Soffa, Kapfhammer, and
+  Roos}]{Walcott:tsp}
+Walcott KR, Soffa ML, Kapfhammer GM, Roos RS (2006) Timeaware test suite
+  prioritization. In: Proceedings of the 2006 International Symposium on
+  Software Testing and Analysis, ACM, New York, NY, USA, ISSTA '06, pp 1--12,
+  \doi{10.1145/1146238.1146240},
+  \urlprefix\url{http://doi.acm.org/10.1145/1146238.1146240}
+
+\end{thebibliography}
