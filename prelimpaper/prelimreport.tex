@@ -1,0 +1,382 @@
+% This is "sig-alternate.tex" V2.0 May 2012
+% This file should be compiled with V2.5 of "sig-alternate.cls" May 2012
+%
+% This example file demonstrates the use of the 'sig-alternate.cls'
+% V2.5 LaTeX2e document class file. It is for those submitting
+% articles to ACM Conference Proceedings WHO DO NOT WISH TO
+% STRICTLY ADHERE TO THE SIGS (PUBS-BOARD-ENDORSED) STYLE.
+% The 'sig-alternate.cls' file will produce a similar-looking,
+% albeit, 'tighter' paper resulting in, invariably, fewer pages.
+%
+% ----------------------------------------------------------------------------------------------------------------
+% This .tex file (and associated .cls V2.5) produces:
+%       1) The Permission Statement
+%       2) The Conference (location) Info information
+%       3) The Copyright Line with ACM data
+%       4) NO page numbers
+%
+% as against the acm_proc_article-sp.cls file which
+% DOES NOT produce 1) thru' 3) above.
+%
+% Using 'sig-alternate.cls' you have control, however, from within
+% the source .tex file, over both the CopyrightYear
+% (defaulted to 200X) and the ACM Copyright Data
+% (defaulted to X-XXXXX-XX-X/XX/XX).
+% e.g.
+% \CopyrightYear{2007} will cause 2007 to appear in the copyright line.
+% \crdata{0-12345-67-8/90/12} will cause 0-12345-67-8/90/12 to appear in the copyright line.
+%
+% ---------------------------------------------------------------------------------------------------------------
+% This .tex source is an example which *does* use
+% the .bib file (from which the .bbl file % is produced).
+% REMEMBER HOWEVER: After having produced the .bbl file,
+% and prior to final submission, you *NEED* to 'insert'
+% your .bbl file into your source .tex file so as to provide
+% ONE 'self-contained' source file.
+%
+% ================= IF YOU HAVE QUESTIONS =======================
+% Questions regarding the SIGS styles, SIGS policies and
+% procedures, Conferences etc. should be sent to
+% Adrienne Griscti (griscti@acm.org)
+%
+% Technical questions _only_ to
+% Gerald Murray (murray@hq.acm.org)
+% ===============================================================
+%
+% For tracking purposes - this is V2.0 - May 2012
+
+\documentclass{sig-alternate}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\begin{document}
+%
+% --- Author Metadata here ---
+% \conferenceinfo{QSIC}{'14 Dallas, Texas USA}
+%\CopyrightYear{2007} % Allows default copyright year (20XX) to be over-ridden - IF NEED BE.
+%\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
+% --- End of Author Metadata ---
+
+\title{Empirically Evaluating the Efficiency of Search-based Test Suite
+Generation for Relational Database Schemas}
+%
+% You need the command \numberofauthors to handle the 'placement
+% and alignment' of the authors beneath the title.
+%
+% For aesthetic reasons, we recommend 'three authors at a time'
+% i.e. three 'name/affiliation blocks' be placed beneath the title.
+%
+% NOTE: You are NOT restricted in how many 'rows' of
+% "name/affiliations" may appear. We just ask that you restrict
+% the number of 'columns' to three.
+%
+% Because of the available 'opening page real-estate'
+% we ask you to refrain from putting more than six authors
+% (two rows with three columns) beneath the article title.
+% More than six makes the first-page appear very cluttered indeed.
+%
+% Use the \alignauthor commands to handle the names
+% and affiliations for an 'aesthetic maximum' of six authors.
+% Add names, affiliations, addresses for
+% the seventh etc. author(s) as the argument for the
+% \additionalauthors command.
+% These 'additional authors' will be output/set for you
+% without further effort on your part as the last section in
+% the body of your article BEFORE References or any Appendices.
+
+\numberofauthors{3} %  in this sample file, there are a *total*
+% of EIGHT authors. SIX appear on the 'first-page' (for formatting
+% reasons) and the remaining two appear in the \additionalauthors section.
+%
+\author{
+% You can go ahead and credit any number of authors here,
+% e.g. one 'row of three' or two rows (consisting of one row of three
+% and a second row of one, two or three).
+%
+% The command \alignauthor (no curly braces needed) should
+% precede each author name, affiliation/snail-mail address and
+% e-mail address. Additionally, tag each line of
+% affiliation/address with \affaddr, and tag the
+% e-mail address with \email.
+%
+% 1st. author
+\alignauthor
+Cody Kinneer\\
+       \affaddr{Allegheny College}\\
+       \email{kinneerc@allegheny.edu}
+% 2nd. author
+\alignauthor
+Luke Smith\\
+       \affaddr{Allegheny College}\\
+       \email{smithl4@allegheny.edu}
+% 3rd. author
+\alignauthor 
+Gregory Kapfhammer\\
+       \affaddr{Allegheny College}\\
+       \email{gkapfham@allegheny.edu}
+}
+% There's nothing stopping you putting the seventh, eighth, etc.
+% author on the opening page (as the 'third row') but we ask,
+% for aesthetic reasons that you place these 'additional authors'
+% in the \additional authors block, viz.
+% \additionalauthors{Additional authors: John Smith (The Th{\o}rv{\"a}ld Group,
+% email: {\texttt{jsmith@affiliation.org}}) and Julius P.~Kumquat
+% (The Kumquat Consortium, email: {\texttt{jpkumquat@consortium.net}}).}
+% \date{30 July 1999}
+% Just remember to make sure that the TOTAL number of authors
+% is the number that will appear on the first page PLUS the
+% number that will appear in the \additionalauthors section.
+
+\maketitle
+\begin{abstract}
+When evaluating an algorithm, it is often useful to speak of it's
+efficiency in terms of it's worst case complexity.  However, for certain
+cases such as search-based algorithms, determining an algorithm's
+efficiency by theoretical analysis is unfeasible.  This paper introduces a
+framework for conducting automated empirical studies of algorithms by
+doubling the size of the input and observing the change in execution
+time. This method is then applied to the domain of data generation for
+relational database schemas. A technique for systematically doubling the
+size of schemas was implemented, and an empirical study was conducted on
+the search-based data generation tool \textit{SchemaAnalyst}. For the
+parameters of \textit{SchemaAnalyst} tested,  The study
+concluded that \textit{SchemaAnalyst} was $O(n^2)$ with respect to the
+number of check constraints in the input schema.
+\end{abstract}
+
+%A category including the fourth, optional field follows...
+\category{D.2.8}{Software Engineering}{Metrics}[complexity measures, performance measures]
+
+\section{Introduction}
+Search-based algorithms allow guidance to be applied to problems that
+might otherwise be approached with a random sampling technique. In the
+domain of data generation for software testing, this means that rather
+than randomly selecting inputs from a program's input space, the
+qualities of an input that best fulfill the test's goals can be
+actively sought out by the data generator \cite{McMinn:Thesis}. While this
+technique has been applied to various problems, including test suite
+prioritization \cite{Walcott:tsp} and testing
+relational database schemas \cite{Kapfhammer2013}, 
+as far as we know, no research has been done on evaluating the efficiency
+of search-based test data generation. 
+
+This paper presents an empirical study of the search-based data
+generation tool \textit{SchemaAnalyst}, which generates test suites for
+relational database schemas.  To evaluate \textit{SchemaAnalyst}, a tool
+was implemented in Java to systematically double the size of the
+program's input and record the change in it's execution time. Using this
+technique, for the coverage criterion and data generator tested, 
+\textit{SchemaAnalyst} was found to be $O(n^2)$ with respect
+to the number of check constraints in the schema. The contributions of
+this paper are therefore as follows:
+\begin{enumerate}
+  \item A framework for automated doubling experiments
+  \item An empirical study evaluating the efficiency of a search-based
+    data generation tool
+  \end{enumerate}
+
+\section{Background}
+
+Worst case time complexity is a useful measure of an algorithms
+efficiency, or how increasing the size
+of the input $n$ increases the execution time of the algorithm, $f(n)$.
+This relationship is often expressed in big-Oh notation, where $f(n)$
+is $O(g(n))$ means that the time increases by order of $g(n)$. The worst
+case complexity of an algorithm is evident when $n$ is large 
+\cite{Goodrich:Data}. One approach for determining the big-Oh complexity
+of an algorithm $f$ is to conduct a doubling experiment. By measuring the
+time needed to run the algorithm on $n$, and the time needed to run on $2n$, the order of growth
+of $f$ can be determined \cite{Mcgeoch:Algorithmics,
+Sedgewick:Analysis}. 
+
+Intuitively, the goal of a doubling experiment is to draw a conclusion
+regarding the efficiency of the algorithm from the ratio
+$f(2n)/f(n)$. This ratio represents the factor of change in runtime from
+input $n$ to $2n$. A ratio of $2$ would indicate that doubling the
+input resulted in runtime doubling. We could then conclude that the
+algorithm under study is $O(n)$. 
+
+\section{Technique}
+To determine worst case complexity, an input $n$ was doubled until the 
+ratio $f(2n) / f(n)$ converged to a stable value. To account for random
+error, every time $n$ was doubled, $f(n)$ was recorded ten times
+, and the median time was used for calculating the ratios. The overall 
+structure of the experiment is shown in Algorithm~\ref{alg:main}.
+
+This convergence checking is necessary because of the fact that worst
+case time is only apparent for large values of $n$. If too few doubles
+are tested, then the experiment may terminate before $n$ reaches a value
+where the worst case time is apparent. At the same time, for inefficient 
+algorithms, each additional double tested incurs a substantial time cost, 
+so to conduct the testing efficiently the experiment should terminate as 
+quickly as possible.
+
+To test for convergence, the last four ratios were compared, and the
+sum of differences between them is compared to a tolerance value. A
+tolerance value of $0.40$ was chosen 
+by performing doubling experiments on various algorithms with known worst case time
+complexities, and observing that the ratio converged to the correct
+value when $\mathit{diff} < 0.40$. The convergence algorithm is shown
+as Algorithm~\ref{alg:convergence}.
+  
+Another consequence of worst case time only being apparent for large
+$n$, is that a very small initial $n$ may appear to converge to $1$,
+which indicates constant or logarithmic time. To prevent the
+experiment from incorrectly terminating given a small starting $n$, we
+require that an algorithm under test display a ratio of $1$ for many
+runs before judging that the ratio does in fact converge to $1$. In this case,
+the experiment is considered convergent if the ratio remains $1$ for 
+twenty consecutive doubles.  Because $1$ signifies constant or logarithmic 
+time, requiring these doubles does not significantly increase the time needed
+to run the experiment, while providing assurance that a small ratio is not due to
+an insufficiently small $n$. This test is shown as Algorithm~\ref{alg:tuning}.
+
+\begin{algorithm}[t]
+    \caption{Run Doubling Experiment}
+    \begin{algorithmic}
+      \WHILE{Diff not convergent || N not large enough}
+        \FOR{$\mathit{count} < 10$}
+        \STATE Run Test
+        \STATE $\mathit{count}++$
+        \ENDFOR
+        \STATE Double Schema
+        \ENDWHILE
+    \end{algorithmic}
+    \label{alg:main}
+  \end{algorithm}
+
+ \begin{algorithm}[t]
+    \caption{Diff not Convergent}
+    \begin{algorithmic}
+      \STATE $\mathit{diff} = |(r_4 - r_3) + (r_3 -r_2) + (r_2 - r_1)|$
+      \IF{$\mathit{diff} < 0.40$}
+      \RETURN FALSE
+      \ELSE
+      \RETURN TRUE
+      \ENDIF
+    \end{algorithmic}
+    \label{alg:convergence}
+  \end{algorithm}
+
+ \begin{algorithm}[t]
+    \caption{N not Large Enough}
+    \begin{algorithmic}
+      \IF{$\mathit{ratio} \approx 1$}
+      \IF{$\mathit{Doubles} < 20$}
+      \STATE minRuns++
+      \RETURN TRUE
+      \ENDIF
+      \ENDIF
+      \RETURN FALSE
+    \end{algorithmic}
+    \label{alg:tuning}
+  \end{algorithm}
+
+\section{Experimental Design}
+To analyze \textit{SchemaAnalyst}, the iTrust and NistWeather case
+studies provided by \textit{SchemaAnalyst} were used as the initial 
+input schemas.
+Both of these schemas are taken from real world applications. The factor $n$
+under study was the number of check constraints present on the schema.  A tool was
+implemented to double the number of these constraints. Generating
+synthetic check constraints is non-trivial because there are many
+possible check constraints, and generating a constraint that is
+unsatisfiable might cause the data generation tool to take a longer
+amount of time than should be the case. To avoid this problem, we
+instead duplicate the existing check constraints present on the schema
+rather than attempt to generate new ones. This technique is easy
+to implement, and ensures that the check constraints added are
+semantically valid.  For every table in the input schema, the tool 
+duplicated the existing check constraints and added the duplicates 
+to the table.  
+
+The test suite generation tool provided by \textit{SchemaAnalyst}
+requires a coverage criterion and a data generator to be specified. A
+coverage criterion is a system of rules that generate test requirements
+\cite{Ammann:Testing}. The data generator is the object that generates
+the test data according to the rules specified by the coverage
+criterion. The criterion used in the experiment was
+\textsc{constraintCACCoverage}, 
+the data generator was \textsc{directedRandom}. The
+testing tools were implemented in Java, and were both compiled and run using
+version 1.7 of the compiler and JVM. The experiment was executed on an Ubuntu 13.10 machine with a 2.4
+GHz quad core CPU running the 3.11.0-18-generic x86\_64 GNU/Linux
+kernel.
+
+\section{Results}
+Our technique was successfully able to determine the worst case time
+complexity of \textit{SchemaAnalyst} with regard to the number of check
+constraints on the input schema, using the
+\textsc{constraintCACCoverage} coverage criterion and the
+\textsc{directedRandom} data generator. Under these conditions, 
+\textit{SchemaAnalyst} displayed $O(n^2)$ behavior. Figures~\ref{fig:iTrust} 
+and~\ref{fig:NistWeather} show the data collected during the experiment with a
+quadratic fit. The x axis shows by what factor the number of initial
+check constraints $i$ have been increased. For $x = 100$, the number of check
+constraints on the schema is $100i$. The y axis shows the time in
+nanoseconds \textit{SchemaAnalyst} needed to generate a test suite for
+the input schema. Each point on the graph represents the amount of time
+\textit{SchemaAnalyst} ran for a schema with $ix$ check constraints.
+The equation shown is the best fit quadratic equation for that data.  A
+quadratic relationship indicates that \textit{SchemaAnalyst} is
+$O(n^2)$.  The value $r^2$ is a measure of the quality of fit between a model and
+the data. The closer $r^2$ is to $1$, the better the quality of the
+model.  An $r^2$ of $.997$ and $1$ indicates that the models are a good fit for
+the data.
+
+\begin{figure*}
+\centering
+  \centering
+  \includegraphics[width=.5\linewidth]{iTrustChecks.pdf}
+  \caption{Time vs Check Constraints on iTrust.}
+  \label{fig:iTrust}
+\end{figure*}
+\begin{figure*}
+  \centering
+  \includegraphics[width=.5\linewidth]{NistWeatherChecks.pdf}
+  \caption{Time vs Check Constraints on NistWeather.}
+  \label{fig:NistWeather}
+\end{figure*}
+
+\subsection*{Threats to Validity}
+Our technique for doubling the number of check constraints on the schema
+is simply to duplicate the existing check constraints. It is possible
+that \textit{SchemaAnalyst} does less work processing these copied check
+constraints than it would given unique check constraints. However,
+doubling the check constraints in this way is an easy to implement,
+semantically significant way of evaluating \textit{SchemaAnalyst}.
+
+Additionally, since worst case time is only apparent for large $n$, 
+it is possible that the experiment terminated too quickly.  To guard 
+against this problem, Algorithms ~\ref{alg:convergence} and ~\ref{alg:tuning}
+were tested on various other algorithms with known worst case complexities, and 
+found to be reliable.
+
+\section{Future Work}
+The automated doubling experiment was able to determine the worst case
+time complexity of \textit{SchemaAnalyst} with respect to the number of
+check constraints in the input schema, for the
+\textsc{constraintCACCoverage} criterion and the
+\textsc{directedRandom} data generator.  Additional experiments will be
+conducted on other criterions and data factories. Additionally, other factors 
+that may influence the runtime of schema analysis,
+such as the number of primary keys, foreign keys, tables, columns, etc
+will be investigated.
+
+%\end{document}  % This is where a 'short' article might terminate
+
+%
+% The following two commands are all you need in the
+% initial runs of your .tex file to
+% produce the bibliography for the citations in your paper.
+\bibliographystyle{abbrv}
+\bibliography{sigproc}  % sigproc.bib is the name of the Bibliography in this case
+% You must have a proper ".bib" file
+%  and remember to run:
+% latex bibtex latex latex
+% to resolve all references
+%
+% ACM needs 'a single self-contained file'!
+%
+%APPENDICES are optional
+%\balancecolumns
+\end{document}
