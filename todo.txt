@@ -1,5 +1,5 @@
 (A) explain magic numbers @experimentaldesign 
-(A) fully explain doublers
+(A) fully explain doublers @clarifywhere
 (A) improve explanation of O() @background
 (A) parameterize magic numbers @algorithms
 (A) table that explains characteristics of the schemas @experimentaldesign
