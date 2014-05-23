@@ -1,0 +1,27 @@
+(A) explain magic numbers @experimentaldesign 
+(A) fully explain doublers
+(A) improve explanation of O() @background
+(A) parameterize magic numbers @algorithms
+(A) table that explains characteristics of the schemas @experimentaldesign
+(A) verify O() is correct notation vs theta @background
+(A) provide example of a schema @background
+(A) provide diagram of SchemaAnalyst inputs and outputs @background
+(A) sensitivity testing @clairify
+(B) what are evaluation metrics for experiments
+(B) what are research questions for experiments
+(B) how to eval effect of a doubler
+(B) add table explaining doubling experiment @background
+(B) address issue: is semantic doubling faithful and valid? 
+(B) algorithm input/outputs @clarify @algs
+(B) build a full working example of a run
+(B) explain and cite paper for criterion and data gen @experimentaldesign
+(B) explain and example of unsatisfiable check constraint @experimentaldesign
+(B) explain how doubling makes math easier @background @Mcgeoch
+(B) find citation for r value @results
+(B) give details on alg tests @threats
+(B) EvoSuite @futurework
+(C) add clause to motivate conclusion sentence @abstract
+(C) release tool or remove reference to implemented @abstract 
+(C) add references to contributions @intro
+(C) add third contribution @intro
+(E) fix paragraph formatting 
