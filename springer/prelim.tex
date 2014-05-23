@@ -14,7 +14,7 @@
 
 \begin{document}
 
-\title{Empirically Evaluating the Efficiency of Search-based Test Suite
+\title{Empirically Evaluating the Efficiency of Search-based Test Data
 Generation for Relational Database Schemas}
 
 %\subtitle{Do you have a subtitle?\\ If so, write it here}
@@ -51,16 +51,17 @@ Generation for Relational Database Schemas}
 When evaluating an algorithm, it is often useful to speak of it's
 efficiency in terms of it's worst case complexity.  However, for certain
 cases such as search-based algorithms, determining an algorithm's
-efficiency by theoretical analysis is unfeasible.  This paper introduces a
+efficiency by theoretical analysis is difficult, and has not been
+reported in the literature. This paper introduces a
 framework for conducting automated empirical studies of algorithms by
 doubling the size of the input and observing the change in execution
-time. This method is then applied to the domain of data generation for
-relational database schemas. A technique for systematically doubling the
-size of schemas was implemented, and an empirical study was conducted on
-the search-based data generation tool \textit{SchemaAnalyst}. For the
-parameters of \textit{SchemaAnalyst} tested,  The study
-concluded that \textit{SchemaAnalyst} was $O(n^2)$ with respect to the
-number of check constraints in the input schema.
+time. We apply this method to the domain of data generation for
+relational database schemas.  After implementing a technique for 
+systematically doubling the size of schemas, we conduct an
+empirical study on the search-based data generation tool
+\textit{SchemaAnalyst}. For the parameters of \textit{SchemaAnalyst}
+studied, the study concludes that \textit{SchemaAnalyst} is $O(n^2)$
+with respect to the number of check constraints in the input schema.
 
 
 \keywords{First keyword \and Second keyword \and More}
@@ -69,12 +70,14 @@ number of check constraints in the input schema.
 \end{abstract}
 
 \section{Introduction}
-Search-based algorithms allow guidance to be applied to problems that
-might otherwise be approached with a random sampling technique. In the
+Search-based algorithms allow the application of guidance to problems.
+The algorithm attempts to improve a potential solution until the
+solution is acceptable. Without the use of a search-based strategy, a
+problem might be approached with a random sampling or greedy
+technique. In the
 domain of data generation for software testing, this means that rather
-than randomly selecting inputs from a program's input space, the
-qualities of an input that best fulfill the test's goals can be
-actively sought out by the data generator \cite{McMinn:Thesis}. While this
+than randomly selecting inputs from a program's input space, the data
+generator can actively seek out qualities of an input that best fulfill the test's goals \cite{McMinn:Thesis}. While this
 technique has been applied to various problems, including test suite
 prioritization \cite{Walcott:tsp} and testing
 relational database schemas \cite{Kapfhammer2013}, 
@@ -82,7 +85,7 @@ as far as we know, no research has been done on evaluating the efficiency
 of search-based test data generation. 
 
 This paper presents an empirical study of the search-based data
-generation tool \textit{SchemaAnalyst}, which generates test suites for
+generation tool, called \textit{SchemaAnalyst}, which generates test suites for
 relational database schemas.  To evaluate \textit{SchemaAnalyst}, a tool
 was implemented in Java to systematically double the size of the
 program's input and record the change in it's execution time. Using this
@@ -98,16 +101,16 @@ this paper are therefore as follows:
 
 \section{Background}
 
-Worst case time complexity is a useful measure of an algorithms
+Worst-case time complexity is a useful measure of an algorithms
 efficiency, or how increasing the size
 of the input $n$ increases the execution time of the algorithm, $f(n)$.
 This relationship is often expressed in big-Oh notation, where $f(n)$
-is $O(g(n))$ means that the time increases by order of $g(n)$. The worst
-case complexity of an algorithm is evident when $n$ is large 
+is $O(g(n))$ means that the time increases by order of $g(n)$. The
+worst-case complexity of an algorithm is evident when $n$ is large 
 \cite{Goodrich:Data}. One approach for determining the big-Oh complexity
-of an algorithm $f$ is to conduct a doubling experiment. By measuring the
-time needed to run the algorithm on $n$, and the time needed to run on $2n$, the order of growth
-of $f$ can be determined \cite{Mcgeoch:Algorithmics,
+of an algorithm is to conduct a doubling experiment. By measuring the
+time needed to run the algorithm on an input $n$, and the time needed to
+run on $2n$, the order of growth of the algorithm can be determined \cite{Mcgeoch:Algorithmics,
 Sedgewick:Analysis}. 
 
 Intuitively, the goal of a doubling experiment is to draw a conclusion
@@ -118,39 +121,42 @@ input resulted in runtime doubling. We could then conclude that the
 algorithm under study is $O(n)$. 
 
 \section{Technique}
-To determine worst case complexity, an input $n$ was doubled until the 
-ratio $f(2n) / f(n)$ converged to a stable value. To account for random
-error, every time $n$ was doubled, $f(n)$ was recorded ten times
-, and the median time was used for calculating the ratios. The overall 
+To determine worst case complexity, an input $n$ is doubled until the 
+ratio $f(2n) / f(n)$ converges to a stable value. To account for random
+error, every time $n$ is doubled, $f(n)$ is recorded ten times
+, and the median time is used for calculating the ratios.  We chose
+median to minimize the effect of outliers. If mean is used instead, a
+single abnormally long run could have a large effect on the result. The overall 
 structure of the experiment is shown in Algorithm~\ref{alg:main}.
 
-This convergence checking is necessary because of the fact that worst
-case time is only apparent for large values of $n$. If too few doubles
-are tested, then the experiment may terminate before $n$ reaches a value
-where the worst case time is apparent. At the same time, for inefficient 
-algorithms, each additional double tested incurs a substantial time cost, 
-so to conduct the testing efficiently the experiment should terminate as 
-quickly as possible.
+This convergence checking is necessary because of the fact that worst-case
+time is only apparent for large values of $n$. If too few doubles
+are tried, then the experiment may terminate before $n$ reaches a value
+where the true worst-case time complexity is apparent. At the same time,
+for inefficient  algorithms, each additional double run incurs a substantial
+time overhead. To conduct the testing efficiently, the experiment should
+terminate as quickly as possible.
 
-To test for convergence, the last four ratios were compared, and the
+To test for convergence, the last four ratios are compared, and the
 sum of differences between them is compared to a tolerance value. A
-tolerance value of $0.40$ was chosen 
-by performing doubling experiments on various algorithms with known worst case time
+tolerance value of $0.40$ was chosen  by performing doubling
+experiments on various algorithms with known worst case time
 complexities, and observing that the ratio converged to the correct
 value when $\mathit{diff} < 0.40$. The convergence algorithm is shown
 as Algorithm~\ref{alg:convergence}.
   
-Another consequence of worst case time only being apparent for large
+Another consequence of worst-case time only being apparent for large
 $n$, is that a very small initial $n$ may appear to converge to $1$,
-which indicates constant or logarithmic time. To prevent the
+which indicates constant time. To prevent the
 experiment from incorrectly terminating given a small starting $n$, we
-require that an algorithm under test display a ratio of $1$ for many
+require that a program under study display a ratio of $1$ for many
 runs before judging that the ratio does in fact converge to $1$. In this case,
 the experiment is considered convergent if the ratio remains $1$ for 
 twenty consecutive doubles.  Because $1$ signifies constant or logarithmic 
 time, requiring these doubles does not significantly increase the time needed
-to run the experiment, while providing assurance that a small ratio is not due to
-an insufficiently small $n$. This test is shown as Algorithm~\ref{alg:tuning}.
+to run the experiment, while providing assurance that a small ratio is not due
+to an insufficiently small $n$. This  is shown as 
+Algorithm~\ref{alg:tuning}.
 
 \begin{algorithm}[t]
     \caption{Run Doubling Experiment}
@@ -198,7 +204,8 @@ To analyze \textit{SchemaAnalyst}, the iTrust and NistWeather case
 studies provided by \textit{SchemaAnalyst} were used as the initial 
 input schemas.
 Both of these schemas are taken from real world applications. The factor $n$
-under study was the number of check constraints present on the schema.  A tool was
+under study was the number of check constraints present on the schema.  
+A Java program was
 implemented to double the number of these constraints. Generating
 synthetic check constraints is non-trivial because there are many
 possible check constraints, and generating a constraint that is
@@ -206,7 +213,7 @@ unsatisfiable might cause the data generation tool to take a longer
 amount of time than should be the case. To avoid this problem, we
 instead duplicate the existing check constraints present on the schema
 rather than attempt to generate new ones. This technique is easy
-to implement, and ensures that the check constraints added are
+to implement and ensures that the check constraints added are
 semantically valid.  For every table in the input schema, the tool 
 duplicated the existing check constraints and added the duplicates 
 to the table.  
@@ -219,22 +226,22 @@ the test data according to the rules specified by the coverage
 criterion. The criterion used in the experiment was
 \textsc{constraintCACCoverage}, 
 the data generator was \textsc{directedRandom}. The
-testing tools were implemented in Java, and were both compiled and run using
-version 1.7 of the compiler and JVM. The experiment was executed on an Ubuntu 13.10 machine with a 2.4
+doubling experimentation software were implemented in Java, and were both compiled and run using
+version 1.7 of the compiler and Java Virtual Machine. The experiment was executed on an Ubuntu 13.10 machine with a 2.4
 GHz quad core CPU running the 3.11.0-18-generic x86\_64 GNU/Linux
-kernel.
+kernel and 4G.
 
 \section{Results}
-Our technique was successfully able to determine the worst case time
+Our technique was able to determine the worst-case time
 complexity of \textit{SchemaAnalyst} with regard to the number of check
 constraints on the input schema, using the
 \textsc{constraintCACCoverage} coverage criterion and the
 \textsc{directedRandom} data generator. Under these conditions, 
 \textit{SchemaAnalyst} displayed $O(n^2)$ behavior. Figures~\ref{fig:iTrust} 
 and~\ref{fig:NistWeather} show the data collected during the experiment with a
-quadratic fit. The x axis shows by what factor the number of initial
+quadratic fit. The horizontal axis shows by what factor the number of initial
 check constraints $i$ have been increased. For $x = 100$, the number of check
-constraints on the schema is $100i$. The y axis shows the time in
+constraints on the schema is $100i$. The vertical axis shows the time in
 nanoseconds \textit{SchemaAnalyst} needed to generate a test suite for
 the input schema. Each point on the graph represents the amount of time
 \textit{SchemaAnalyst} ran for a schema with $ix$ check constraints.
@@ -267,19 +274,19 @@ constraints than it would given unique check constraints. However,
 doubling the check constraints in this way is an easy to implement,
 semantically significant way of evaluating \textit{SchemaAnalyst}.
 
-Additionally, since worst case time is only apparent for large $n$, 
+Additionally, since worst-case time is only apparent for large $n$, 
 it is possible that the experiment terminated too quickly.  To guard 
-against this problem, Algorithms ~\ref{alg:convergence} and ~\ref{alg:tuning}
-were tested on various other algorithms with known worst case complexities, and 
+against this problem, Algorithms~\ref{alg:convergence} and ~\ref{alg:tuning}
+were tested on various other algorithms with known worst-case complexities, and 
 found to be reliable.
 
-\section{Future Work}
+\section{Conclusions and Future Work}
 The automated doubling experiment was able to determine the worst case
 time complexity of \textit{SchemaAnalyst} with respect to the number of
 check constraints in the input schema, for the
 \textsc{constraintCACCoverage} criterion and the
 \textsc{directedRandom} data generator.  Additional experiments will be
-conducted on other criterions and data factories. Additionally, other factors 
+conducted on other criterions and data generators. Additionally, other factors 
 that may influence the runtime of schema analysis,
 such as the number of primary keys, foreign keys, tables, columns, etc
 will be investigated.
