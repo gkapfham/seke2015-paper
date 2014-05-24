@@ -7,6 +7,9 @@
 (A) provide example of a schema @background
 (A) provide diagram of SchemaAnalyst inputs and outputs @background
 (A) sensitivity testing @clairify
+(A) fix title
+(A) fix formatting of citations
+(B) name technique
 (B) what are evaluation metrics for experiments
 (B) what are research questions for experiments
 (B) how to eval effect of a doubler
