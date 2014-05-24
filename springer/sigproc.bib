@@ -21,40 +21,6 @@
   bibsource = {DBLP, http://dblp.uni-trier.de}
 }
 
-@phdthesis{McMinn:Thesis,
-  author   = "Phil McMinn",
-  title    = "Evolutionary Search for Test Data in the Presence of State Behaviour",
-  school   = "The University of Sheffield",
-  year     = "2005",
-  gsid     = "14534196709717096499",
-  url      = "http://philmcminn.staff.shef.ac.uk/publications/pdfs/2005-thesis.pdf",
-  abstract = "The application of metaheuristic search techniques, such as evolutionary 
-              algorithms, to the problem of automatically generating software test data has been
-              a burgeoning interest for many researchers in recent years. To date, work in applying 
-              search techniques to structural test data generation has largely focused
-              on generating inputs for test objects with input-output behaviour. This thesis
-              aims to extend the approach for test objects with state behaviour. This presents
-              several challenges, not least because test goals with state-based test objects may
-              require input sequences to be generated. Another problem includes generating
-              test data in the presence of internal variables such as flags, enumerations and
-              counters. Such variables are often responsible for managing the “state” of the
-              test object. However, their use can lead to information loss with regards to
-              the original input conditions that lead to the fulfilment of certain test goals.
-              Consequently the search receives less guidance, and may fail to find test data.
-              This thesis proposes an extended evolutionary structural test data generation 
-              approach that allows input sequences to be generated, and tackles internal
-              variable problems through hybridization of the method with an extended chaining 
-              approach. The basic idea of the chaining approach is to find a sequence of
-              statements, involving internal variables, which need to be executed prior to the
-              test goal. By requiring that these statements are executed, information previously 
-              unavailable to the search can be made use of, possibly guiding it into potentially 
-              promising and unexplored areas of the test object’s input domain. A number of 
-              experiments show the value of the approach for both test objects with states and 
-              test objects with input-output behaviour. For all test objects considered, higher 
-              levels of branch coverage are obtained"
-}
-%% Bibtex entry URL: bibtexbrowser.php?key=McMinn2005c&bib=mcminn.bib
-
 @book{Goodrich:Data,
   added-at = {2011-04-21T00:00:00.000+0200},
   author = {Goodrich, Michael T. and Tamassia, Roberto},
@@ -109,3 +75,32 @@
   pages     = {I-XXII, 1-322},
   bibsource = {DBLP, http://dblp.uni-trier.de}
 }
+
+@article{McMinn2004a,
+  author    = "Phil McMinn",
+  title     = "Search-Based Software Test Data Generation: A Survey",
+  journal   = "Software Testing, Verification and Reliability",
+  volume    = "14",
+  number    = "2", 
+  pages     = "105--156", 
+  month     = "June",
+  year      = "2004",
+  doi       = "10.1002/stvr.294",
+  gsid      = "363130255506566968",
+  url       = "http://philmcminn.staff.shef.ac.uk/publications/pdfs/2004-stvr.pdf",
+  abstract  = "The use of metaheuristic search techniques for the automatic generation of 
+               test data has been a burgeoning interest for many researchers in recent years. 
+               Previous attempts to automate the test generation process have been limited, 
+               having been constrained by the size and complexity of software, and the basic 
+               fact that, in general, test data generation is an undecidable problem. 
+               Metaheuristic search techniques offer much promise in regard to these problems. 
+               Metaheuristic search techniques are high-level frameworks, which utilize heuristics 
+               to seek solutions for combinatorial problems at a reasonable computational cost. 
+               To date, metaheuristic search techniques have been applied to automate test data 
+               generation for structural and functional testing; the testing of grey-box 
+               properties, for example safety constraints; and also non-functional properties, 
+               such as worst-case execution time. This paper surveys some of the work undertaken 
+               in this field, discussing possible new future directions of research for each of 
+               its different individual areas."
+}
+%% Bibtex entry URL: bibtexbrowser.php?key=McMinn2004a&bib=mcminn.bib
