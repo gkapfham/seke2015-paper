@@ -1,0 +1,8 @@
+digraph G {
+    rankdir=BT;
+    table [shape=record,label="{Table|{Column 1|<c2> Column 2|...|Column N}}"];
+    Constraint [shape=box];
+    Constraint2 [shape=box,label="Copied Constraint"];
+    Constraint -> table:c2;
+    Constraint2 -> table:c2;
+}

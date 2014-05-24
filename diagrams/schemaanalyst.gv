@@ -1,0 +1,12 @@
+digraph G {
+    rankdir=LR;
+    analyst [shape=box,label="SchemaAnalyst",fontname="Times-Italic"];
+    schema [label="Schema"];
+    data_gen [label="Data Generator"];
+    criterion [label="Coverage Criterion"];
+    test_suite [label="Test Suite"];
+    schema -> analyst;
+    data_gen -> analyst;
+    criterion -> analyst;
+    analyst -> test_suite;
+}
