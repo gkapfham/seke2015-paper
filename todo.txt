@@ -1,30 +1,36 @@
-(A) explain magic numbers @experimentaldesign 
-(A) fully explain doublers @clarifywhere
+(A) @clarify how verb tense should be used
+(A) @clarify might want to point out worst behavior only found for unrealistic sizes
+(A) fix formatting of citations
+(A) fix title
+(A) fully explain doublers @clarify @where @luke
 (A) improve explanation of O() @background
-(A) parameterize magic numbers @algorithms
+(A) provide diagram of SchemaAnalyst inputs and outputs @background
+(A) provide example of a schema @background
+(A) sensitivity testing @clairify +sensitivity
 (A) table that explains characteristics of the schemas @experimentaldesign
 (A) verify O() is correct notation vs theta @background
-(A) provide example of a schema @background
-(A) provide diagram of SchemaAnalyst inputs and outputs @background
-(A) sensitivity testing @clairify
-(A) fix title
-(A) fix formatting of citations
-(B) name technique
-(B) what are evaluation metrics for experiments
-(B) what are research questions for experiments
-(B) how to eval effect of a doubler
+(B) keywords and CR codes @abstract
+(B) EvoSuite @futurework
 (B) add table explaining doubling experiment @background
 (B) address issue: is semantic doubling faithful and valid? 
-(B) algorithm input/outputs @clarify @algs
+(B) algorithm input/outputs @clarify @algs @where
 (B) build a full working example of a run
+(B) differanceTolerance is +sensitivity
+(B) doublesTolerance is not very +sensitivity
 (B) explain and cite paper for criterion and data gen @experimentaldesign
 (B) explain and example of unsatisfiable check constraint @experimentaldesign
 (B) explain how doubling makes math easier @background @Mcgeoch
 (B) find citation for r value @results
 (B) give details on alg tests @threats
-(B) EvoSuite @futurework
+(B) how to eval effect of a doubler
+(B) is trials? +sensitivity
+(B) name technique
+(B) what are evaluation metrics for experiments @where
+(B) what are research questions for experiments @where
 (C) add clause to motivate conclusion sentence @abstract
-(C) release tool or remove reference to implemented @abstract 
 (C) add references to contributions @intro
 (C) add third contribution @intro
+(C) release tool or remove reference to implemented @abstract 
 (E) fix paragraph formatting 
+x 2014-05-24 (A) explain magic numbers @experimentaldesign 
+x 2014-05-24 (A) parameterize magic numbers @algorithms

@@ -49,7 +49,7 @@ Generation for Relational Database Schemas}
 
 \begin{abstract}
 When evaluating an algorithm, it is often useful to speak of it's
-efficiency in terms of it's worst case complexity.  However, for certain
+efficiency in terms of it's worst-case complexity.  However, for certain
 cases such as search-based algorithms, determining an algorithm's
 efficiency by theoretical analysis is difficult, and has not been
 reported in the literature. This paper introduces a
@@ -118,7 +118,21 @@ regarding the efficiency of the algorithm from the ratio
 $f(2n)/f(n)$. This ratio represents the factor of change in runtime from
 input $n$ to $2n$. A ratio of $2$ would indicate that doubling the
 input resulted in runtime doubling. We could then conclude that the
-algorithm under study is $O(n)$. 
+algorithm under study is $O(n)$ or $O(n\log n)$.
+
+\begin{table}[h]
+\begin{tabular}{l|l}
+Ratio & Conclusion              \\ \hline
+1     & Constant or Logarithmic \\
+2     & Linear or Linearithmic  \\
+4     & Quadratic               \\
+8     & Cubic                   \\
+x     & $O(n^{\log x})$          
+\end{tabular}
+\label{table:ratios}
+\caption{Conclusions regarding efficiency that can be drawn from
+doubling ratio.}
+\end{table}
 
 \section{Technique}
 To determine worst case complexity, an input $n$ is doubled until the 
@@ -138,33 +152,27 @@ time overhead. To conduct the testing efficiently, the experiment should
 terminate as quickly as possible.
 
 To test for convergence, the last four ratios are compared, and the
-sum of differences between them is compared to a tolerance value. A
-tolerance value of $0.40$ was chosen  by performing doubling
-experiments on various algorithms with known worst case time
-complexities, and observing that the ratio converged to the correct
-value when $\mathit{diff} < 0.40$. The convergence algorithm is shown
-as Algorithm~\ref{alg:convergence}.
+sum of differences between them is compared to a tolerance value. The
+convergence algorithm is shown as Algorithm~\ref{alg:convergence}.
   
 Another consequence of worst-case time only being apparent for large
 $n$, is that a very small initial $n$ may appear to converge to $1$,
 which indicates constant time. To prevent the
 experiment from incorrectly terminating given a small starting $n$, we
 require that a program under study display a ratio of $1$ for many
-runs before judging that the ratio does in fact converge to $1$. In this case,
-the experiment is considered convergent if the ratio remains $1$ for 
-twenty consecutive doubles.  Because $1$ signifies constant or logarithmic 
+runs before judging that the ratio does in fact converge to $1$. Because 
+$1$ signifies constant or logarithmic 
 time, requiring these doubles does not significantly increase the time needed
 to run the experiment, while providing assurance that a small ratio is not due
-to an insufficiently small $n$. This  is shown as 
+to an insufficiently small $n$. This rule is shown in 
 Algorithm~\ref{alg:tuning}.
 
 \begin{algorithm}[t]
     \caption{Run Doubling Experiment}
     \begin{algorithmic}
-      \WHILE{Diff not convergent || N not large enough}
-        \FOR{$\mathit{count} < 10$}
+      \WHILE{Not Convergent || N not large enough}
+      \FOR{$\mathit{trials}$}
         \STATE Run Test
-        \STATE $\mathit{count}++$
         \ENDFOR
         \STATE Double Schema
         \ENDWHILE
@@ -173,33 +181,42 @@ Algorithm~\ref{alg:tuning}.
   \end{algorithm}
 
  \begin{algorithm}[t]
-    \caption{Diff not Convergent}
+    \caption{Convergent}
     \begin{algorithmic}
-      \STATE $\mathit{diff} = |(r_4 - r_3) + (r_3 -r_2) + (r_2 - r_1)|$
-      \IF{$\mathit{diff} < 0.40$}
-      \RETURN FALSE
+      \STATE difference $= |(r_4 - r_3) + (r_3 -r_2) + (r_2 - r_1)|$
+      \IF{difference $< \mathit{differanceTolerance}$}
+      \RETURN Ratio is convergent
       \ELSE
-      \RETURN TRUE
+      \RETURN Ratio is not convergent
       \ENDIF
     \end{algorithmic}
     \label{alg:convergence}
   \end{algorithm}
 
  \begin{algorithm}[t]
-    \caption{N not Large Enough}
+    \caption{N Large Enough}
     \begin{algorithmic}
-      \IF{$\mathit{ratio} \approx 1$}
-      \IF{$\mathit{Doubles} < 20$}
-      \STATE minRuns++
-      \RETURN TRUE
+      \IF{ratio $\approx 1$}
+      \IF{number of doubles $< \mathit{doublesTolerance}$}
+      \RETURN N is not large enough
       \ENDIF
       \ENDIF
-      \RETURN FALSE
+      \RETURN N is large enough
     \end{algorithmic}
     \label{alg:tuning}
   \end{algorithm}
 
 \section{Experimental Design}
+In our experimental study, we set $\mathit{differanceTolerance}$ to
+$0.40$. This value was chosen by performing doubling
+experiments on various algorithms with known worst case time
+complexities, and observing that the ratio converged to the correct
+value when $\mathit{diff} < 0.40$.
+
+We set $\mathit{doublesTolerance}$ to $20$ after observing that
+\textit{SchemaAnalyst} stopped displaying constant behavior after around
+5 doubles.
+
 To analyze \textit{SchemaAnalyst}, the iTrust and NistWeather case
 studies provided by \textit{SchemaAnalyst} were used as the initial 
 input schemas.
@@ -229,7 +246,7 @@ the data generator was \textsc{directedRandom}. The
 doubling experimentation software were implemented in Java, and were both compiled and run using
 version 1.7 of the compiler and Java Virtual Machine. The experiment was executed on an Ubuntu 13.10 machine with a 2.4
 GHz quad core CPU running the 3.11.0-18-generic x86\_64 GNU/Linux
-kernel and 4G.
+kernel and 4GB of memory.
 
 \section{Results}
 Our technique was able to determine the worst-case time
@@ -276,7 +293,7 @@ semantically significant way of evaluating \textit{SchemaAnalyst}.
 
 Additionally, since worst-case time is only apparent for large $n$, 
 it is possible that the experiment terminated too quickly.  To guard 
-against this problem, Algorithms~\ref{alg:convergence} and ~\ref{alg:tuning}
+against this problem, Algorithms~\ref{alg:convergence} and~\ref{alg:tuning}
 were tested on various other algorithms with known worst-case complexities, and 
 found to be reliable.
 
