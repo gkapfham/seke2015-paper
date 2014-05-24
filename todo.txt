@@ -5,13 +5,11 @@
 (A) fully explain doublers @clarify @where @luke
 (A) improve explanation of O() @background
 (A) provide diagram of SchemaAnalyst inputs and outputs @background
-(A) provide example of a schema @background
+(A) provide example of a schema @background @clarifyfform
 (A) sensitivity testing @clairify +sensitivity
 (A) table that explains characteristics of the schemas @experimentaldesign
 (A) verify O() is correct notation vs theta @background
-(B) keywords and CR codes @abstract
 (B) EvoSuite @futurework
-(B) add table explaining doubling experiment @background
 (B) address issue: is semantic doubling faithful and valid? 
 (B) algorithm input/outputs @clarify @algs @where
 (B) build a full working example of a run
@@ -24,6 +22,7 @@
 (B) give details on alg tests @threats
 (B) how to eval effect of a doubler
 (B) is trials? +sensitivity
+(B) keywords and CR codes @abstract
 (B) name technique
 (B) what are evaluation metrics for experiments @where
 (B) what are research questions for experiments @where
@@ -34,3 +33,4 @@
 (E) fix paragraph formatting 
 x 2014-05-24 (A) explain magic numbers @experimentaldesign 
 x 2014-05-24 (A) parameterize magic numbers @algorithms
+x 2014-05-24 (B) add table explaining doubling experiment @background
