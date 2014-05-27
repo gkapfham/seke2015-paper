@@ -1,6 +1,6 @@
 (A) @clarify how verb tense should be used
 (A) @clarify might want to point out worst behavior only found for unrealistic sizes
-(A) fix formatting of citations
+(A) fix spacing in McMinn @bibliography
 (A) fix title
 (A) fully explain doublers @clarify @where @luke
 (A) improve explanation of O() @background
@@ -34,3 +34,4 @@
 x 2014-05-24 (A) explain magic numbers @experimentaldesign 
 x 2014-05-24 (A) parameterize magic numbers @algorithms
 x 2014-05-24 (B) add table explaining doubling experiment @background
+x 2014-05-27 (A) fix formatting of citations
