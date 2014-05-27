@@ -1,0 +1,20 @@
+digraph G {
+    rankdir=LR;
+        doubler [shape=box,label="Schema Doubler"];
+        in_schema [label="Input Schema"];
+        analyst [shape=box,label="SchemaAnalyst",fontname="Times-Italic"];
+        converge [shape=box,label="Convergence Algorithm"];
+        data [label="Data"];
+        data_gen [label="Data Generator"];
+        criterion [label="Coverage Criterion"];
+
+        in_schema -> analyst;
+        data_gen -> analyst;
+        criterion -> analyst;
+
+        analyst -> data;
+        data -> converge;
+        converge -> doubler;
+        in_schema -> doubler;
+        doubler -> in_schema;
+}
