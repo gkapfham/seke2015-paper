@@ -10,6 +10,7 @@
 (A) table that explains characteristics of the schemas @experimentaldesign
 (A) verify O() is correct notation vs theta @background
 (A) cite algorithmics for the table @background
+(B) figure out how to format example schema @clarify
 (B) EvoSuite @futurework
 (B) address issue: is semantic doubling faithful and valid? 
 (B) algorithm input/outputs @clarify @algs @where
