@@ -1,0 +1,33 @@
+\section{Introduction}
+
+Search-based algorithms allow the application of guidance to problems.
+The algorithm attempts to improve a potential solution until the
+solution is acceptable. Without the use of a search-based strategy, a
+problem might be approached with a random sampling or greedy
+technique. In the
+domain of data generation for software testing, this means that rather
+than randomly selecting inputs from a program's input space, the data
+generator can actively seek out qualities of an input that best fulfill
+the test's goals \cite{McMinn2004a}. While this
+technique has been applied to various problems, including test suite
+prioritization \cite{Walcott:tsp} and testing
+relational database schemas \cite{Kapfhammer2013}, 
+as far as we know, no research has been done on evaluating the efficiency
+of search-based test data generation. 
+
+This paper presents an empirical study of the search-based data
+generation tool, called \textit{SchemaAnalyst}, which generates test suites for
+relational database schemas.  To evaluate \textit{SchemaAnalyst}, a tool
+was implemented in Java to systematically double the size of the
+program's input and record the change in it's execution time. Using this
+technique, for the coverage criterion and data generator tested, 
+\textit{SchemaAnalyst} was found to be $O(n^2)$ with respect
+to the number of check constraints in the schema. The contributions of
+this paper are therefore as follows:
+
+\begin{enumerate}
+  \item A framework for automated doubling experiments
+  \item Techniques for systematically doubling relation database schemas
+  \item An empirical study evaluating the efficiency of a search-based
+    data generation tool
+  \end{enumerate}

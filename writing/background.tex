@@ -1,0 +1,35 @@
+\section{Background}
+
+Worst-case time complexity is a useful measure of an algorithms
+efficiency, or how increasing the size
+of the input $n$ increases the execution time of the algorithm, $f(n)$.
+This relationship is often expressed in big-Oh notation, where $f(n)$
+is $O(g(n))$ means that the time increases by order of $g(n)$. The
+worst-case complexity of an algorithm is evident when $n$ is large 
+\cite{Goodrich:Data}. One approach for determining the big-Oh complexity
+of an algorithm is to conduct a doubling experiment. By measuring the
+time needed to run the algorithm on an input $n$, and the time needed to
+run on $2n$, the order of growth of the algorithm can be determined \cite{Mcgeoch:Algorithmics,Sedgewick:Analysis}. 
+
+Intuitively, the goal of a doubling experiment is to draw a conclusion
+regarding the efficiency of the algorithm from the ratio
+$f(2n)/f(n)$. This ratio represents the factor of change in runtime from
+input $n$ to $2n$. A ratio of $2$ would indicate that doubling the
+input resulted in runtime doubling. We could then conclude that the
+algorithm under study is $O(n)$ or $O(n\log n)$.
+Table~\ref{table:ratios} shows some common time complexities and the
+corresponding ratios.
+
+\begin{table}[h]
+\begin{tabular}{l|l}
+Ratio & Conclusion              \\ \hline
+1     & Constant or Logarithmic \\
+2     & Linear or Linearithmic  \\
+4     & Quadratic               \\
+8     & Cubic                   \\
+x     & $O(n^{\log x})$          
+\end{tabular}
+\label{table:ratios}
+\caption{Conclusions regarding efficiency that can be drawn from the
+doubling ratio.}
+\end{table}

@@ -1,0 +1,42 @@
+\section{Experimental Design}
+
+In our experimental study, we set $\mathit{differanceTolerance}$ to
+$0.40$. This value was chosen by performing doubling
+experiments on various algorithms with known worst case time
+complexities, and observing that the ratio converged to the correct
+value when $\mathit{diff} < 0.40$.
+
+We set $\mathit{doublesTolerance}$ to $20$ after observing that
+\textit{SchemaAnalyst} stopped displaying constant behavior after around
+5 doubles.
+
+To analyze \textit{SchemaAnalyst}, the iTrust and NistWeather case
+studies provided by \textit{SchemaAnalyst} were used as the initial 
+input schemas.
+Both of these schemas are taken from real world applications. The factor $n$
+under study was the number of check constraints present on the schema.  
+A Java program was
+implemented to double the number of these constraints. Generating
+synthetic check constraints is non-trivial because there are many
+possible check constraints, and generating a constraint that is
+unsatisfiable might cause the data generation tool to take a longer
+amount of time than should be the case. To avoid this problem, we
+instead duplicate the existing check constraints present on the schema
+rather than attempt to generate new ones. This technique is easy
+to implement and ensures that the check constraints added are
+semantically valid.  For every table in the input schema, the tool 
+duplicated the existing check constraints and added the duplicates 
+to the table.  
+
+The test suite generation tool provided by \textit{SchemaAnalyst}
+requires a coverage criterion and a data generator to be specified. A
+coverage criterion is a system of rules that generate test requirements
+\cite{Ammann:Testing}. The data generator is the object that generates
+the test data according to the rules specified by the coverage
+criterion. The criterion used in the experiment was
+\textsc{constraintCACCoverage}, 
+the data generator was \textsc{directedRandom}. The
+doubling experimentation software were implemented in Java, and were both compiled and run using
+version 1.7 of the compiler and Java Virtual Machine. The experiment was executed on an Ubuntu 13.10 machine with a 2.4
+GHz quad core CPU running the 3.11.0-18-generic x86\_64 GNU/Linux
+kernel and 4GB of memory.
