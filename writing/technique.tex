@@ -1,4 +1,5 @@
 \section{Automated Doubling Experiments}
+  \label{sec:technique}
 
   Our technique for performing automatic doubling experiments requires
   two parts.  The first is a rule for how to double the initial schema.
@@ -6,6 +7,7 @@
   from the experiment, and the experiment can be stopped. 
 
   \subsection{Doubling Schemas}
+  \label{subsec:doubling}
 
   Determining worst case complexity by doubling experiment requires that
   the size of the input be doubled.  However, a relational database
@@ -28,6 +30,7 @@
 
 
   \subsection{Automatic Experiment}
+  \label{subsec:experiment}
 
 To determine worst case complexity, an input $n$ is doubled until the 
 ratio $f(2n) / f(n)$ converges to a stable value. To account for random
