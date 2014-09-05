@@ -61,7 +61,7 @@ relational database schemas.  After implementing a technique for
 systematically doubling the size of schemas, we conduct an
 empirical study on the search-based data generation tool
 \textit{SchemaAnalyst}. For the parameters of \textit{SchemaAnalyst}
-studied, the study concludes that \textit{SchemaAnalyst} is $O(n^2)$
+studied, the study concludes that textit{SchemaAnalyst} is $O(n^2)$
 with respect to the number of check constraints in the input schema.
 
 
@@ -97,6 +97,7 @@ to the number of check constraints in the schema. The contributions of
 this paper are therefore as follows:
 \begin{enumerate}
   \item A framework for automated doubling experiments
+  \item Techniques for systematically doubling relation database schemas
   \item An empirical study evaluating the efficiency of a search-based
     data generation tool
   \end{enumerate}
@@ -120,6 +121,8 @@ $f(2n)/f(n)$. This ratio represents the factor of change in runtime from
 input $n$ to $2n$. A ratio of $2$ would indicate that doubling the
 input resulted in runtime doubling. We could then conclude that the
 algorithm under study is $O(n)$ or $O(n\log n)$.
+Table~\ref{table:ratios} shows some common time complexities and the
+corresponding ratios.
 
 \begin{table}[h]
 \begin{tabular}{l|l}
@@ -131,18 +134,58 @@ Ratio & Conclusion              \\ \hline
 x     & $O(n^{\log x})$          
 \end{tabular}
 \label{table:ratios}
-\caption{Conclusions regarding efficiency that can be drawn from
+\caption{Conclusions regarding efficiency that can be drawn from the
 doubling ratio.}
 \end{table}
 
-\section{Technique}
+\section{Automated Doubling Experiments}
+
+  Our technique for performing automatic doubling experiments requires
+  two parts.  The first is a rule for how to double the initial schema.
+  The second is a rule for determining when a conclusion can be drawn
+  from the experiment, and the experiment can be stopped. 
+
+  \subsection{Doubling Schemas}
+
+  Determining worst case complexity by doubling experiment requires that
+  the size of the input be doubled.  However, a relational database
+  schema is a complex artifact with many features and
+  interrelationships. This makes determining meaningful doubling rules a 
+  non-trivial task.
+
+  An example of semantic doubling is shown in
+  Figure~\ref{fig:semanticconstraint}.
+
+
+\begin{figure*}
+\centering
+  \centering
+  \includegraphics[width=.5\linewidth]{../diagrams/semanticconstraint.pdf}
+  \caption{A table with a constraint before and after application of a semantic
+  doubling rule.}
+  \label{fig:semanticconstraint}
+\end{figure*}
+
+
+  \subsection{Automatic Experiment}
+
 To determine worst case complexity, an input $n$ is doubled until the 
 ratio $f(2n) / f(n)$ converges to a stable value. To account for random
-error, every time $n$ is doubled, $f(n)$ is recorded ten times
-, and the median time is used for calculating the ratios.  We chose
+error, every time $n$ is doubled, $f(n)$ is recorded ten times, and the
+median time is used for calculating the ratios.  We chose
 median to minimize the effect of outliers. If mean is used instead, a
 single abnormally long run could have a large effect on the result. The overall 
-structure of the experiment is shown in Algorithm~\ref{alg:main}.
+structure of the experiment is shown in Algorithm~\ref{alg:main}, and in
+Figure~\ref{fig:doublingexp}.
+
+\begin{figure*}
+\centering
+  \centering
+  \includegraphics[width=.5\linewidth]{../diagrams/doublingexp.pdf}
+  \caption{Technique for conducting automatic doubling experiments.}
+  \label{fig:doublingexp}
+\end{figure*}
+
 
 This convergence checking is necessary because of the fact that worst-case
 time is only apparent for large values of $n$. If too few doubles
