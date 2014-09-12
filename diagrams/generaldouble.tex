@@ -1,0 +1,88 @@
+\documentclass[]{article}
+\usepackage{booktabs}
+\usepackage{tikz}
+
+\usetikzlibrary{arrows,positioning,fit,shapes,calc,automata}
+\author{Luke Smith}
+% Used example code from http://www.texample.net/tikz/examples/ 
+\begin{document}
+
+\tikzset{
+every circ/.style = {fill=white!100},
+circ/.style = {circle, dashed, draw, minimum size=6mm},
+every box/.style = {},
+box/.style = {rectangle, draw=black!80, ultra thick,
+    minimum size = 6mm, every box},
+gbox/.style = {fill=gray!80, box},
+wbox/.style = {fill=white!100, box},
+bbox/.style = {fill=blue!50, box},
+arrow/.style = {<-,>=stealth',shorten >=1pt,auto,node distance=3cm,
+  thick},
+system/.style = {rectangle, fill=white!100, ultra thick, draw=black!80,
+            minimum height=60mm, minimum width=4cm,outer sep=0pt}}
+
+\begin{figure}[h]
+\centering
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+\begin{tikzpicture}[node distance=1cm, on grid]
+    \begin{pgfonlayer}{background}
+        \node [system] (system) at (0,3){};
+    \end{pgfonlayer}
+        \node [circ] (magnify) [minimum size=22mm] at ($(system.south)!.5!(system.north)$) {};
+	\draw [densely dashed] (-2,4) to (-1,2.6) node[auto,midway] {};
+	\draw [densely dashed] (-2,4) to (0,4.1) node[auto,midway] {};
+	\node [gbox] (Step 1) [minimum height=24mm] at (-4,3) {Step 1};
+    \node [above] at (Step 1.north) {Schema ($S$)};
+    \node [wbox] (Step 2) at( $(system.south west)!.5!(system.north west)$)
+        {Step 2} edge [arrow] (Step 1.east);
+    \node [wbox] (Step 3) at ( $(system.south)!.8!(system.north)$)
+        {Step 3} edge [arrow] (Step 2);
+    \node [above] at (Step 3.north) {};
+    \node [wbox] (Step 5) at ( $(system.south east)!.5!(system.north east)$)
+        {Step 5} edge  [arrow] (Step 3);
+    \path (Step 5)++(2,0) node [gbox] (Step 6) [minimum height=48mm] 
+        {Step 6} edge  [arrow] (Step 5);
+    \node [above] at (Step 6.north) {Doubled Schema ($S'$)};
+    \node [bbox] (Step 41) [minimum size=4mm] at
+    ($(system.west)!.4!(system.east)$) {} edge  [arrow] (Step 2);
+    \node [bbox] (Step 42) [minimum size=4mm] at
+    ($(system.south)!.2!(system.north)!.5!(system.west)!.5!(system.east)$)
+    {} edge  [arrow] (Step 41);
+    \node [wbox] (Step 5) at ( $(system.south east)!.5!(system.north east)$)
+        {Step 5} edge  [arrow] (Step 42);
+    \node [bbox] (Step 43) [minimum size=4mm] at
+    ($(system.south)!.8!(system.north)!.5!(system.west)!.5!(system.east)$)
+    {} edge  [arrow] (Step 41);
+    \node [wbox] (Step 5) at ( $(system.south east)!.5!(system.north east)$)
+        {Step 5} edge  [arrow] (Step 43);
+    \node [above] at (Step 41.north) {Step 4};
+    \node [wbox] (Step 3') at ( $(system.south)!.2!(system.north)$)
+        {Step 3} edge  [arrow] (Step 2);
+    \node [wbox] (Step 5) at ( $(system.south east)!.5!(system.north east)$)
+        {Step 5} edge  [arrow] (Step 3');
+    \node [above] at (Step 3'.north) {};
+
+\end{tikzpicture}
+\\[2em]
+\begin{tabular}{@{}p{14mm}@{}p{18mm}@{}p{8.8cm}}
+    \toprule
+    & \textbf {Step} & \textbf {Result} \\
+        \midrule
+        Step 1 & Input &  Original Schema to be doubled.\\
+        Step 2 & Split &  Cut the Schema into sections based on attributes.\\
+        Step 3 & Filter &  If it is not the current attribute to be
+        doubled, ignore it.\\
+        Step 4 & Double &  Take the attribute and generate a semantic double \\
+        Step 5 & Merge & Stitch the pieces back together (including new
+        attribute).\\
+        Step 6 & Output & Return the doubled schema.\\
+        \bottomrule
+    \end{tabular}\label{tab:trt_datd}
+    \caption{The framework for doubling experiments with relational
+    schemas}
+\end{figure}
+
+\end{document}
+
