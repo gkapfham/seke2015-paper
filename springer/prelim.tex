@@ -50,18 +50,17 @@ Generation for Relational Database Schemas}
 \begin{abstract}
 When evaluating an algorithm, it is often useful to speak of it's
 efficiency in terms of it's worst-case complexity.  However, for certain
-cases such as search-based algorithms, determining an algorithm's
-efficiency by theoretical analysis is difficult, and has not been
-reported in the literature. This paper introduces a
+algorithms, determining efficiency by theoretical analysis is difficult, and has not been
+reported in the literature. This is the case for search-based test data
+generation tools. This paper introduces a
 framework for conducting automated empirical studies of algorithms by
 doubling the size of the input and observing the change in execution
 time. We apply this method to the domain of data generation for
 relational database schemas.  After implementing a technique for 
 systematically doubling the size of schemas, we conduct an
 empirical study on the search-based data generation tool
-\textit{SchemaAnalyst}. For the parameters of \textit{SchemaAnalyst}
-studied, the study concludes that textit{SchemaAnalyst} is $O(n^2)$
-with respect to the number of check constraints in the input schema.
+\textit{SchemaAnalyst}. The results of our study reveal performance
+trade-offs in the subsumption hierarchy for testing criterions.
 
 \keywords{First keyword \and Second keyword \and More}
 % \PACS{PACS code1 \and PACS code2 \and more}
