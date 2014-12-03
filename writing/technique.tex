@@ -10,22 +10,30 @@
   \label{subsec:doubling}
 
   Determining worst case complexity by doubling experiment requires that
-  the size of the input be doubled.  However, a relational database
-  schema is a complex artifact with many features and
-  interrelationships. This makes determining meaningful doubling rules a 
-  non-trivial task.
+  the size of the input be doubled. You may think that when doubling an
+  object you create an exact copy of it concatenate the two, but that
+  is not the case all the time. It is true doubling an array
+  with this algorithm will succeed, however, a relational database
+  schema is a complex artifact with many features and interrelationships. 
+  This makes determining meaningful doubling rules a non-trivial task.
 
-  An example of semantic doubling is shown in
-  Figure~\ref{fig:semanticconstraint}.
+  A relational database contains tables, columns, and can contain constraints; 
+  all of these items are subject to individual or grouped double. An example of
+  both being \textbf{Double Tables}, which doubles all doubles but keep
+  everything else constant and also \textbf{Double TablesColumns}, which
+  doubles both tables and columns, but keeps everything else the same. That 
+  being said, more than one algorithm for doubling is needed, but the same 
+  general format is the same for all doubles.
+
+  An example of a general semantic doubling is shown in
+  Figure~\ref{fig:SemanticConstraintPGF}.
 
 
 \begin{figure*}
 \centering
   \centering
-  \includegraphics[width=.5\linewidth]{../diagrams/semanticconstraint.pdf}
-  \caption{A table with a constraint before and after application of a semantic
-  doubling rule.}
-  \label{fig:semanticconstraint}
+  \includegraphics[width=1\linewidth]{../diagrams/SemanticConstraintPGF.pdf}
+  \label{fig:SemanticConstraintPGF}
 \end{figure*}
 
 
