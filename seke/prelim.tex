@@ -1,0 +1,57 @@
+\documentclass[times,10pt,twocolumn]{article}
+\usepackage{latex8}
+\usepackage{times}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\begin{document}
+
+\title{Empirically Evaluating the Efficiency of Search-based Test Data
+Generation for Relational Database Schemas}
+
+%\subtitle{Do you have a subtitle?\\ If so, write it here}
+
+%\titlerunning{Short form of title}        % if too long for running head
+
+\author{Cody Kinneer         \and
+        Luke Smith \and
+        Gregory Kapfhammer \and
+        Chris Wright \and
+        Phil McMinn
+}
+
+
+\maketitle
+
+\begin{abstract}
+When evaluating an algorithm, it is often useful to speak of it's
+efficiency in terms of it's worst-case complexity.  However, for certain
+algorithms, determining efficiency by theoretical analysis is difficult,
+and has not been reported in the literature. This is the case for
+search-based test data generation tools. This paper introduces a
+framework for conducting automated empirical studies of algorithms by
+doubling the size of the input and observing the change in execution
+time. We apply this method to the domain of data generation for
+relational database schemas.  After implementing a technique for 
+systematically doubling the size of schemas, we conduct an empirical study
+on the search-based data generation tool \textit{SchemaAnalyst}. The results of
+our study reveal performance trade-offs in the subsumption hierarchy for
+testing criterions.
+
+\end{abstract}
+
+\input{../writing/intro}
+\input{../writing/background}
+\input{../writing/technique}
+\input{../writing/experimentdesign}
+\input{../writing/results}
+\input{../writing/relatedworks}
+\input{../writing/conclusion}
+
+\bibliographystyle{IEEEtran}     
+\bibliography{prelim.bib}   
+
+\end{document}
