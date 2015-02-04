@@ -1,19 +1,16 @@
 \section{Automated Doubling Experiments}
   \label{sec:technique}
 
-  Our technique for performing automatic doubling experiments requires
-  two parts.  The first is a rule for how to double the initial schema.
-  The second is a rule for determining when a conclusion can be drawn
-  from the experiment, and the experiment can be stopped. 
+  Our technique for performing automatic doubling experiments consists
+  of two parts.  The first is a method for systematically doubling 
+  the initial input schema schema, and the second is a rule for determining
+  when a conclusion can be drawn from the experiment, and the experiment can be stopped. 
 
   \subsection{Doubling Schemas}
   \label{subsec:doubling}
 
   Determining worst case complexity by doubling experiment requires that
-  the size of the input be doubled. You may think that when doubling an
-  object you create an exact copy of it concatenate the two, but that
-  is not the case all the time. It is true doubling an array
-  with this algorithm will succeed, however, a relational database
+  the size of the input be doubled. A relational database
   schema is a complex artifact with many features and interrelationships. 
   This makes determining meaningful doubling rules a non-trivial task.
 
@@ -25,7 +22,7 @@
     \label{fig:generaldouble}
   \end{figure*}
 
-  A relational database contains tables, columns, and can contain constraints; 
+  A relational database schema contains tables, columns, and can contain constraints; 
   all of these items are subject to individual or grouped double. An example of
   both being \textbf{Double Tables}, which doubles all doubles but keep
   everything else constant and also \textbf{Double TablesColumns}, which
@@ -35,9 +32,6 @@
 
   An example of a general semantic doubling is shown in
   Figure~\ref{fig:generaldouble}.
-
-
-
 
   \subsection{Automatic Experiment}
   \label{subsec:experiment}
@@ -64,21 +58,20 @@
   time is only apparent for large values of $n$. If too few doubles
   are tried, then the experiment may terminate before $n$ reaches a value
   where the true worst-case time complexity is apparent. At the same time,
-  for inefficient  algorithms, each additional double run incurs a substantial
-  time overhead. To conduct the testing efficiently, the experiment should
+  for inefficient  algorithms, each additional doubling run incurs a substantial
+  time overhead. For the sake of efficiently, the experiment should
   terminate as quickly as possible.
-
   To test for convergence, the last four ratios are compared, and the
   sum of differences between them is compared to a tolerance value. The
   convergence algorithm is shown as Algorithm~\ref{alg:convergence}.
 
   Another consequence of worst-case time only being apparent for large
-  $n$, is that a very small initial $n$ may appear to converge to $1$,
+  $n$, is that a very small initial $n$ may appear to converge to one,
   which indicates constant time. To prevent the
   experiment from incorrectly terminating given a small starting $n$, we
-  require that a program under study display a ratio of $1$ for many
-  runs before judging that the ratio does in fact converge to $1$. Because 
-  $1$ signifies constant or logarithmic 
+  require that a program under study display a ratio of one for many
+  runs before judging that the ratio does in fact converge to one. Because 
+  one signifies constant or logarithmic 
   time, requiring these doubles does not significantly increase the time needed
   to run the experiment, while providing assurance that a small ratio is not due
   to an insufficiently small $n$. This rule is shown in 

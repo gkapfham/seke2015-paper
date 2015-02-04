@@ -1,22 +1,47 @@
 \section{Results}
   \label{sec:results}
 
-Our experiment revealed that the choice of coverage criterion did have an impact
-on the performance of the test data generation tool. 
+Our experiments reveal that the choice of coverage criterion does have an impact
+on the performance of test data generation. 
 Figure~\ref{fig:crites} shows the results of the experiment for the BioSQL
-schema.  The graph shows that runtime for certain criterions, such as AICC and AUCC increase faster than others, such as ANCC, APC, and
-UCC.
+schema, a real world schema used in biology created by the
+Open Bioinformatics Foundation.
+The graph shows how the choice of coverage criteria impacts
+runtime as the size of the input schema increases. The following table shows
+the worst-case time complexity of \textit{SchemaAnalyst} using the
+chosen criterion.
 
 \begin{figure}
 \centering
   \centering
-  \includegraphics[width=1\linewidth]{../diagrams/TimevsSizeBioSqlDoubleAllonCriterion.pdf}
-  \caption{Efficiency of SchemaAnalyst on BioSQL by coverage criterion.}
+  \includegraphics[width=1\linewidth]{../diagrams/newchart.pdf}
+  \caption{Runtime of \textit{SchemaAnalyst} on BioSQL for various criteria.\vspace{-.15in}}
   \label{fig:crites}
   \vspace{-.15in} 
 \end{figure}
 
+\begin{table}[h]
+  \vspace{.20in}
+\begin{tabular}{ll|ll}
+Criterion & Complexity & Criterion  & Complexity \\ \hline
+ICC       & $O(n\log n)$ & UCC        & $O(n\log n)$ \\
+AUCC      & $O(n)$       & ClauseAICC & $O(n)$       \\
+CondAICC  & $O(n)$       & AICC       & $O(n)$       \\
+ANCC      & $O(n\log n)$ & APC        & $O(n)$      
+\end{tabular}
+\vspace{-.20in}
+\end{table}
 
+Although ICC, UCC, and ANCC have worse scalability according to the
+table ($O(n)$ vs $O(n\log n)$), the difference is not apparent for
+realistically sized schemas, which are not likely to
+be larger than 100 times the size of BioSQL, which contains 28 tables.
+Therefore, we can conclude that ANCC is the most efficient criterion.  
+
+As new data arrives, we hope to learn about the impact of other
+parameters, and support our findings with additional schemas. 
+Future work includes comparing the performance cost of these
+parameters to their testing effectiveness, and the optimization of test data generation.
 \subsection*{Threats to Validity}
 
 Our technique for doubling the number of check constraints on the schema

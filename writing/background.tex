@@ -4,25 +4,22 @@
 When testing a system for correctness, it is often necessary to
 provide input to the system in order to observe and evaluate its
 execution. Additionally, when the system's behavior is dependant on the
-input, then the input space must be sufficiently explored to ensure a
-thorough test.  Obtaining enough input data for a high quality test can
+input, the input space must be sufficiently explored to ensure thorough
+testing.  Obtaining enough input data to support high quality testing can
 be challenging, so test data generation is used to automatically
 produce this data. Since the quality of the test depends upon the
-quality of the data, test data generation tools produce data according
-to some requirement or criterion. A search based test data generation
+quality of the data, test data generation tools systematically produce data according
+to some requirement or criterion. A search-based test data generation
 tool is one that explores that data space using a fitness function.  The
 fitness function rates the quality of the data, and allows the generator
-to try and improve by searching for higher quality.
+to try and improve by searching for higher quality test data.
 
 \subsection{Worst Case Time Complexity}
 
 Worst-case time complexity is a useful measure of an algorithms
 efficiency, or how increasing the size
 of the input $n$ increases the execution time of the algorithm, $f(n)$.
-Worst-case refers to the efficiency in the worst possible scenario. This
-means that worst-case time complexity tries to make a guarantee that
-there is no way that the runtime will be worse than this, although it
-may, perhaps even nearly always, be faster. 
+Worst-case refers to the efficiency in the worst possible scenario.
 This relationship is often expressed in big-Oh notation, where $f(n)$
 is $O(g(n))$ means that the time increases by no more than on order of $g(n)$. The
 worst-case complexity of an algorithm is evident when $n$ is large 
@@ -30,8 +27,6 @@ worst-case complexity of an algorithm is evident when $n$ is large
 of an algorithm is to conduct a doubling experiment. By measuring the
 time needed to run the algorithm on an input $n$, and the time needed to
 run on $2n$, the order of growth of the algorithm can be determined \cite{Mcgeoch:Algorithmics,Sedgewick:Analysis}. 
-
-\subsection{Doubling Experiment}
 
 Intuitively, the goal of a doubling experiment is to draw a conclusion
 regarding the efficiency of the algorithm from the ratio
