@@ -1,4 +1,5 @@
 \section{Results}
+  n 
   \label{sec:results}
 
 Our experiments reveal that the choice of coverage criterion does have an impact
@@ -11,14 +12,44 @@ runtime as the size of the input schema increases. The following table shows
 the worst-case time complexity of \textit{SchemaAnalyst} using the
 chosen criterion.
 
+\begin{figure*}
+\centering
+  \centering
+  \includegraphics[width=.75\linewidth]{../diagrams/AllTree.pdf}
+  \caption{Regression tree using all variables to predict runtime in
+  minutes. \vspace{-.15in}}
+  \label{fig:crites}
+  \vspace{-.15in} 
+\end{figure*}
+
+\begin{figure*}
+\centering
+  \centering
+  \includegraphics[width=.75\linewidth]{../diagrams/NoTableCtreesd.pdf}
+  \caption{Regression tree predicting runtime excluding Tables.\vspace{-.15in}}
+  \label{fig:crites}
+  \vspace{-.15in} 
+\end{figure*}
+
+
 \begin{figure}
 \centering
   \centering
-  \includegraphics[width=1\linewidth]{../diagrams/newchart.pdf}
-  \caption{Runtime of \textit{SchemaAnalyst} on BioSQL for various criteria.\vspace{-.15in}}
+  \includegraphics[width=1\linewidth]{../diagrams/CriterionBoxs.pdf}
+  \caption{Coverage criterion versus runtime in minutes.\vspace{-.15in}}
   \label{fig:crites}
   \vspace{-.15in} 
 \end{figure}
+
+\begin{figure}
+\centering
+  \centering
+  \includegraphics[width=1\linewidth]{../diagrams/DataGeneratorBoxs.pdf}
+  \caption{Data generator versus runtime in minutes.\vspace{-.15in}}
+  \label{fig:crites}
+  \vspace{-.15in} 
+\end{figure}
+
 
 \begin{table}[h]
   \vspace{.20in}
@@ -30,6 +61,49 @@ CondAICC  & $O(n)$       & AICC       & $O(n)$       \\
 ANCC      & $O(n\log n)$ & APC        & $O(n)$      
 \end{tabular}
 \vspace{-.20in}
+\end{table}
+
+\begin{table}[h]
+\begin{tabular}{lll}
+Criterion  & \begin{tabular}[c]{@{}l@{}}Average Time\\ (Minuites)\end{tabular} & StDev \\ \hline
+AICC       & 4.01                                                              & 31.87 \\
+ANCC       & 5.20                                                              & 38.67 \\
+APC        & 1.91                                                              & 19.86 \\
+AUCC       & 5.66                                                              & 35.82 \\
+ClauseAICC & 5.11                                                              & 24.19 \\
+CondAICC   & 4.89                                                              & 33.91 \\
+ICC        & 2.62                                                              & 23.82 \\
+NCC        & 2.53                                                              & 33.68 \\
+UCC        & 3.58                                                              & 30.38
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\begin{tabular}{lll}
+\begin{tabular}[c]{@{}l@{}}Data \\ Generator\end{tabular}           & \begin{tabular}[c]{@{}l@{}}Average Time\\ (Minuites)\end{tabular} & StDev \\ \hline
+AVS                                                                 & 4.57                                                              & 33.67 \\
+AVS Defaults                                                        & 4.17                                                              & 31.24 \\
+Directed Random                                                     & 2.90                                                              & 27.57 \\
+\begin{tabular}[c]{@{}l@{}}Directed Random\\  Defaults\end{tabular} & 2.60                                                              & 27.11 \\
+Random                                                              & 4.17                                                              & 30.94 \\
+Random Defaults                                                     & 5.14                                                              & 33.52
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\begin{tabular}{llllllllll}
+    & AP        & AN       & oAI     & N         & AU      & AI        & lAI     & I         & U  \\
+AP  & NA        &          &         &           &         &           &         &           &    \\
+AN  & 2.2e-16   & NA       &         &           &         &           &         &           &    \\
+oAI & 2.2e-16   & 2.2e-16  & NA      &           &         &           &         &           &    \\
+N   & 0.012     & 2.2e-16  & 2.2e-16 & NA        &         &           &         &           &    \\
+AU  & 2.2e-16   & 2.2e-16  & 0.692   & 2.2e-16   & NA      &           &         &           &    \\
+AI  & 2.2e-16   & 0.017    & 2.2e-16 & 2.2e-16   & 2.2e-16 & NA        &         &           &    \\
+lAI & 2.2e-16   & 2.2e-16  & 0.272   & 2.2e-16   & 0.140   & 2.2e-16   & NA      &           &    \\
+I   & 0.004     & 2.2e-16  & 2.2e-16 & 0.1833    & 2.2e-16 & 2.2e-16   & 2.2e-16 & NA        &    \\
+U   & 9.303e-16 & 3.83e-05 & 2.2e-16 & 7.363e-10 & 2.2e-16 & 5.733e-13 & 2.2e-16 & 9.291e-06 & NA
+\end{tabular}
+\caption{Wilcox rank sum test.}
 \end{table}
 
 Although ICC, UCC, and ANCC have worse scalability according to the
