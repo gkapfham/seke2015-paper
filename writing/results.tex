@@ -1,5 +1,4 @@
 \section{Results}
-  n 
   \label{sec:results}
 
 Our experiments reveal that the choice of coverage criterion does have an impact
@@ -52,7 +51,6 @@ chosen criterion.
 
 
 \begin{table}[h]
-  \vspace{.20in}
 \begin{tabular}{ll|ll}
 Criterion & Complexity & Criterion  & Complexity \\ \hline
 ICC       & $O(n\log n)$ & UCC        & $O(n\log n)$ \\
@@ -60,51 +58,34 @@ AUCC      & $O(n)$       & ClauseAICC & $O(n)$       \\
 CondAICC  & $O(n)$       & AICC       & $O(n)$       \\
 ANCC      & $O(n\log n)$ & APC        & $O(n)$      
 \end{tabular}
-\vspace{-.20in}
 \end{table}
 
-\begin{table}[h]
-\begin{tabular}{lll}
-Criterion  & \begin{tabular}[c]{@{}l@{}}Average Time\\ (Minuites)\end{tabular} & StDev \\ \hline
-AICC       & 4.01                                                              & 31.87 \\
-ANCC       & 5.20                                                              & 38.67 \\
-APC        & 1.91                                                              & 19.86 \\
-AUCC       & 5.66                                                              & 35.82 \\
-ClauseAICC & 5.11                                                              & 24.19 \\
-CondAICC   & 4.89                                                              & 33.91 \\
-ICC        & 2.62                                                              & 23.82 \\
-NCC        & 2.53                                                              & 33.68 \\
-UCC        & 3.58                                                              & 30.38
-\end{tabular}
-\end{table}
-
-\begin{table}[h]
-\begin{tabular}{lll}
-\begin{tabular}[c]{@{}l@{}}Data \\ Generator\end{tabular}           & \begin{tabular}[c]{@{}l@{}}Average Time\\ (Minuites)\end{tabular} & StDev \\ \hline
-AVS                                                                 & 4.57                                                              & 33.67 \\
-AVS Defaults                                                        & 4.17                                                              & 31.24 \\
-Directed Random                                                     & 2.90                                                              & 27.57 \\
-\begin{tabular}[c]{@{}l@{}}Directed Random\\  Defaults\end{tabular} & 2.60                                                              & 27.11 \\
-Random                                                              & 4.17                                                              & 30.94 \\
-Random Defaults                                                     & 5.14                                                              & 33.52
-\end{tabular}
-\end{table}
-
-\begin{table}[h]
+\begin{table*}[h]
 \begin{tabular}{llllllllll}
-    & AP        & AN       & oAI     & N         & AU      & AI        & lAI     & I         & U  \\
-AP  & NA        &          &         &           &         &           &         &           &    \\
-AN  & 2.2e-16   & NA       &         &           &         &           &         &           &    \\
-oAI & 2.2e-16   & 2.2e-16  & NA      &           &         &           &         &           &    \\
-N   & 0.012     & 2.2e-16  & 2.2e-16 & NA        &         &           &         &           &    \\
-AU  & 2.2e-16   & 2.2e-16  & 0.692   & 2.2e-16   & NA      &           &         &           &    \\
-AI  & 2.2e-16   & 0.017    & 2.2e-16 & 2.2e-16   & 2.2e-16 & NA        &         &           &    \\
-lAI & 2.2e-16   & 2.2e-16  & 0.272   & 2.2e-16   & 0.140   & 2.2e-16   & NA      &           &    \\
-I   & 0.004     & 2.2e-16  & 2.2e-16 & 0.1833    & 2.2e-16 & 2.2e-16   & 2.2e-16 & NA        &    \\
-U   & 9.303e-16 & 3.83e-05 & 2.2e-16 & 7.363e-10 & 2.2e-16 & 5.733e-13 & 2.2e-16 & 9.291e-06 & NA
+    & AP       & AN                                                    & oAI                                                    & N                                                     & AU                                                     & AI                                                    & lAI                                                    & I                                                      & U                                                      \\
+AP  & NA       & \begin{tabular}[c]{@{}l@{}}0.425\\ small\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.337\\ medium\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.484\\ none\end{tabular}  & \begin{tabular}[c]{@{}l@{}}0.334\\ medium\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.413\\ small\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.329\\ medium\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.481\\ none\end{tabular}   & \begin{tabular}[c]{@{}l@{}}0.449\\ none\end{tabular}   \\
+AN  & 2.20E-16 & NA                                                    & \begin{tabular}[c]{@{}l@{}}0.407\\ small\end{tabular}  & \begin{tabular}[c]{@{}l@{}}0.561\\ small\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.405\\ small\end{tabular}  & \begin{tabular}[c]{@{}l@{}}0.484\\ none\end{tabular}  & \begin{tabular}[c]{@{}l@{}}0.399\\ small\end{tabular}  & \begin{tabular}[c]{@{}l@{}}0.554\\ none\end{tabular}   & \begin{tabular}[c]{@{}l@{}}0.526\\ none\end{tabular}   \\
+oAI & 2.20E-16 & 2.20E-16                                              & NA                                                     & \begin{tabular}[c]{@{}l@{}}.671\\ medium\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.503\\ none\end{tabular}   & \begin{tabular}[c]{@{}l@{}}0.581\\ small\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.492\\ none\end{tabular}   & \begin{tabular}[c]{@{}l@{}}0.656\\ medium\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.634\\ small\end{tabular}  \\
+N   & 0.012    & 2.20E-16                                              & 2.20E-16                                               & NA                                                    & \begin{tabular}[c]{@{}l@{}}0.335\\ medium\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.417\\ small\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.322\\ medium\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.491\\ none\end{tabular}   & \begin{tabular}[c]{@{}l@{}}0.461\\ none\end{tabular}   \\
+AU  & 2.20E-16 & 2.20E-16                                              & 0.692                                                  & 2.20E-16                                              & NA                                                     & \begin{tabular}[c]{@{}l@{}}0.577\\ small\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.490\\ none\end{tabular}   & \begin{tabular}[c]{@{}l@{}}0.651\\ medium\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.628\\ small\end{tabular}  \\
+AI  & 2.20E-16 & 0.017                                                 & 2.20E-16                                               & 2.20E-16                                              & 2.20E-16                                               & NA                                                    & \begin{tabular}[c]{@{}l@{}}0.412\\ small\end{tabular}  & \begin{tabular}[c]{@{}l@{}}0.571\\ small\end{tabular}  & \begin{tabular}[c]{@{}l@{}}0.547\\ none\end{tabular}   \\
+lAI & 2.20E-16 & 2.20E-16                                              & 0.272                                                  & 2.20E-16                                              & 0.14                                                   & 2.20E-16                                              & NA                                                     & \begin{tabular}[c]{@{}l@{}}0.662\\ medium\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.641\\ medium\end{tabular} \\
+I   & 0.004    & 2.20E-16                                              & 2.20E-16                                               & 0.1833                                                & 2.20E-16                                               & 2.20E-16                                              & 2.20E-16                                               & NA                                                     & \begin{tabular}[c]{@{}l@{}}0.472\\ none\end{tabular}   \\
+U   & 9.30E-16 & 3.83E-5                                               & 2.20E-16                                               & 7.36E-10                                              & 2.20E-16                                               & 5.73E-13                                              & 2.20E-16                                               & 9.29E-6                                                & NA                                                    
 \end{tabular}
-\caption{Wilcox rank sum test.}
-\end{table}
+\end{table*}
+
+\begin{table*}[h]
+\begin{tabular}{lllllll}
+                         & random    & random defaults                                     & directed random                                       & \begin{tabular}[c]{@{}l@{}}directed random\\ defaults\end{tabular} & avs                                                   & avs defaults                                          \\
+random                   & NA        & \begin{tabular}[c]{@{}l@{}}.538\\ none\end{tabular} & \begin{tabular}[c]{@{}l@{}}.740\\ large\end{tabular}  & \begin{tabular}[c]{@{}l@{}}.789\\ large\end{tabular}               & \begin{tabular}[c]{@{}l@{}}.627\\ small\end{tabular}  & \begin{tabular}[c]{@{}l@{}}.680\\ meduim\end{tabular} \\
+random defaults          & 6.594e-13 & NA                                                  & \begin{tabular}[c]{@{}l@{}}.673\\ medium\end{tabular} & \begin{tabular}[c]{@{}l@{}}.701\\ medium\end{tabular}              & \begin{tabular}[c]{@{}l@{}}.564\\ small\end{tabular}  & \begin{tabular}[c]{@{}l@{}}.617\\ small\end{tabular}  \\
+directed random          & 2.2e-16   & 2.2e-16                                             & NA                                                    & \begin{tabular}[c]{@{}l@{}}.543\\ none\end{tabular}                & \begin{tabular}[c]{@{}l@{}}.360\\ small\end{tabular}  & \begin{tabular}[c]{@{}l@{}}.435\\ small\end{tabular}  \\
+directed random defaults & 2.2e-16   & 2.2e-16                                             & 9.735e-16                                             & NA                                                                 & \begin{tabular}[c]{@{}l@{}}.328\\ medium\end{tabular} & \begin{tabular}[c]{@{}l@{}}.395\\ small\end{tabular}  \\
+avs                      & 2.2e-16   & 2.2e-16                                             & 2.2e-16                                               & 2.2e-16                                                            & NA                                                    & \begin{tabular}[c]{@{}l@{}}.572\\ small\end{tabular}  \\
+avs defaults             & 2.2e-16   & 2.2e-16                                             & 2.2e-16                                               & 2.2e-16                                                            & 2.2e-16                                               & NA                                                   
+\end{tabular}
+\end{table*}
 
 Although ICC, UCC, and ANCC have worse scalability according to the
 table ($O(n)$ vs $O(n\log n)$), the difference is not apparent for
