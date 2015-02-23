@@ -1,15 +1,67 @@
 \section{Results}
   \label{sec:results}
 
-Our experiments reveal that the choice of coverage criterion does have an impact
-on the performance of test data generation. 
-Figure~\ref{fig:crites} shows the results of the experiment for the BioSQL
-schema, a real world schema used in biology created by the
-Open Bioinformatics Foundation.
-The graph shows how the choice of coverage criteria impacts
-runtime as the size of the input schema increases. The following table shows
-the worst-case time complexity of \textit{SchemaAnalyst} using the
-chosen criterion.
+Our experiments reveal that the number of tables in the schema has the
+greatest impact on the runtime of \textit{SchemaAnalyst}. The BigOh
+complexity\dots 
+%TODO need to analyze BigOh
+
+To gain a more nuanced understanding of the results, we construct a
+regression tree predicting runtime by the predictors \texttt{Tables,
+Columns, Uniques, NotNulls, Checks, Criterion, and DataGenerator}. The
+package \textit{ctree} for the R language was used to produce the tree,
+shown as Figure~\ref{fig:atree}. The regression tree confirms that the
+number of tables has the largest impact on runtime, as can be seen by
+the fact that the node 1 splits on the number of tables, and the
+significant difference between nodes 6 and 7, which are also
+distinguished by the number of tables according to node 5. The tree also
+reveals that when the number of tables in the schema is small, the
+choice of coverage criterion is the most important predictor for
+runtime.  This is shown by node 2, however, the nodes resulting from this
+prediction, nodes 3 and 4, do not seem very distinct from this tree.  
+
+To gain more insight into the behavior of \textit{SchemaAnalyst} when
+the number of tables is small, a new tree was constructed with the same
+parameters, with the exception that \texttt{Tables} was removed from
+the list of predictors. The resulting regression tree is shown as
+Figure~\ref{fig:ttree}.  Node 1 in in the new tree also indicates that
+the choice of criterion has the largest impact when the number of tables
+is not considered.  Node 2 shows that the next most significant
+predictor is the data generator, and node 3 shows the next most
+significant factor is the number of columns in the schema.  The
+differences between the leaves of the tree however, are still not
+readily apparent. 
+
+According to the decisions produced by the regression tree, the choice
+of coverage criterion and data generator have an impact on the runtime
+of \textit{SchemaAnalyst}. To show the effect of these choices, we
+present Figure~\ref{fig:crites}, which shows the effect of coverage
+criterion on runtime, and Figure~\ref{fig:datas}, which shows the effect
+of data generator on runtime.  
+
+For coverage criteria, the most apparent pattern is that AUCC,
+ClauseAICC, and CondAICC seem to cause runtime to increase by about the
+same amount, with the other criterions taking roughly the same amount of
+time.
+
+For data generator, the random and random defaults generators took the
+most amount of time by a distinctive margin, and a less pronounced
+hierarchy between avs, avs defaults, directed random, and directed
+random defaults can be observed.  
+
+While the box and whisker plots allow us to see how choices between
+coverage criterions and data generators affects runtime, the question
+remains if these differences are statistically and practically
+significant. To answer this question, we present the Wilcoxon rank sum
+test and the $\hat{A}_{12}$ test.  
+
+%TODO talk about what the tests mean, how to interpret results here
+
+We perform these tests for every pair
+of coverage criterions, and every pair of data generators.
+Table~\ref{tab:crites} shows the results of these tests for coverage
+criteria, and Table~\ref{tab:datas} shows the results for data
+generators.
 
 \begin{figure*}
 \centering
@@ -17,7 +69,7 @@ chosen criterion.
   \includegraphics[width=.75\linewidth]{../diagrams/AllTree.pdf}
   \caption{Regression tree using all variables to predict runtime in
   minutes. \vspace{-.15in}}
-  \label{fig:crites}
+  \label{fig:atree}
   \vspace{-.15in} 
 \end{figure*}
 
@@ -26,7 +78,7 @@ chosen criterion.
   \centering
   \includegraphics[width=.75\linewidth]{../diagrams/NoTableCtreesd.pdf}
   \caption{Regression tree predicting runtime excluding Tables.\vspace{-.15in}}
-  \label{fig:crites}
+  \label{fig:ttree}
   \vspace{-.15in} 
 \end{figure*}
 
@@ -45,7 +97,7 @@ chosen criterion.
   \centering
   \includegraphics[width=1\linewidth]{../diagrams/DataGeneratorvsTime.pdf}
   \caption{Data generator versus runtime in minutes.\vspace{-.15in}}
-  \label{fig:crites}
+  \label{fig:datas}
   \vspace{-.15in} 
 \end{figure}
 
@@ -75,6 +127,7 @@ UCC        & 9.30E-16 & 3.83E-05 & 2.20E-16 & 7.36E-10 & 2.20E-16 & 5.73E-13 & 2
 \end{tabular}
 \caption{For each pair of coverage criterions, lower left shows Wilcox
 Rank Sum Test, upper right shows $\hat{A}_{12}$.}
+\label{tab:crites}
 \end{table*}
 
 
@@ -90,6 +143,7 @@ avs defaults             & 2.20E-16 & 2.20E-16        & 2.20E-16        & 2.20E-
 \end{tabular}
 \caption{For each pair of Data Generators, lower left shows Wilcox Rank
 Sum Test, upper right shows $\hat{A}_{12}$.}
+\label{tab:datas}
 \end{table*}
 
 % \begin{table*}[h]
@@ -130,16 +184,6 @@ Sum Test, upper right shows $\hat{A}_{12}$.}
 % Test, upper right shows $\hat{A}_{12}$.}
 % \end{table*}
 
-Although ICC, UCC, and ANCC have worse scalability according to the
-table ($O(n)$ vs $O(n\log n)$), the difference is not apparent for
-realistically sized schemas, which are not likely to
-be larger than 100 times the size of BioSQL, which contains 28 tables.
-Therefore, we can conclude that ANCC is the most efficient criterion.  
-
-As new data arrives, we hope to learn about the impact of other
-parameters, and support our findings with additional schemas. 
-Future work includes comparing the performance cost of these
-parameters to their testing effectiveness, and the optimization of test data generation.
 \subsection*{Threats to Validity}
 
 Our technique for doubling the number of check constraints on the schema
