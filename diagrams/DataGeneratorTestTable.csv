@@ -1,0 +1,7 @@
+,random,random defaults,directed random,directed random defaults,avs,avs defaults
+random,NA,0.538,0.740,0.789,0.627,0.680
+random defaults,6.59E-13,NA,0.673,0.701,0.564,0.617
+directed random,2.20E-16,2.20E-16,NA,0.543,0.360,0.435
+directed random defaults,2.20E-16,2.20E-16,9.74E-16,NA,0.328,0.395
+avs,2.20E-16,2.20E-16,2.20E-16,2.20E-16,NA,0.572
+avs defaults,2.20E-16,2.20E-16,2.20E-16,2.20E-16,2.20E-16,NA
