@@ -1,5 +1,9 @@
 \section{Background}
 
+% Do we need to talk about databases/schemas/constraints?
+% if so it should go here, and we're going to have major space issues
+% TODO GMK: discuss database related content
+
 \subsection{Search-Based Test Data Generation}
 When testing a system for correctness, it is often necessary to
 provide input to the system in order to observe and evaluate its
@@ -8,11 +12,17 @@ input, the input space must be sufficiently explored to ensure thorough
 testing.  Obtaining enough input data to support high quality testing can
 be challenging, so test data generation is used to automatically
 produce this data. Since the quality of the test depends upon the
-quality of the data, test data generation tools systematically produce data according
-to some requirement or criterion. A search-based test data generation
-tool is one that explores that data space using a fitness function.  The
-fitness function rates the quality of the data, and allows the generator
-to try and improve by searching for higher quality test data.
+quality of the data, test data generation tools systematically produce data
+according to some requirement or criterion. A search-based test data 
+generation tool is one that explores that data space using a fitness
+function.  The fitness function rates the quality of the data, and allows
+the generator to try and improve by searching for higher quality test data.
+
+%TODO GMK: Discuss coverage criterions
+%TODO GMK: Explain the subsumpion hierarchy
+
+%TODO GMK: Discuss data generators
+
 
 \subsection{Worst Case Time Complexity}
 
