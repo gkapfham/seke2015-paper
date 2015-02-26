@@ -44,10 +44,10 @@ ClauseAICC, and CondAICC seem to cause runtime to increase by about the
 same amount, with the other criterions taking roughly the same amount of
 time.
 
-For data generator, the random and random defaults generators took the
+For data generator, the Random and Random defDults generators took the
 most amount of time by a distinctive margin, and a less pronounced
-hierarchy between avs, avs defaults, directed random, and directed
-random defaults can be observed.  
+hierarchy between AVM, AVM defaults, Directed Random, and Directed
+Random Defaults can be observed.  
 
 While the box and whisker plots allow us to see how choices between
 coverage criterions and data generators affects runtime, the question
@@ -102,16 +102,6 @@ generators.
 \end{figure}
 
 
-\begin{table}[h]
-\begin{tabular}{ll|ll}
-Criterion & Complexity & Criterion  & Complexity \\ \hline
-ICC       & $O(n\log n)$ & UCC        & $O(n\log n)$ \\
-AUCC      & $O(n)$       & ClauseAICC & $O(n)$       \\
-CondAICC  & $O(n)$       & AICC       & $O(n)$       \\
-ANCC      & $O(n\log n)$ & APC        & $O(n)$      
-\end{tabular}
-\end{table}
-
 \begin{table*}[h]
 \begin{tabular}{llllllllll}
            & APC      & ANCC     & CondAICC & NCC      & AUCC     & AICC     & ClauseAICC & ICC      & UCC   \\ 
@@ -133,13 +123,13 @@ Rank Sum Test, upper right shows $\hat{A}_{12}$.}
 
 \begin{table*}[h]
 \begin{tabular}{lllllll}
-                         & random   & random defaults & directed random & directed random defaults & avs      & avs defaults \\
-random                   & NA       & 0.538           & 0.740           & 0.789                    & 0.627    & 0.680        \\
-random defaults          & 6.59E-13 & NA              & 0.673           & 0.701                    & 0.564    & 0.617        \\
-directed random          & 2.20E-16 & 2.20E-16        & NA              & 0.543                    & 0.360    & 0.435        \\
-directed random defaults & 2.20E-16 & 2.20E-16        & 9.74E-16        & NA                       & 0.328    & 0.395        \\
-avs                      & 2.20E-16 & 2.20E-16        & 2.20E-16        & 2.20E-16                 & NA       & 0.572        \\
-avs defaults             & 2.20E-16 & 2.20E-16        & 2.20E-16        & 2.20E-16                 & 2.20E-16 & NA          
+                         & Random   & Random Defaults & Directed Random & Directed Random Defaults & AVM      & AVM Defaults \\
+Random                   & NA       & 0.538           & 0.740           & 0.789                    & 0.627    & 0.680        \\
+Random Defaults          & 6.59E-13 & NA              & 0.673           & 0.701                    & 0.564    & 0.617        \\
+Directed Random          & 2.20E-16 & 2.20E-16        & NA              & 0.543                    & 0.360    & 0.435        \\
+Directed Random Defaults & 2.20E-16 & 2.20E-16        & 9.74E-16        & NA                       & 0.328    & 0.395        \\
+AVM                      & 2.20E-16 & 2.20E-16        & 2.20E-16        & 2.20E-16                 & NA       & 0.572        \\
+AVM Defaults             & 2.20E-16 & 2.20E-16        & 2.20E-16        & 2.20E-16                 & 2.20E-16 & NA          
 \end{tabular}
 \caption{For each pair of Data Generators, lower left shows Wilcox Rank
 Sum Test, upper right shows $\hat{A}_{12}$.}
