@@ -1,0 +1,105 @@
+\newcommand{\mx}[1]{\mathbf{\bm{#1}}} % Matrix command
+\newcommand{\vc}[1]{\mathbf{\bm{#1}}} % Vector command
+
+% Define the layers to draw the diagram
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+
+% Define block styles used later
+
+\tikzstyle{sensor}=[draw, fill=blue!20, text width=5em, 
+    text centered, minimum height=2.5em,drop shadow]
+\tikzstyle{ann} = [above, text width=5em, text centered]
+\tikzstyle{wa} = [sensor, text width=10em, fill=red!20, 
+    minimum height=6em, rounded corners, drop shadow]
+\tikzstyle{sc} = [sensor, text width=13em, fill=red!20, 
+    minimum height=10em, rounded corners, drop shadow]
+
+% Define distances for bordering
+\def\blockdist{1.5}
+\def\edgedist{2.5}
+
+\begin{tikzpicture}
+    \node (wa) [wa]  {\textit{SchemaAnalyst}};
+    \path (wa.west)+(-\blockdist,-1.0) node (asr1) [sensor] {Database Schema};
+    \path (asr1.west)+(-\blockdist,0.0) node (doubler) [sensor] {Schema Doubler};
+    
+    \path (wa.west)+(-\blockdist,1.0) node (asr2)[sensor] {Coverage Criterion};
+    \path (wa.west)+(-\blockdist,0.0) node (dots)[sensor] {Data Generator}; 
+    
+    \path (doubler.west)+(-\blockdist,-0.0) node (doublera) [sensor] {Schema Doubler};
+    \path (dots.west)+(-2.65*\blockdist,-0.0) node (dataa) [sensor] {Data Generator};
+    \path (asr2.west)+(-2.65*\blockdist,-0.0) node (criteriona) [sensor] {Coverage Criterion};
+    \path (doubler.west)+(-\blockdist,-1.0) node (schemaa) [sensor] {Database Schema};
+
+ 
+   
+    \path (wa.east)+(\blockdist,0) node (vote) [sensor] {Test Suite};
+    
+    \path [draw, ->] (doubler.east) -- node [above] {}
+    	(asr1.180);
+
+    \path [draw, ->] (asr1.east) -- node [above] {} 
+        (wa.200);
+    \path [draw, ->] (asr2.east) -- node [above] {} 
+        (wa.160);
+    \path [draw, ->] (dots.east) -- node [above] {} 
+        (wa.180);
+    \path [draw, ->] (wa.east) -- node [above] {} 
+        (vote.west);
+        
+    \path [draw, ->] (doublera.east) -- node [above] {} 
+        (doubler.west);
+    \path [draw, ->] (dataa.east) -- node [above] {} 
+        (dots.west);
+    \path [draw, ->] (criteriona.east) -- node [above] {} 
+        (asr2.west);
+    \path [draw, ->] (schemaa.east) -| node [above] {} 
+        (doubler.230);
+        
+    \path (vote.east)+(\blockdist,0) node (runtime) [sensor] {Runtime Records};
+    \path [draw,->] (vote.east)+(0.3,0) -- node [above]{}
+    	(runtime.west);
+    \path (runtime.east)+(\blockdist,0) node (runtimeo) [sensor] {Runtime Records};
+
+        
+     \path (vote.east)+(\blockdist,-3.165) node (convalg) [sensor] {Convergence Algorithm};
+     \path [draw,->] (runtime.south) -- node [above]{}
+    	(convalg.north);
+     \path [draw,->] (convalg.west) -| node [above,pos=.25]{Continue Experiment}
+    	(doubler.290);
+
+	\path [draw,->] (runtime.east) -- node [above]{}
+    	(runtimeo);
+
+               
+    \path (wa.south) +(0,-1) node (asrs) {\textit{SchemaAnalyst} Execution};
+    
+    \path (asrs.south) +(0,-1.6) node (singleexp) {Experiment Manager};
+  	
+    \begin{pgfonlayer}{background}
+        \path (doubler.west |- asr2.north)+(-0.3,0.6) node (a) {};
+        \path (wa.south -| runtime.east)+(+0.3,-0.6) node (b) {};
+        \path (runtime.east |- singleexp.east)+(+0.3,-0.3) node (c) {};
+          
+        \path[fill=yellow!20,rounded corners, draw=black!50, dashed]
+            (a) rectangle (c);           
+        \path (asr1.north west)+(-0.2,0.2) node (a) {};
+            
+    \end{pgfonlayer}
+  
+    \begin{pgfonlayer}{background}
+        \path (asr2.west |- asr2.north)+(-0.3,0.3) node (a) {};
+        \path (wa.south -| wa.east)+(+0.3,-0.3) node (b) {};
+        \path (vote.east |- asrs.east)+(+0.3,-0.3) node (c) {};
+          
+        \path[fill=yellow!20,rounded corners, draw=black!50, dashed]
+            (a) rectangle (c);           
+        \path (asr1.north west)+(-0.2,0.2) node (a) {};
+            
+    \end{pgfonlayer}
+    
+    
+
+\end{tikzpicture}
