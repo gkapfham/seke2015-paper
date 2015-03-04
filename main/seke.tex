@@ -25,7 +25,7 @@
 \title{Empirically Evaluating the Efficiency of Search-based \\ Test Data
 Generation for Relational Database Schemas\vspace*{-.1in}}
 
-\author{Cody Kinneer \goallegheny                 \and
+\author{Cody Kinneer \goallegheny                \and
         Gregory M.\ Kapfhammer \goallegheny      \and
         Chris Wright \gosheffield                \and
         Phil McMinn \gosheffield \vspace*{-.1in}
@@ -41,20 +41,19 @@ Generation for Relational Database Schemas\vspace*{-.1in}}
 \begin{abstract}
 
 % When evaluating an algorithm, it is often useful to speak of it's efficiency in terms of it's worst-case complexity.
-% This is the case for search-based test data generation tools. 
+% This is the case for search-based test data generation tools.
+% on the search-based data generation tool \textit{SchemaAnalyst}.
 
-The characterization of an algorithm's worst-case time complexity is useful because it succinctly captures how runtime
-will grow as the input size becomes arbitrarily large.  However, for certain algorithms --- such as search-based test
-data generation --- a theoretical analysis to determine worst-case complexity is difficult and thus not reported in
-the literature.
-
-
-This paper introduces a framework for
-conducting automated empirical studies of algorithms by doubling the size of the input and observing the change in
-execution time. We apply this method to the domain of data generation for relational database schemas.  After
-implementing a technique for systematically doubling the size of schemas, we conduct an empirical study on the
-search-based data generation tool \textit{SchemaAnalyst}. The results of our study reveal performance trade-offs in the
-subsumption hierarchy for testing criteria.
+The characterization of an algorithm's worst-case time complexity is useful because it succinctly captures how algorithm
+runtime will grow as the input size becomes arbitrarily large.  However, for certain algorithms --- such as search-based
+test data generation --- a theoretical analysis to determine worst-case complexity is difficult and thus not reported in
+the literature.  This paper introduces a framework for conducting automated empirical studies of algorithms by doubling
+the size of the input and observing the change in runtime.  After describing a technique for systematically doubling the
+size of structured data, we report on a study demonstrating the effectiveness of the presented method.  Since the
+relational database is a centerpiece of modern software and the database's schema is frequently untested, we apply the
+doubling technique to the domain of data generation for relational database schemas. In addition to revealing that it is
+possible to accurately pinpoint the worst-case time complexity of the chosen data generators, the results of our study
+reveal fundamental performance trade-offs in schema testing strategies.
 
 \end{abstract}
 
