@@ -15,12 +15,16 @@ linear or linerarithmic at the time they were terminated, however there
 were some that were quadratic and three that were cubic.  The
 experiments that failed to converge were primarily complicated schemas
 such as iTrust and BioSQL, and criterions at the top of the hierarchy,
-such as ANCC and AUCC.
+such as ANCC and AUCC. The remaining $20\%$ converged on constant or
+logarithmic.  Since there did not seem to be a pattern in which
+configurations converged this way compared to linear or linerarithmic,
+it is likely that these experiments terminated before the true
+worst-case time complexity was apparent.
 
-Our experiments reveal that the number of tables in the schema has the
-greatest impact on the runtime of \textit{SchemaAnalyst}.  For  The BigOh
-complexity\dots 
-%TODO need to analyze BigOh
+
+For the schema structures tables and columns, the results were much less
+conclusive. \dots
+
 
 To gain a more nuanced understanding of the results, we construct a
 regression tree predicting runtime by the predictors \texttt{Tables,
