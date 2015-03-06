@@ -1,8 +1,24 @@
 \section{Results}
   \label{sec:results}
 
+
+
+Our experiments reveal that for the number of \texttt{Uniques, NotNulls,
+and Checks}, \textit{SchemaAnalyst} displays linear or lineararithmic
+worst-case time complexity.  Out of the 699 experiments performed
+doubling these schema structures, $72\%$ converged to linear or
+linearithmic.  Another $8\%$ failed to converge, and of these experiments,
+$80\%$ failed because of memory limitations, $13\%$ exceeded the maximum
+time limit, and for $8\%$ the reason for failure could not be
+determined.  The doubling ratios among these experiments were primarily
+linear or linerarithmic at the time they were terminated, however there
+were some that were quadratic and three that were cubic.  The
+experiments that failed to converge were primarily complicated schemas
+such as iTrust and BioSQL, and criterions at the top of the hierarchy,
+such as ANCC and AUCC.
+
 Our experiments reveal that the number of tables in the schema has the
-greatest impact on the runtime of \textit{SchemaAnalyst}. The BigOh
+greatest impact on the runtime of \textit{SchemaAnalyst}.  For  The BigOh
 complexity\dots 
 %TODO need to analyze BigOh
 
@@ -44,7 +60,7 @@ ClauseAICC, and CondAICC seem to cause runtime to increase by about the
 same amount, with the other criterions taking roughly the same amount of
 time.
 
-For data generator, the Random and Random defDults generators took the
+For data generator, the Random and Random Defaults generators took the
 most amount of time by a distinctive margin, and a less pronounced
 hierarchy between AVM, AVM defaults, Directed Random, and Directed
 Random Defaults can be observed.  
