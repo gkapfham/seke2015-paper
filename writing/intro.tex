@@ -19,6 +19,8 @@ this challenging problem~\cite{Kapfhammer2013}. Although data generation for rel
 albeit less effectively, with random generation schemes~\cite{McMinn2015}, the use of search-based methods ensures that
 data creation methods can actively seek out test inputs that best fulfill testing goals~\cite{McMinn2004a}.
 
+% GMK NOTE: Revised this content in the paragraph above and below
+
 % Without the use of a search-based strategy, a problem might be approached with a random sampling or greedy technique.
 % In the domain of data generation for software testing, this means that rather than randomly selecting inputs from a
 % program’s input space, the data generator can actively seek out qualities of an input that best fulfills the test’s
@@ -31,21 +33,25 @@ dearth of prior work to the fact that these systems are complex and thus often d
 In response to this lack of insight into the performance of search-based methods, this paper presents a fully automated
 performance evaluation framework that employs doubling experiments to suggest worst-case time complexities and
 classification and regression trees to identify efficiency trends. Applying this framework to the automated performance
-evaluation of search-based test data generation for database schemas, the results reveal trade-offs in the efficiency of
-search-based test data generation with respect to the chosen testing goals, the structure of the relational
-schema, and the data generation strategy. Since this approach is fully automated, it enabled a comprehensive study that
-also suggested the worst-case time complexity of all the relevant data generator configurations. Although this paper
-focuses on automatically evaluating efficiency of search-based test data generation for database schemas, the presented
-technique is general and thus applicable to a wide range of approaches that use heuristic search.
+evaluation of search-based test data generation for database schemas, the results reveal trade-offs in efficiency with
+respect to the chosen testing goals, the structure of the relational schema, and the data generation strategy.
 
-attack the performance evaluation of search-based test data generation with an empirical
-approach. We present an empirical performance study of the search-based test data generation tool, called
-\textit{SchemaAnalyst}, which generates test suites for relational database schemas. To evaluate worst-case performance,
-we developed a technique for automatically conducting doubling experiments. Using this process, we explored
-\textsc{xmany} configurations of \textit{SchemaAnalyst}, revealing 
-Our automatic technique enabled a comprehensive empirical study, that would otherwise have been infeasible, and the
-results have important practical significance for the selection of parameters in search-based test data generation
-tools.
+Since this approach is fully automated, it enabled a comprehensive study that also suggested the worst-case time
+complexity of all the relevant data generator configurations. Although this paper focuses on automatically evaluating
+efficiency of search-based test data generation for database schemas, the presented technique is general and thus
+applicable to a wide range of approaches that use heuristic search. In summary, this paper's important contributions
+include:
+
+% GMK NOTE: I captured the essence of this content and then made room for another key point
+
+% attack the performance evaluation of search-based test data generation with an empirical
+% approach. We present an empirical performance study of the search-based test data generation tool, called
+% \textit{SchemaAnalyst}, which generates test suites for relational database schemas. To evaluate worst-case performance,
+% we developed a technique for automatically conducting doubling experiments. Using this process, we explored
+% \textsc{xmany} configurations of \textit{SchemaAnalyst}, revealing
+% Our automatic technique enabled a comprehensive empirical study, that would otherwise have been infeasible, and the
+% results have important practical significance for the selection of parameters in search-based test data generation
+% tools.
 
 \begin{enumerate}
   \item A framework for automated doubling experiments
