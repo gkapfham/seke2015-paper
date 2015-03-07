@@ -3,12 +3,13 @@
 
 \vspace*{-.25in}
 \section{Introduction}
+\vspace*{-.05in}
 
 % GMK NOTE: Removing the reference to the Walcott paper, not absolutely critical.
 
-% Search-based algorithms allow the application of guidance to problems. 
+% Search-based algorithms allow the application of guidance to problems.
 % The algorithm attempts to improve a potential
-% solution until it is acceptable according to a fitness function. 
+% solution until it is acceptable according to a fitness function.
 
 Many disciplines, such as science, finance, and medicine, rely on relational databases to maintain large amounts of
 critical information~\cite{kapfhammer2007}. The relational database schema defines the structure of a database and
@@ -23,9 +24,11 @@ data creation methods can actively seek out test inputs that best fulfill testin
 % program’s input space, the data generator can actively seek out qualities of an input that best fulfills the test’s
 % goals~\cite{McMinn2004a}.
 
-Despite the effectiveness of search-based techniques, there is no research regarding their efficiency reported in the
-literature. Because these search-based systems are complex, they are often difficult to analyze theoretically. To
-overcome this challenge, we attack the performance evaluation of search-based test data generation with an empirical
+Despite the effectiveness of search-based data generation methods, there is, to the best of our knowledge, no research
+that fully studies their efficiency and characterizes their worst-case time complexity. In part, we attribute this
+dearth of prior work to the fact that these systems are complex and thus often difficult to analyze theoretically.
+
+To overcome this challenge, we attack the performance evaluation of search-based test data generation with an empirical
 approach. We present an empirical performance study of the search-based test data generation tool, called
 \textit{SchemaAnalyst}, which generates test suites for relational database schemas. To evaluate worst-case performance,
 we developed a technique for automatically conducting doubling experiments. Using this process, we explored
@@ -41,6 +44,6 @@ tools.
   \item An empirical study evaluating the efficiency of a search-based
     data generation tool (Section~\ref{subsec:experiment}).
   \item A discussion of the trade-offs between the parameters of
-    search-based test data generation and performance.  
+    search-based test data generation and performance.
     (Section~\ref{sec:results})
   \end{enumerate}
