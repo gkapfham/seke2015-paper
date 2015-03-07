@@ -6,18 +6,22 @@
 
 % GMK NOTE: Removing the reference to the Walcott paper, not absolutely critical.
 
-Many disciplines such as science, finance, and medicine, rely on relational databases to maintain large amounts of
-critical information. The relational database schema defines the structure of a database and protects the consistency of
-the data. This makes testing the database schema necessary to avoid the corruption of data. Search-based algorithms have
-been applied to this problem~\cite{Kapfhammer2013}.
+% Search-based algorithms allow the application of guidance to problems. 
+% The algorithm attempts to improve a potential
+% solution until it is acceptable according to a fitness function. 
 
-% , and others such as test suite prioritization~\cite{Walcott:tsp}.
+Many disciplines, such as science, finance, and medicine, rely on relational databases to maintain large amounts of
+critical information~\cite{kapfhammer2007}. The relational database schema defines the structure of a database and
+protects the integrity of the data. This makes testing the database schema necessary to avoid the corruption of data.
+Search-based algorithms, that use a fitness function to offer guidance to the correct solution, have been applied to
+this challenging problem~\cite{Kapfhammer2013}. Although data generation for relational schemas may also be solved,
+albeit less effectively, with random generation schemes~\cite{McMinn2015}, the use of search-based methods ensures that
+data creation methods can actively seek out test inputs that best fulfill testing goals~\cite{McMinn2004a}.
 
-Search-based algorithms allow the application of guidance to problems. The algorithm attempts to improve a potential
-solution until it is acceptable according to a fitness function. Without the use of a search-based strategy, a problem
-might be approached with a random sampling or greedy technique. In the domain of data generation for software testing,
-this means that rather than randomly selecting inputs from a program’s input space, the data generator can actively seek
-out qualities of an input that best fulfills the test’s goals~\cite{McMinn2004a}.
+% Without the use of a search-based strategy, a problem might be approached with a random sampling or greedy technique.
+% In the domain of data generation for software testing, this means that rather than randomly selecting inputs from a
+% program’s input space, the data generator can actively seek out qualities of an input that best fulfills the test’s
+% goals~\cite{McMinn2004a}.
 
 Despite the effectiveness of search-based techniques, there is no research regarding their efficiency reported in the
 literature. Because these search-based systems are complex, they are often difficult to analyze theoretically. To
