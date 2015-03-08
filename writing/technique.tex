@@ -58,9 +58,12 @@
   for inefficient  algorithms, each additional doubling run incurs a substantial
   time overhead. For the sake of efficiently, the experiment should
   terminate as quickly as possible.
+
   To test for convergence, the last four ratios are compared, and the
-  sum of differences between them is compared to a tolerance value. The
-  convergence algorithm is shown as Algorithm~\ref{alg:convergence}.
+  sum of differences between them is compared to a tolerance value, 
+  difference $= |(r_4 - r_3) + (r_3 -r_2) + (r_2 - r_1)|$.
+ 
+
 
   Another consequence of worst-case time only being apparent for large
   $n$, is that a very small initial $n$ may appear to converge to one,
@@ -73,42 +76,3 @@
   to run the experiment, while providing assurance that a small ratio is not due
   to an insufficiently small $n$. This rule is shown in 
   Algorithm~\ref{alg:tuning}.
-
-  \begin{algorithm}[t]
-    \caption{Run Doubling Experiment}
-    \begin{algorithmic}
-      \WHILE{Not Convergent || N not large enough}
-      \FOR{$\mathit{trials}$}
-      \STATE Run Test
-      \ENDFOR
-      \STATE Double Schema
-      \ENDWHILE
-    \end{algorithmic}
-    \label{alg:main}
-  \end{algorithm}
-
-  \begin{algorithm}[t]
-    \caption{Convergent}
-    \begin{algorithmic}
-      \STATE difference $= |(r_4 - r_3) + (r_3 -r_2) + (r_2 - r_1)|$
-      \IF{difference $< \mathit{differanceTolerance}$}
-      \RETURN Ratio is convergent
-      \ELSE
-      \RETURN Ratio is not convergent
-      \ENDIF
-    \end{algorithmic}
-    \label{alg:convergence}
-  \end{algorithm}
-
-  \begin{algorithm}[t]
-    \caption{N Large Enough}
-    \begin{algorithmic}
-      \IF{ratio $\approx 1$}
-      \IF{number of doubles $< \mathit{doublesTolerance}$}
-      \RETURN N is not large enough
-      \ENDIF
-      \ENDIF
-      \RETURN N is large enough
-    \end{algorithmic}
-    \label{alg:tuning}
-  \end{algorithm}
