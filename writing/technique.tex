@@ -70,9 +70,8 @@
   error, every time $n$ is doubled, $f(n)$ is recorded ten times, and the
   median time is used for calculating the ratios.  We chose
   median to minimize the effect of outliers. If mean is used instead, a
-  single abnormally long run could have a large effect on the result. The overall 
-  structure of the experiment is shown in Algorithm~\ref{alg:main}, and in
-  Figure~\ref{fig:doublingexp}.
+  single abnormally long run could have a large effect on the result. The
+  overall structure of the experiment is shown in Figure~\ref{fig:doublingexp}.
 
   This convergence checking is necessary because of the fact that worst-case
   time is only apparent for large values of $n$. If too few doubles
@@ -96,5 +95,4 @@
   one signifies constant or logarithmic 
   time, requiring these doubles does not significantly increase the time needed
   to run the experiment, while providing assurance that a small ratio is not due
-  to an insufficiently small $n$. This rule is shown in 
-  Algorithm~\ref{alg:tuning}.
+  to an insufficiently small $n$.
