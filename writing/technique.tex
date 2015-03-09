@@ -3,6 +3,12 @@
 
 \section{Automated Doubling Experiments}\label{sec:technique}
 
+  \begin{figure*}
+    \input{writing/diagram}
+    \caption{Technique for conducting automatic doubling experiments.}
+    \label{fig:doublingexp}
+  \end{figure*}
+
   Our technique for performing automatic doubling experiments consists of two parts.  The first is a method for
   systematically doubling the initial input schema schema, and the second is a rule for determining when a conclusion
   can be drawn from the experiment, and the experiment can be stopped.
@@ -53,15 +59,8 @@
   affected as long as the test-data generation tool still performs work to
   process the constraints.
 
-
   % An example of a general semantic doubling is shown in
   % Figure~\ref{fig:generaldouble}.
-
-  \begin{figure*}
-    \input{writing/diagram}
-    \caption{Technique for conducting automatic doubling experiments.}
-    \label{fig:doublingexp}
-  \end{figure*}
 
   \subsection{Automatic Experiment}
   \label{subsec:experiment}
