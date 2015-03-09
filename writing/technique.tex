@@ -1,19 +1,20 @@
-\section{Automated Doubling Experiments}
-  \label{sec:technique}
+%!TEX root=seke.tex
+% mainfile: ../seke.tex
 
-  Our technique for performing automatic doubling experiments consists
-  of two parts.  The first is a method for systematically doubling 
-  the initial input schema schema, and the second is a rule for determining
-  when a conclusion can be drawn from the experiment, and the experiment can be stopped. 
+\section{Automated Doubling Experiments}\label{sec:technique}
+
+  Our technique for performing automatic doubling experiments consists of two parts.  The first is a method for
+  systematically doubling the initial input schema schema, and the second is a rule for determining when a conclusion
+  can be drawn from the experiment, and the experiment can be stopped.
 
   \subsection{Doubling Schemas}
   \label{subsec:doubling}
 
   Determining worst case complexity by doubling experiment requires that
   the size of the input be doubled. A relational database
-  schema is a complex artifact with many features and interrelationships. 
+  schema is a complex artifact with many features and interrelationships.
   This makes determining meaningful doubling rules a non-trivial task.
-  
+
   % \begin{figure*}
   %   \centering
   %   \centering
@@ -24,7 +25,7 @@
 
   A relational database schema contains tables, columns, and can contain
   constraints; the runtime of a schema testing tool may be affected by the
-  number of any of these. Ideally, we would have a strategy for doubling, 
+  number of any of these. Ideally, we would have a strategy for doubling,
   or a doubler, for each. Doubling the number of tables or columns in a
   schema is relatively easy.  We can double the number of tables in a schema
   by following the rule: for every table present in the schema, we create
@@ -33,7 +34,7 @@
   columns, for instance, then the number of tables and columns in the schema
   would be increased, interfering with our ability to measure the effect of
   tables alone.  Doubling the number of columns can be accomplished by, for
-  every table in the schema, for every column, add a new column to that table. 
+  every table in the schema, for every column, add a new column to that table.
   Doubling integrity constraints is more difficult.  The foreign key
   constraint for instance, donates a relationship between two tables, a check
   constraint can contain arbitrary behavior, and a table can only contain one
@@ -50,7 +51,7 @@
   since semantic doubling amounts to a restatement of existing constraints.
   However, since the goal is to evaluate performance, the results should not be
   affected as long as the test-data generation tool still performs work to
-  process the constraints. 
+  process the constraints.
 
 
   % An example of a general semantic doubling is shown in
@@ -65,7 +66,7 @@
   \subsection{Automatic Experiment}
   \label{subsec:experiment}
 
-  To determine worst case complexity, an input $n$ is doubled until the 
+  To determine worst case complexity, an input $n$ is doubled until the
   ratio $f(2n) / f(n)$ converges to a stable value. To account for random
   error, every time $n$ is doubled, $f(n)$ is recorded ten times, and the
   median time is used for calculating the ratios.  We chose
@@ -82,17 +83,17 @@
   terminate as quickly as possible.
 
   To test for convergence, the last four ratios are compared, and the
-  sum of differences between them is compared to a tolerance value, 
+  sum of differences between them is compared to a tolerance value,
   difference $= |(r_4 - r_3) + (r_3 -r_2) + (r_2 - r_1)|$.
- 
+
 
   Another consequence of worst-case time only being apparent for large
   $n$, is that a very small initial $n$ may appear to converge to one,
   which indicates constant time. To prevent the
   experiment from incorrectly terminating given a small starting $n$, we
   require that a program under study display a ratio of one for many
-  runs before judging that the ratio does in fact converge to one. Because 
-  one signifies constant or logarithmic 
+  runs before judging that the ratio does in fact converge to one. Because
+  one signifies constant or logarithmic
   time, requiring these doubles does not significantly increase the time needed
   to run the experiment, while providing assurance that a small ratio is not due
   to an insufficiently small $n$.
