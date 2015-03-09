@@ -169,6 +169,10 @@ duplicate the existing check constraints. It is possible that \textit{SchemaAnal
 copied check constraints than it would given unique check constraints. However, doubling the check constraints in this
 way is an easy to implement, semantically significant way of evaluating \textit{SchemaAnalyst}.
 
-Additionally, since worst-case time is only apparent for large $n$, it is possible that the experiment terminated too
-quickly.  To guard against this problem, Algorithms~\ref{alg:convergence} and~\ref{alg:tuning} were tested on various
-other algorithms with known worst-case complexities, and found to be reliable.
+Additionally, since worst-case time is only apparent for large $n$, it
+is possible that the experiment terminated too quicly.  While we
+attempted to configure the parameters of our tool using algorithms with
+known worst-case complexities and conducting preliminary experiments with
+various settings under manual supervision, it is possible that our
+configuration was not optimized for use on the HPC cluster. 
+
