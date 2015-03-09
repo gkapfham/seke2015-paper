@@ -7,31 +7,31 @@
 % if so it should go here, and we're going to have major space issues
 % TODO GMK: discuss database related content
 
-\subsection{Search-Based Test Data Generation}
+% \subsection{Search-Based Test Data Generation}
 
-When testing a system for correctness, it is often necessary to provide input to the system in order to observe and
-evaluate its execution. Additionally, when the system's behavior is dependant on the input, the input space must be
-sufficiently explored to ensure thorough testing.  Obtaining enough input data to support high quality testing can be
-challenging, so test data generation is used to automatically produce this data. Since the quality of the test depends
-upon the quality of the data, test data generation tools systematically produce data according to some requirement or
-criterion. A search-based test data generation tool is one that explores that data space using a fitness function.  The
-fitness function rates the quality of the data, and allows the generator to try and improve by searching for higher
-quality test data.
+{\bf Search-Based Test Data Generation}. When testing a system for correctness, it is often necessary to provide input to
+the system in order to observe and evaluate its execution. Additionally, when the system's behavior is dependant on the
+input, the input space must be sufficiently explored to ensure thorough testing.  Obtaining enough input data to support
+high quality testing can be challenging, so test data generation is used to automatically produce this data. Since the
+quality of the test depends upon the quality of the data, test data generation tools systematically produce data
+according to some requirement or criterion. A search-based test data generation tool is one that explores that data
+space using a fitness function.  The fitness function rates the quality of the data, and allows the generator to try and
+improve by searching for higher quality test data.
 
 %TODO GMK: Discuss coverage criterions
 %TODO GMK: Explain the subsumpion hierarchy
 
 %TODO GMK: Discuss data generators
 
-\subsection{Worst-Case Time Complexity}
+% \subsection{Worst-Case Time Complexity}
 
-Worst-case time complexity is a useful measure of an algorithms efficiency, or how increasing the size of the input $n$
-increases the execution time of the algorithm, $f(n)$.  Worst-case refers to the efficiency in the worst possible
-scenario.  This relationship is often expressed in big-Oh notation, where $f(n)$ is $O(g(n))$ means that the time
-increases by no more than on order of $g(n)$. The worst-case complexity of an algorithm is evident when $n$ is
-large~\cite{Goodrich2014}. One approach for determining the big-Oh complexity of an algorithm is to conduct a doubling
-experiment. By measuring the time needed to run the algorithm on an input $n$, and the time needed to run on $2n$, the
-order of growth of the algorithm can be determined~\cite{McGeoch2012,Sedgewick1998}.
+{\bf Worst-Case Time Complexity}. Worst-case time complexity is a useful measure of an algorithms efficiency, or how
+increasing the size of the input $n$ increases the execution time of the algorithm, $f(n)$.  Worst-case refers to the
+efficiency in the worst possible scenario.  This relationship is often expressed in big-Oh notation, where $f(n)$ is
+$O(g(n))$ means that the time increases by no more than on order of $g(n)$. The worst-case complexity of an algorithm is
+evident when $n$ is large~\cite{Goodrich2014}. One approach for determining the big-Oh complexity of an algorithm is to
+conduct a doubling experiment. By measuring the time needed to run the algorithm on an input $n$, and the time needed to
+run on $2n$, the order of growth of the algorithm can be determined~\cite{McGeoch2012,Sedgewick1998}.
 
 Intuitively, the goal of a doubling experiment is to draw a conclusion regarding the efficiency of the algorithm from
 the ratio $f(2n)/f(n)$. This ratio represents the factor of change in runtime from input $n$ to $2n$. A ratio of $2$
@@ -53,12 +53,12 @@ x     & $O(n^{\log x})$
 doubling ratio.}
 \end{table}
 
-\subsection{Related Work}
+% \subsection{Related Work}
 
-Goldsmith et al.~\cite{Goldsmith2007} developed a system to empirically evaluate computational complexly.  Their
-system, \textit{Trend-Prof}, uses code instrumentation to count the number of times each block of code is executed,
-and then groups these blocks by their behavior.  \textit{Trend-Prof} takes in a collection of workloads, user
-specified features of the workloads, and the program to be studied. This technique results in a more powerful
+{\bf Related Work}. Goldsmith et al.~\cite{Goldsmith2007} developed a system to empirically evaluate computational
+complexly.  Their system, \textit{Trend-Prof}, uses code instrumentation to count the number of times each block of code
+is executed, and then groups these blocks by their behavior.  \textit{Trend-Prof} takes in a collection of workloads,
+user specified features of the workloads, and the program to be studied. This technique results in a more powerful
 analysis. However, the authors do not address the issue of generating the workloads necessary to achieve a meaningful
 result, and we attempt to do this automatically.  Additionally, our approach is novel because we apply it to a domain
 where the theoretical scalability is not yet known.
