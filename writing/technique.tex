@@ -68,7 +68,7 @@
   single abnormally long run could have a large effect on the result. The
   overall structure of the experiment is shown in Figure~\ref{fig:doublingexp}.
 
-  This convergence checking is necessary because of the fact that worst-case
+  Convergence checking is necessary because of the fact that worst-case
   time is only apparent for large values of $n$. If too few doubles
   are tried, then the experiment may terminate before $n$ reaches a value
   where the true worst-case time complexity is apparent. At the same time,
@@ -76,18 +76,29 @@
   time overhead. For the sake of efficiently, the experiment should
   terminate as quickly as possible.
 
-  To test for convergence, the last four ratios are compared, and the
-  sum of differences between them is compared to a tolerance value,
-  difference $= |(r_4 - r_3) + (r_3 -r_2) + (r_2 - r_1)|$.
-
+  To test for convergence, for every time $t$, where $t$ denotes the
+  number of times the input has been doubled, we record the each
+  doubling ratio $r_t = \frac{f(2^t n)}{f(2^{t-1}n)}$. The current ratio
+  $r_c$ is compared to a previous ratio $r_p$ where $p$ is determined by
+  a $\mathit{lookback}$ value, such that $p=c-\mathit{lookback}$.  The
+  result of the comparison is a $\mathit{difference}$ value, given by
+  $\mathit{difference} = |r_c - r_p|$.  This is then compared to a
+  tolerance value, and the experiment is judged to have converged when
+  $\mathit{difference}<\mathit{tolerance}$.  The $\mathit{lookback}$ and
+  $\mathit{tolerance}$ values are both configured before the experiment is
+  run.
 
   Another consequence of worst-case time only being apparent for large
   $n$, is that a very small initial $n$ may appear to converge to one,
   which indicates constant time. To prevent the
   experiment from incorrectly terminating given a small starting $n$, we
-  require that a program under study display a ratio of one for many
-  runs before judging that the ratio does in fact converge to one. Because
-  one signifies constant or logarithmic
-  time, requiring these doubles does not significantly increase the time needed
+  require that a program under study display a ratio of one for a
+  $\mathit{minimum}$ number of times before judging that the ratio does in fact converge to one.
+  That is, if $r_c = 1$, $t > \mathit{minimum}$ must be true in addition
+  to the tolerance test before the experiment is declared convergent.
+  The $\mathit{minumum}$ parameter is also configured before an
+  experiment.
+  Because a doubling ratio of one signifies constant or logarithmic
+  time complexity, requiring these doubles does not significantly increase the time needed
   to run the experiment, while providing assurance that a small ratio is not due
   to an insufficiently small $n$.
