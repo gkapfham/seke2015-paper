@@ -25,14 +25,16 @@ Clause-Based Active Integrity Constraint Coverage} (ClauseAICC) emerging as a st
 constraints limit further commentary on testing methods for database schemas, the reader is referred
 to~\cite{mcminn2015} for more details.
 
+% Since the quality of the test depends upon the characteristics of the data itself, test data generators systematically
+% produce test inputs according to a criterion. 
+
 {\bf Search-Based Test Data Generation}. When testing a schema's integrity constraints for correctness, it is often
 necessary to provide input to the database and observe and evaluate its execution~\cite{kapfhammer2013}.  Since the
-database's behavior is dependant on the input from INSERTs, the input space must be sufficiently explored to
-ensure thorough testing.  Since obtaining enough input data to support high-quality testing can be challenging, test
-data generation is used to automatically produce it. Since the quality of the test depends upon the characteristics of
-the data itself, test data generators systematically produce test inputs according to a criterion. A search-based test
-data generator is one that explores that data space using, among other components, a fitness function that rates the
-quality of the data, thus allowing it to improve by repeatedly searching for better inputs~\cite{mcminn2004a}.
+database's behavior is dependant on the input from INSERTs, the input space must be sufficiently explored to ensure
+thorough testing.  Due to the fact that it is challenging to manually create input that supports high-quality testing,
+test data generation is used to automatically produce it according to a criterion, like ClauseAICC. A search-based test
+data generator is one that explores that input space using, among other components, a fitness function that rates the
+data's quality, thus allowing it to improve by repeatedly searching for better inputs~\cite{mcminn2004a}.
 
 {\bf Worst-Case Time Complexity}. Worst-case time complexity is a useful measure of an algorithm's efficiency, or how
 increasing the size of the input $n$ increases the execution time of the algorithm, $f(n)$.  Worst-case refers to the
