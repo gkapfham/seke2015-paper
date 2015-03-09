@@ -51,13 +51,14 @@ would indicate that doubling the input size resulted in the runtime's doubling, 
 algorithm under study is $O(n)$ or $O(n\log n)$.  Table~\ref{table:ratios} shows some common time complexities and their
 corresponding ratios.
 
-{\bf Related Work}. Goldsmith et al.~\cite{Goldsmith2007} developed a system to empirically evaluate computational
-complexly.  Their system, \textit{Trend-Prof}, uses code instrumentation to count the number of times each block of code
-is executed, and then groups these blocks by their behavior.  \textit{Trend-Prof} takes in a collection of workloads,
-user specified features of the workloads, and the program to be studied. This technique results in a more powerful
-analysis. However, the authors do not address the issue of generating the workloads necessary to achieve a meaningful
-result, and we attempt to do this automatically.  Additionally, our approach is novel because we apply it to a domain
-where the theoretical scalability is not yet known.
+{\bf Related Work}. Goldsmith et al.~\cite{Goldsmith2007} developed a tool, called \textit{Trend-Prof}, that empirically
+evaluates the computational complexity of a program by using code instrumentation to count the number of times each
+block of code is executed and then grouping these blocks by their behavior.  \textit{Trend-Prof} takes in a collection
+of workloads, user-specified features of the workloads, and the program to be studied. While this technique results in a
+more detailed analysis that the one presented in this paper, Goldsmith et al.\ do not address the issue of generating
+the workloads necessary to achieve a meaningful result, which this paper's technique can handle automatically.  Our
+paper is also contrasted with this prior work because it describes experiments in a domain, search-based test data
+generation, where the method's worst-case time complexity is not known.
 
 \begin{table}[t]
 
