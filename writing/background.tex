@@ -20,19 +20,19 @@ Prior work in this area proposed coverage criteria, derived from logic coverage 
 levels of testing for the formulation of integrity constraints in a database schema~\cite{mcminn2015}. These range from
 simple criteria that mandate the testing of successful and unsuccessful INSERT statements into tables to more advanced
 criteria that test the formulation of complex integrity constraints such as multi-column PRIMARY KEYs and arbitrary
-CHECK constraints. This family of criteria have been organized into a subsumption hierarchy, with criterion such as {\em
+CHECK constraints. This family of criteria has been organized into a subsumption hierarchy, with criterion such as {\em
 Clause-Based Active Integrity Constraint Coverage} (ClauseAICC) emerging as a stringent testing strategy. Since space
-constraints prevent further commentary on testing methods for database schemas, the reader is referred
+constraints limit further commentary on testing methods for database schemas, the reader is referred
 to~\cite{mcminn2015} for more details.
 
-{\bf Search-Based Test Data Generation}. When testing a database schema for correctness, it is often necessary to
-provide input to the system in order to observe and evaluate its execution~\cite{ammann2008}. Additionally, when the
-system's behavior is dependant on the input, the input space must be sufficiently explored to ensure thorough testing.
-Since obtaining enough input data to support high-quality testing can be challenging, test data generation is used to
-automatically produce it. Since the quality of the test depends upon the characteristics of the data itself, test data
-generators systematically produce test inputs according to a criterion. A search-based test data generator is one that
-explores that data space using, among other components, a fitness function that rates the quality of the data, thus
-allowing it to improve by repeatedly searching for better inputs~\cite{mcminn2004a}.
+{\bf Search-Based Test Data Generation}. When testing a schema's integrity constraints for correctness, it is often
+necessary to provide input to the database and observe and evaluate its execution~\cite{kapfhammer2013}.  Since the
+database's behavior is dependant on the input from INSERTs, the input space must be sufficiently explored to
+ensure thorough testing.  Since obtaining enough input data to support high-quality testing can be challenging, test
+data generation is used to automatically produce it. Since the quality of the test depends upon the characteristics of
+the data itself, test data generators systematically produce test inputs according to a criterion. A search-based test
+data generator is one that explores that data space using, among other components, a fitness function that rates the
+quality of the data, thus allowing it to improve by repeatedly searching for better inputs~\cite{mcminn2004a}.
 
 {\bf Worst-Case Time Complexity}. Worst-case time complexity is a useful measure of an algorithm's efficiency, or how
 increasing the size of the input $n$ increases the execution time of the algorithm, $f(n)$.  Worst-case refers to the
