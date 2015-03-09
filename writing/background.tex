@@ -45,11 +45,11 @@ a doubling experiment with increasingly bigger input sizes. By measuring the tim
 input of size $n$ and the time needed to run with input of size $2n$, the algorithm's order of growth can be
 empirically determined~\cite{mcgeoch2012,sedgewick1998}.
 
-Intuitively, the goal of a doubling experiment is to draw a conclusion regarding the efficiency of the algorithm from
-the ratio $f(2n)/f(n)$ that represents the factor of change in runtime from input sizes $n$ to $2n$. For instance, a
-ratio of $2$ would indicate that doubling the input resulted in runtime doubling, thus leading to the conclusion that
-the algorithm under study is $O(n)$ or $O(n\log n)$.  Table~\ref{table:ratios} shows some common time complexities and
-the corresponding ratios.
+The goal of a doubling experiment is to draw a conclusion regarding the efficiency of the algorithm from the ratio
+$f(2n)/f(n)$ that represents the factor of change in runtime from input sizes $n$ to $2n$. For instance, a ratio of $2$
+would indicate that doubling the input size resulted in the runtime's doubling, thus leading to the conclusion that the
+algorithm under study is $O(n)$ or $O(n\log n)$.  Table~\ref{table:ratios} shows some common time complexities and their
+corresponding ratios.
 
 {\bf Related Work}. Goldsmith et al.~\cite{Goldsmith2007} developed a system to empirically evaluate computational
 complexly.  Their system, \textit{Trend-Prof}, uses code instrumentation to count the number of times each block of code
@@ -62,14 +62,16 @@ where the theoretical scalability is not yet known.
 \begin{table}[t]
 
   \begin{center}
-    \begin{tabular}{l|l}
-      Ratio & Conclusion              \\ \hline
-      1     & Constant or Logarithmic \\
-      2     & Linear or Linearithmic  \\
-      4     & Quadratic               \\
-      8     & Cubic                   \\
-      x     & $O(n^{\log x})$
+
+    \begin{tabular}{c|l}
+      Ratio $f(2n)/f(n)$ & Worst-Case Conclusion              \\ \hline
+      1                  & constant or logarithmic \\
+      2                  & linear or linearithmic  \\
+      4                  & quadratic               \\
+      8                  & cubic                   \\
+      % x                & $O(n^{\log x})$
     \end{tabular}
+
   \end{center}
   \vspace*{-.15in}
 
