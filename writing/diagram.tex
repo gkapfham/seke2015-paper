@@ -8,12 +8,12 @@
 
 % Define block styles used later
 
-\tikzstyle{sensor}=[draw, fill=black!20, text width=5em,
+\tikzstyle{sensor}=[draw, fill=black!10, text width=5em,
     text centered, minimum height=2.5em,drop shadow]
 \tikzstyle{ann} = [above, text width=5em, text centered]
-\tikzstyle{wa} = [sensor, text width=10em, fill=red!20,
+\tikzstyle{wa} = [sensor, text width=10em, fill=black!30,
     minimum height=6em, rounded corners, drop shadow]
-\tikzstyle{sc} = [sensor, text width=13em, fill=red!20,
+\tikzstyle{sc} = [sensor, text width=13em, fill=red!30,
     minimum height=10em, rounded corners, drop shadow]
 
 % Define distances for bordering
@@ -83,7 +83,7 @@
         \path (wa.south -| runtime.east)+(+0.3,-0.6) node (b) {};
         \path (runtime.east |- singleexp.east)+(+0.3,-0.3) node (c) {};
 
-        \path[fill=yellow!20,rounded corners, draw=black!50, dashed]
+        \path[fill=white!20,rounded corners, draw=black!50, dashed]
             (a) rectangle (c);
         \path (asr1.north west)+(-0.2,0.2) node (a) {};
 
@@ -94,7 +94,7 @@
         \path (wa.south -| wa.east)+(+0.3,-0.3) node (b) {};
         \path (vote.east |- asrs.east)+(+0.3,-0.3) node (c) {};
 
-        \path[fill=yellow!20,rounded corners, draw=black!50, dashed]
+        \path[fill=white!20,rounded corners, draw=black!50, dashed]
             (a) rectangle (c);
         \path (asr1.north west)+(-0.2,0.2) node (a) {};
 
