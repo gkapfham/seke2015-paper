@@ -14,10 +14,16 @@
 % \subsection{Search-Based Test Data Generation}
 
 {\bf Testing Database Schemas.} The relational database, a cornerstone of modern software, is protected by a schema that
-defines integrity constraints ensuring the coherence of data. These constraints defending the schema from manipulations
-that could violate requirements such as ``usernames must be unique'' or ``the host name cannot be missing or unknown''.
+defines integrity constraints ensuring the coherence of data. These constraints defend the schema from manipulations
+that could violate requirements such as ``user names must be unique'' or ``the host name cannot be missing or unknown''.
 Prior work in this area proposed coverage criteria, derived from logic coverage criteria, that establish different
-levels of testing for the formulation of integrity constraints in a database schema \cite{mcminn2015}.
+levels of testing for the formulation of integrity constraints in a database schema~\cite{mcminn2015}. These range from
+simple criteria that mandate the testing of successful and unsuccessful INSERT statements into tables to more advanced
+criteria that test the formulation of complex integrity constraints such as multi-column PRIMARY KEYs and arbitrary
+CHECK constraints. This family of criteria have been organized into a subsumption hierarchy, with criterion such as {\em
+Clause-Based Active Integrity Constraint Coverage} (ClauseAICC) emerging as a stringent testing strategy. Since space
+constraints prevent further commentary on testing methods for database schemas, the reader is referred
+to~\cite{mcminn2015} for more details.
 
 {\bf Search-Based Test Data Generation}. When testing a database schema for correctness, it is often necessary to
 provide input to the system in order to observe and evaluate its execution~\cite{ammann2008}. Additionally, when the
