@@ -9,14 +9,14 @@
 
 % \subsection{Search-Based Test Data Generation}
 
-{\bf Search-Based Test Data Generation}. When testing a system for correctness, it is often necessary to provide input to
-the system in order to observe and evaluate its execution. Additionally, when the system's behavior is dependant on the
-input, the input space must be sufficiently explored to ensure thorough testing.  Obtaining enough input data to support
-high quality testing can be challenging, so test data generation is used to automatically produce this data. Since the
-quality of the test depends upon the quality of the data, test data generation tools systematically produce data
-according to some requirement or criterion. A search-based test data generation tool is one that explores that data
-space using a fitness function.  The fitness function rates the quality of the data, and allows the generator to try and
-improve by searching for higher quality test data.
+{\bf Search-Based Test Data Generation}. When testing a system for correctness, it is often necessary to provide input
+to the system in order to observe and evaluate its execution~\cite{ammann2008}. Additionally, when the system's behavior
+is dependant on the input, the input space must be sufficiently explored to ensure thorough testing.  Since obtaining
+enough input data to support high-quality testing can be challenging, test data generation is used to automatically
+produce it. Since the quality of the test depends upon the characteristics of the data itself, test data generators
+systematically produce test inputs according to a criterion. A search-based test data generation tool is one that
+explores that data space using, among other components, a fitness function that rates the quality of the data, thus
+allowing the generator to improve by searching for better test inputs~\cite{mcminn2004a}.
 
 %TODO GMK: Discuss coverage criterions
 %TODO GMK: Explain the subsumpion hierarchy
