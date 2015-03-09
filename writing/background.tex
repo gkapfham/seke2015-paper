@@ -60,6 +60,22 @@ the workloads necessary to achieve a meaningful result, which this paper's techn
 paper is also contrasted with this prior work because it describes experiments in a domain, search-based test data
 generation, where the method's worst-case time complexity is not known.
 
+Zhao et al.\ present an empirical study of the performance of search-based test data generation for extended finite
+state machine (EFSM) models~\cite{zhao2010}. Although this paper does focus on efficiency and make preliminary
+observations about the relationship between performance and the characteristics of an EFSM model, it does not, like out
+paper, use doubling experiments to suggest worst-case time complexities. Lakhotia et al. also present an experimental
+analysis of the efficiency and effectiveness of search-based test data generation for C programs~\cite{lakhotia2013}.
+While our paper looks at generator performance in a holistic manner, this prior work only considers the number of
+fitness evaluations during data generation. Similar to our use of doublers that systematically increase the size of a
+relational schema, Mehrmand and Feldt study search-based test data generation as the size of the
+program under test increases~\cite{mehrmand2010}. Yet, their focus is on the generator's success in coverage source code
+branches instead of the efficiency of the data generation process.
+
+% GMK NOTE: I think that I will not cite the Yoo et al. paper right now, due to lack of space.
+
+% Finally, in an acknowledgement of the poor
+% performance of many search-based methods, Yoo et al. explain
+
 \begin{table}[t]
 
   \begin{center}
