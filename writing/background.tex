@@ -18,10 +18,11 @@ systematically produce test inputs according to a criterion. A search-based test
 explores that data space using, among other components, a fitness function that rates the quality of the data, thus
 allowing the generator to improve by searching for better test inputs~\cite{mcminn2004a}.
 
-%TODO GMK: Discuss coverage criterions
-%TODO GMK: Explain the subsumpion hierarchy
-
+%TODO GMK: Discuss coverage criterion
+%TODO GMK: Explain the subsumption hierarchy
 %TODO GMK: Discuss data generators
+
+{\bf Testing Database Schemas.} 
 
 % \subsection{Worst-Case Time Complexity}
 
@@ -39,22 +40,6 @@ would indicate that doubling the input resulted in runtime doubling. We could th
 study is $O(n)$ or $O(n\log n)$.  Table~\ref{table:ratios} shows some common time complexities and the corresponding
 ratios.
 
-\begin{table}[h]
-\begin{tabular}{l|l}
-Ratio & Conclusion              \\ \hline
-1     & Constant or Logarithmic \\
-2     & Linear or Linearithmic  \\
-4     & Quadratic               \\
-8     & Cubic                   \\
-x     & $O(n^{\log x})$
-\end{tabular}
-\label{table:ratios}
-\caption{Conclusions regarding efficiency that can be drawn from the
-doubling ratio.}
-\end{table}
-
-% \subsection{Related Work}
-
 {\bf Related Work}. Goldsmith et al.~\cite{Goldsmith2007} developed a system to empirically evaluate computational
 complexly.  Their system, \textit{Trend-Prof}, uses code instrumentation to count the number of times each block of code
 is executed, and then groups these blocks by their behavior.  \textit{Trend-Prof} takes in a collection of workloads,
@@ -62,3 +47,22 @@ user specified features of the workloads, and the program to be studied. This te
 analysis. However, the authors do not address the issue of generating the workloads necessary to achieve a meaningful
 result, and we attempt to do this automatically.  Additionally, our approach is novel because we apply it to a domain
 where the theoretical scalability is not yet known.
+
+\begin{table}[t]
+
+  \begin{center}
+    \begin{tabular}{l|l}
+      Ratio & Conclusion              \\ \hline
+      1     & Constant or Logarithmic \\
+      2     & Linear or Linearithmic  \\
+      4     & Quadratic               \\
+      8     & Cubic                   \\
+      x     & $O(n^{\log x})$
+    \end{tabular}
+  \end{center}
+  \vspace*{-.15in}
+
+  \caption{Conclusions regarding efficiency that can be drawn from the doubling ratio.}\label{table:ratios}
+  \vspace*{-.30in}
+
+\end{table}
