@@ -1,7 +1,7 @@
 %!TEX root=seke.tex
 % mainfile: ../seke.tex
 
-\section{Background}
+\section{Background and Related Work}
 
 % Do we need to talk about databases/schemas/constraints?
 % if so it should go here, and we're going to have major space issues
@@ -23,7 +23,7 @@ quality test data.
 
 %TODO GMK: Discuss data generators
 
-\subsection{Worst Case Time Complexity}
+\subsection{Worst-Case Time Complexity}
 
 Worst-case time complexity is a useful measure of an algorithms efficiency, or how increasing the size of the input $n$
 increases the execution time of the algorithm, $f(n)$.  Worst-case refers to the efficiency in the worst possible
@@ -52,3 +52,13 @@ x     & $O(n^{\log x})$
 \caption{Conclusions regarding efficiency that can be drawn from the
 doubling ratio.}
 \end{table}
+
+\subsection{Related Work}
+
+Goldsmith et al.~\cite{Goldsmith2007} developed a system to empirically evaluate computational complexly.  Their
+system, \textit{Trend-Prof}, uses code instrumentation to count the number of times each block of code is executed,
+and then groups these blocks by their behavior.  \textit{Trend-Prof} takes in a collection of workloads, user
+specified features of the workloads, and the program to be studied. This technique results in a more powerful
+analysis. However, the authors do not address the issue of generating the workloads necessary to achieve a meaningful
+result, and we attempt to do this automatically.  Additionally, our approach is novel because we apply it to a domain
+where the theoretical scalability is not yet known.
