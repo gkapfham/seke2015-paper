@@ -16,7 +16,7 @@
 
   {\bf Overview}. The presented technique for performing automatic doubling experiments consists of two key components.
   The first is a method for systematically doubling the initially input relational schema, and the second is a rule for
-  determining when a conclusion can be drawn from the experiment, thus allowing the experiment to stop.
+  determining when a valid conclusion can be drawn from the experiment, thus allowing the doubling process to stop.
 
   \textbf{Doubling Schemas}. Determining worst-case complexity by a doubling experiment requires that the size of the
   input be doubled. A relational database schema is a complex artifact with many features and interrelationships.  This
@@ -25,20 +25,29 @@
   % GMK NOTE: This paragraph was too long for the reader to easily understand. Breaking it up!
 
   A relational database schema contains tables and columns, and constraints that restrict the values allowed into these
-  entities. Since the runtime of a schema testing technique may be affected by the number of any of these, it is best to
-  have a strategy for doubling each component of a schema. Doubling the number of tables or columns in a schema is
-  relatively easy.  It is possible to double the number of tables in a schema by following this rule: for every table
-  present in the schema, we create a new empty table. It is important that the new tables be empty to avoid changing
-  more than one doubling parameter at once---if the new tables contained columns, for instance, then the number of
-  tables and columns in the schema both would be increased, thus interfering with the assessment of the impact that
-  table doubling has on performance.  Additionally, doubling the number of columns can be accomplished by, for every
-  table in the schema, and for every column, adding a new column to that table.
+  entities. Since the runtime of a schema testing technique may be affected by the number of any of these, it is
+  desirable to have a strategy for doubling each one. Doubling the number of tables or columns in a schema is relatively
+  easy.  It is possible to double the number of tables in a schema by following this rule: for every table present in
+  the schema, create a new empty table. It is important that the new tables be empty to avoid changing more than one
+  doubling parameter at once---if the new tables contained columns, for instance, then the number of tables and columns
+  in the schema both would be increased, thus interfering with assessing table doubling's impact on
+  performance.  Additionally, doubling the number of columns can be accomplished by, for every table in the schema, and
+  for every column, adding a new column to that table.
 
-  Doubling integrity constraints is more difficult.  The foreign key constraint, for instance, denotes a relationship
-  between two tables, a check constraint can contain arbitrary behavior, and a table can only contain one primary key.
-  If a schema contains five tables, then at most it can only have five primary keys.  Adding more keys would require
-  increasing the number of tables.  An alternative plan could be starting with a very large number of tables with no
-  primary keys that could accommodate doubling their number for many trials, but this introduces performance concerns.
+  % GMK NOTE: I think that this point could lead to confusion. Since it is not essential, I am removing it for now.
+
+  % An alternative plan could be starting with a very large number of tables with no primary keys that could accommodate
+  % doubling their number for many trials, but this introduces unnecessary performance concerns.
+
+  Doubling integrity constraints is more challenging.  The FOREIGN KEY constraint, for instance, denotes a relationship
+  between two tables, thus making it difficult to double without introducing extraneous database entities or cyclic
+  dependencies.  Since a CHECK constraint can express arbitrary conditions, it is also challenging to double if the
+  meaning of each constraint must be considered to ensure satisfiability.  Since a table can only contain one primary
+  key, if a schema contains five tables, then at most it can have five primary keys as adding more keys would require
+  increasing the number of tables, which should be avoided.
+
+  % GMK QUESTION: So, **what are** the constraints that can be doubled in this fashion? This must be clarified.
+
   Because of these issues, we focus our attention to constraints that can be doubled as follows: for every table, for
   every constraint, duplicate that constraint and re-add it to the table.  We refer to this doubling strategy as,
   semantic doubling.  Note that constraints doubled this way would not have an impact on what data the schema would
