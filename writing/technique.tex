@@ -24,14 +24,15 @@
 
   % GMK NOTE: This paragraph was too long for the reader to easily understand. Breaking it up!
 
-  A relational database schema contains tables and columns, and constraints that restrict the values allowed into the
-  tables. Since the runtime of a schema testing tool may be affected by the number of any of these, it is best to have a
-  strategy for doubling each component of a schema. Doubling the number of tables or columns in a schema is relatively
-  easy.  We can double the number of tables in a schema by following the rule: for every table present in the schema, we
-  create a new empty table. It is important that the new tables be empty to avoid changing multiple variables at once.
-  If the new tables contained columns, for instance, then the number of tables and columns in the schema would be
-  increased, interfering with our ability to measure the effect of tables alone.  Doubling the number of columns can be
-  accomplished by, for every table in the schema, and for every column, adding a new column to that table.
+  A relational database schema contains tables and columns, and constraints that restrict the values allowed into these
+  entities. Since the runtime of a schema testing technique may be affected by the number of any of these, it is best to
+  have a strategy for doubling each component of a schema. Doubling the number of tables or columns in a schema is
+  relatively easy.  It is possible to double the number of tables in a schema by following this rule: for every table
+  present in the schema, we create a new empty table. It is important that the new tables be empty to avoid changing
+  more than one doubling parameter at once---if the new tables contained columns, for instance, then the number of
+  tables and columns in the schema both would be increased, thus interfering with the assessment of the impact that
+  table doubling has on performance.  Additionally, doubling the number of columns can be accomplished by, for every
+  table in the schema, and for every column, adding a new column to that table.
 
   Doubling integrity constraints is more difficult.  The foreign key constraint, for instance, denotes a relationship
   between two tables, a check constraint can contain arbitrary behavior, and a table can only contain one primary key.
