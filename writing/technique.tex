@@ -49,8 +49,10 @@
   increasing the number of tables, which should be avoided.
 
   % GMK QUESTION: So, **what are** the constraints that can be doubled in this fashion? This must be clarified.
+  %CBK ANSWER: NOT NULL, UNIQUE, and CHECK
 
   % GMK NOTE: I recognize that we always used this phrase. But, does it really add that much to the paper?
+  % CBK NOTE: No I suppose not
 
   % We refer to this doubling strategy as, semantic doubling.  
 
@@ -72,15 +74,22 @@
   time complexity is apparent. At the same time, for inefficient  algorithms, each additional doubling run incurs a
   substantial time overhead. For the sake of efficiently, the experiment should terminate as quickly as possible.
 
+  % CBK NOTE: Introducing the new equation for ratio with respect to
+  % time is helpful for explaining the convergence algorithm, but seems
+  % like a restatement of the ratio equation. 
+  % I considered only using this new equation when discussing the ratio
+  % for consistency, but it is unnecessarily complicated for earlier
+  % content
+
   To test for convergence, for every time $t$, where $t$ denotes the number of times the input has been doubled, we
   record the each doubling ratio $r_t = \frac{f(2^t n)}{f(2^{t-1}n)}$. The current ratio $r_c$ is compared to a previous
   ratio $r_p$ where $p$ is determined by a $\mathit{lookback}$ value, such that $p=c-\mathit{lookback}$.  The result of
   the comparison is a $\mathit{difference}$ value, given by $\mathit{difference} = |r_c - r_p|$.  This is then compared
-  to a tolerance value, and the experiment is judged to have converged when $\mathit{difference}<\mathit{tolerance}$.
+  to a $\mathit{tolerance}$ value, and the experiment is judged to have converged when $\mathit{difference}<\mathit{tolerance}$.
   The $\mathit{lookback}$ and $\mathit{tolerance}$ values are both configured before the experiment is run.
 
   Another consequence of worst-case time only being apparent for large $n$, is that a very small initial $n$ may appear
-  to converge to one, which indicates constant time. To prevent the experiment from incorrectly terminating given a
+  to converge to one, which indicates constant time complexity. To prevent the experiment from incorrectly terminating given a
   small starting $n$, we require that a program under study display a ratio of one for a $\mathit{minimum}$ number of
   times before judging that the ratio does in fact converge to one.  That is, if $r_c = 1$, $t > \mathit{minimum}$ must
   be true in addition to the tolerance test before the experiment is declared convergent.  The $\mathit{minumum}$
