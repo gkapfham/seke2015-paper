@@ -13,20 +13,22 @@ For data generator, the Random and Random Defaults generators took the most amou
 a less pronounced hierarchy between AVM, AVM defaults, Directed Random, and Directed Random Defaults can be observed.
 
 
-\begin{figure}
+\begin{figure*}
 \centering
+\begin{subfigure}{0.5\textwidth}
   \centering
   \includegraphics[width=1\linewidth]{diagrams/CriterionvsTime.pdf}
-  \caption{Coverage criterion versus runtime in minutes.\vspace{-.15in}}
+  \caption{Coverage criterion versus runtime in minutes.}
   \label{fig:crites}
-  \vspace{-.15in}
-\end{figure}
-
-\begin{figure}
-\centering
+\end{subfigure}%
+\begin{subfigure}{0.5\textwidth}
   \centering
   \includegraphics[width=1\linewidth]{diagrams/DataGeneratorvsTime.pdf}
-  \caption{Data generator versus runtime in minutes.\vspace{-.15in}}
+  \caption{Data generator versus runtime in minutes.}
   \label{fig:datas}
-  \vspace{-.15in}
-\end{figure}
+\end{subfigure}
+\label{fig:bwplots}
+\caption{Box and whisker plots for criterion and data
+  generator.}
+
+\end{figure*}
