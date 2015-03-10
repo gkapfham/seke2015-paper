@@ -7,7 +7,9 @@
 
   \begin{figure*}
     \input{writing/diagram}
+    \vspace*{-.1in}
     \caption{Technique for conducting automatic doubling experiments.}~\label{fig:doublingexp}
+    \vspace*{-.1in}
   \end{figure*}
 
   % GMK NOTE: We need to make sure that at some point we also talk about the automated analysis of the results.
@@ -22,16 +24,16 @@
 
   % GMK NOTE: This paragraph was too longer for the reader to easily understand. Breaking it up!
 
-  A relational database schema contains tables, columns, and can contain constraints; the runtime of a schema testing
-  tool may be affected by the number of any of these. Ideally, we would have a strategy for doubling, or a doubler, for
-  each. Doubling the number of tables or columns in a schema is relatively easy.  We can double the number of tables in
-  a schema by following the rule: for every table present in the schema, we create a new empty table. It is important
-  that the new tables be empty to avoid changing multiple variables at once.  If the new tables contained columns, for
-  instance, then the number of tables and columns in the schema would be increased, interfering with our ability to
-  measure the effect of tables alone.  Doubling the number of columns can be accomplished by, for every table in the
-  schema, for every column, add a new column to that table.
+  A relational database schema contains tables and columns, and constraints that restrict the values allowed into the
+  tables. Since the runtime of a schema testing tool may be affected by the number of any of these, it is best to have a
+  strategy for doubling each component of a schema. Doubling the number of tables or columns in a schema is relatively
+  easy.  We can double the number of tables in a schema by following the rule: for every table present in the schema, we
+  create a new empty table. It is important that the new tables be empty to avoid changing multiple variables at once.
+  If the new tables contained columns, for instance, then the number of tables and columns in the schema would be
+  increased, interfering with our ability to measure the effect of tables alone.  Doubling the number of columns can be
+  accomplished by, for every table in the schema, and for every column, adding a new column to that table.
 
-  Doubling integrity constraints is more difficult.  The foreign key constraint for instance, donates a relationship
+  Doubling integrity constraints is more difficult.  The foreign key constraint, for instance, denotes a relationship
   between two tables, a check constraint can contain arbitrary behavior, and a table can only contain one primary key.
   If a schema contains five tables, then at most it can only have five primary keys.  Adding more keys would require
   increasing the number of tables.  An alternative plan could be starting with a very large number of tables with no
