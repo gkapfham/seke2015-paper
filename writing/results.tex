@@ -164,9 +164,10 @@ Sum Test, upper right shows $\hat{A}_{12}$.}
 \end{table*}
 
 
-\textbf{Threats to Validity}. Our technique for doubling the number of check constraints on the schema is simply to
-duplicate the existing check constraints. It is possible that \textit{SchemaAnalyst} does less work processing these
-copied check constraints than it would given unique check constraints. However, doubling the check constraints in this
+\textbf{Threats to Validity}. Our technique for doubling the number of constraints on the schema is simply to
+duplicate the existing constraints. It is possible that \textit{SchemaAnalyst} does less work processing these
+% CBK Note: 'unique' is a poor word choice since it's a constraint name
+redundant constraints than it would given unique constraints. However, doubling the check constraints in this
 way is an easy to implement, semantically significant way of evaluating \textit{SchemaAnalyst}.
 
 Additionally, since worst-case time is only apparent for large $n$, it
