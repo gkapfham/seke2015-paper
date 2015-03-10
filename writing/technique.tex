@@ -16,9 +16,11 @@
   The first is a method for systematically doubling the initially input relational schema, and the second is a rule for
   determining when a conclusion can be drawn from the experiment, thus allowing the experiment to stop.
 
-  \textbf{Doubling Schemas}. Determining worst case complexity by a doubling experiment requires that the size of the
+  \textbf{Doubling Schemas}. Determining worst-case complexity by a doubling experiment requires that the size of the
   input be doubled. A relational database schema is a complex artifact with many features and interrelationships.  This
-  makes determining meaningful doubling rules a non-trivial task.
+  makes the doubling rule implementation a non-trivial task.
+
+  % GMK NOTE: This paragraph was too longer for the reader to easily understand. Breaking it up!
 
   A relational database schema contains tables, columns, and can contain constraints; the runtime of a schema testing
   tool may be affected by the number of any of these. Ideally, we would have a strategy for doubling, or a doubler, for
@@ -27,17 +29,19 @@
   that the new tables be empty to avoid changing multiple variables at once.  If the new tables contained columns, for
   instance, then the number of tables and columns in the schema would be increased, interfering with our ability to
   measure the effect of tables alone.  Doubling the number of columns can be accomplished by, for every table in the
-  schema, for every column, add a new column to that table.  Doubling integrity constraints is more difficult.  The
-  foreign key constraint for instance, donates a relationship between two tables, a check constraint can contain
-  arbitrary behavior, and a table can only contain one primary key.  If a schema contains five tables, then at most it
-  can only have five primary keys.  Adding more keys would require increasing the number of tables.  An alternative plan
-  could be starting with a very large number of tables with no primary keys that could accommodate doubling their number
-  for many trials, but this introduces performance concerns.  Because of these issues, we focus our attention to
-  constraints that can be doubled as follows: for every table, for every constraint, duplicate that constraint and
-  re-add it to the table.  We refer to this doubling strategy as, semantic doubling.  Note that constraints doubled this
-  way would not have an impact on what data the schema would allow or disallow into a database, since semantic doubling
-  amounts to a restatement of existing constraints.  However, since the goal is to evaluate performance, the results
-  should not be affected as long as the test-data generation tool still performs work to process the constraints.
+  schema, for every column, add a new column to that table.
+
+  Doubling integrity constraints is more difficult.  The foreign key constraint for instance, donates a relationship
+  between two tables, a check constraint can contain arbitrary behavior, and a table can only contain one primary key.
+  If a schema contains five tables, then at most it can only have five primary keys.  Adding more keys would require
+  increasing the number of tables.  An alternative plan could be starting with a very large number of tables with no
+  primary keys that could accommodate doubling their number for many trials, but this introduces performance concerns.
+  Because of these issues, we focus our attention to constraints that can be doubled as follows: for every table, for
+  every constraint, duplicate that constraint and re-add it to the table.  We refer to this doubling strategy as,
+  semantic doubling.  Note that constraints doubled this way would not have an impact on what data the schema would
+  allow or disallow into a database, since semantic doubling amounts to a restatement of existing constraints.  However,
+  since the goal is to evaluate performance, the results should not be affected as long as the test-data generation tool
+  still performs work to process the constraints.
 
   % An example of a general semantic doubling is shown in
   % Figure~\ref{fig:generaldouble}.
