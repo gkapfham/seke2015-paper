@@ -20,9 +20,9 @@
 
   \textbf{Doubling Schemas}. Determining worst-case complexity by a doubling experiment requires that the size of the
   input be doubled. A relational database schema is a complex artifact with many features and interrelationships.  This
-  makes the doubling rule implementation a non-trivial task.
+  makes doubling rule implementation a non-trivial task.
 
-  % GMK NOTE: This paragraph was too longer for the reader to easily understand. Breaking it up!
+  % GMK NOTE: This paragraph was too long for the reader to easily understand. Breaking it up!
 
   A relational database schema contains tables and columns, and constraints that restrict the values allowed into the
   tables. Since the runtime of a schema testing tool may be affected by the number of any of these, it is best to have a
@@ -48,45 +48,29 @@
   % An example of a general semantic doubling is shown in
   % Figure~\ref{fig:generaldouble}.
 
-  \textbf{Automatic Experiment}To determine worst case complexity, an input
-  $n$ is doubled until the ratio $f(2n) / f(n)$ converges to a stable value.
-  To account for random error, every time $n$ is doubled, $f(n)$ is recorded
-  ten times, and the median time is used for calculating the ratios.  We chose
-  median to minimize the effect of outliers. If mean is used instead, a
-  single abnormally long run could have a large effect on the result. The
-  overall structure of the experiment is shown in Figure~\ref{fig:doublingexp}.
+  \textbf{Automatic Experimentation}. To determine worst case complexity, an input $n$ is doubled until the ratio $f(2n)
+  / f(n)$ converges to a stable value.  To account for random error, every time $n$ is doubled, $f(n)$ is recorded ten
+  times, and the median time is used for calculating the ratios.  We chose median to minimize the effect of outliers. If
+  mean is used instead, a single abnormally long run could have a large effect on the result. The overall structure of
+  the experiment is shown in Figure~\ref{fig:doublingexp}.
 
-  Convergence checking is necessary because of the fact that worst-case
-  time is only apparent for large values of $n$. If too few doubles
-  are tried, then the experiment may terminate before $n$ reaches a value
-  where the true worst-case time complexity is apparent. At the same time,
-  for inefficient  algorithms, each additional doubling run incurs a substantial
-  time overhead. For the sake of efficiently, the experiment should
-  terminate as quickly as possible.
+  Convergence checking is necessary because of the fact that worst-case time is only apparent for large values of $n$.
+  If too few doubles are tried, then the experiment may terminate before $n$ reaches a value where the true worst-case
+  time complexity is apparent. At the same time, for inefficient  algorithms, each additional doubling run incurs a
+  substantial time overhead. For the sake of efficiently, the experiment should terminate as quickly as possible.
 
-  To test for convergence, for every time $t$, where $t$ denotes the
-  number of times the input has been doubled, we record the each
-  doubling ratio $r_t = \frac{f(2^t n)}{f(2^{t-1}n)}$. The current ratio
-  $r_c$ is compared to a previous ratio $r_p$ where $p$ is determined by
-  a $\mathit{lookback}$ value, such that $p=c-\mathit{lookback}$.  The
-  result of the comparison is a $\mathit{difference}$ value, given by
-  $\mathit{difference} = |r_c - r_p|$.  This is then compared to a
-  tolerance value, and the experiment is judged to have converged when
-  $\mathit{difference}<\mathit{tolerance}$.  The $\mathit{lookback}$ and
-  $\mathit{tolerance}$ values are both configured before the experiment is
-  run.
+  To test for convergence, for every time $t$, where $t$ denotes the number of times the input has been doubled, we
+  record the each doubling ratio $r_t = \frac{f(2^t n)}{f(2^{t-1}n)}$. The current ratio $r_c$ is compared to a previous
+  ratio $r_p$ where $p$ is determined by a $\mathit{lookback}$ value, such that $p=c-\mathit{lookback}$.  The result of
+  the comparison is a $\mathit{difference}$ value, given by $\mathit{difference} = |r_c - r_p|$.  This is then compared
+  to a tolerance value, and the experiment is judged to have converged when $\mathit{difference}<\mathit{tolerance}$.
+  The $\mathit{lookback}$ and $\mathit{tolerance}$ values are both configured before the experiment is run.
 
-  Another consequence of worst-case time only being apparent for large
-  $n$, is that a very small initial $n$ may appear to converge to one,
-  which indicates constant time. To prevent the
-  experiment from incorrectly terminating given a small starting $n$, we
-  require that a program under study display a ratio of one for a
-  $\mathit{minimum}$ number of times before judging that the ratio does in fact converge to one.
-  That is, if $r_c = 1$, $t > \mathit{minimum}$ must be true in addition
-  to the tolerance test before the experiment is declared convergent.
-  The $\mathit{minumum}$ parameter is also configured before an
-  experiment.
-  Because a doubling ratio of one signifies constant or logarithmic
-  time complexity, requiring these doubles does not significantly increase the time needed
-  to run the experiment, while providing assurance that a small ratio is not due
-  to an insufficiently small $n$.
+  Another consequence of worst-case time only being apparent for large $n$, is that a very small initial $n$ may appear
+  to converge to one, which indicates constant time. To prevent the experiment from incorrectly terminating given a
+  small starting $n$, we require that a program under study display a ratio of one for a $\mathit{minimum}$ number of
+  times before judging that the ratio does in fact converge to one.  That is, if $r_c = 1$, $t > \mathit{minimum}$ must
+  be true in addition to the tolerance test before the experiment is declared convergent.  The $\mathit{minumum}$
+  parameter is also configured before an experiment.  Because a doubling ratio of one signifies constant or logarithmic
+  time complexity, requiring these doubles does not significantly increase the time needed to run the experiment, while
+  providing assurance that a small ratio is not due to an insufficiently small $n$.
