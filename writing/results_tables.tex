@@ -1,0 +1,74 @@
+%!TEX root=seke.tex
+% mainfile: ../seke.tex
+
+While the box and whisker plots allow us to see how choices between coverage criterions and data generators affects
+runtime, the question remains if these differences are statistically and practically significant. To answer this
+question, we calculate the Wilcoxon rank sum test and the $\hat{A}_{12}$ test.
+
+We perform these tests for every pair of coverage criterions, and every pair of data generators.  Table~\ref{tab:crites}
+shows the results of these tests for coverage criteria, and Table~\ref{tab:datas} shows the results for data generators.
+
+The Wilcoxon rank sum test is a nonparematric test for hypothesis
+testing.  If the result of the test is greater than the significance
+level ($0.05$ is frequently used), then the collections are
+indistingushable.  If however, then result is less, then the collections
+are differentiable.  The $\hat{A}_{12}$ test is similar, but for drawing
+conclusions about the pratical differance between two collections of
+data.  The rank sum test reveals if the collections are statistically differant, while
+the $\hat{A}_{12}$ test determines if the collections are differant
+enough to have a noticeable impact in pratice.
+
+% TODO: What do the tables tell us?
+
+\begin{table*}[h]
+\begin{tabular}{llllllllll}
+           & APC      & ANCC     & CondAICC & NCC      & AUCC     & AICC     & ClauseAICC & ICC      & UCC   \\
+APC        & NA       & \cellcolor{gray!25}0.425    &
+\cellcolor{gray!45}0.337    & 0.484    &\cellcolor{gray!45} 0.334    &
+\cellcolor{gray!25}0.413    &\cellcolor{gray!45} 0.329      & 0.481    & 0.449 \\
+ANCC       & 2.20E-16 & NA       &\cellcolor{gray!25} 0.407
+&\cellcolor{gray!25} 0.561    &\cellcolor{gray!25} 0.405    & 0.484
+&\cellcolor{gray!25} 0.399      & 0.554    & 0.526 \\
+CondAICC   & 2.20E-16 & 2.20E-16 & NA       &\cellcolor{gray!45} 0.671
+& 0.503    &\cellcolor{gray!25} 0.581    & 0.492
+&\cellcolor{gray!45} 0.656    &\cellcolor{gray!25} 0.634 \\
+NCC        & 1.20E-02 & 2.20E-16 & 2.20E-16 & NA
+&\cellcolor{gray!45} 0.335    &\cellcolor{gray!25} 0.417
+&\cellcolor{gray!45} 0.322      & 0.491    & 0.461 \\
+AUCC       & 2.20E-16 & 2.20E-16 & \cellcolor{gray!65}6.92E-01 & 2.20E-16 & NA       &
+\cellcolor{gray!25}0.577    & 0.490      &\cellcolor{gray!45} 0.651
+&\cellcolor{gray!25} 0.628 \\
+AICC       & 2.20E-16 & 1.70E-02 & 2.20E-16 & 2.20E-16 & 2.20E-16 & NA
+&\cellcolor{gray!25} 0.412      &\cellcolor{gray!25} 0.571    & 0.547 \\
+ClauseAICC & 2.20E-16 & 2.20E-16 & \cellcolor{gray!65}2.72E-01 & 2.20E-16 & 1.40E-01 &
+2.20E-16 & NA         & \cellcolor{gray!45}0.662    &\cellcolor{gray!45} 0.641 \\
+ICC        & 4.00E-03 & 2.20E-16 & 2.20E-16 &\cellcolor{gray!65} 1.83E-01 & 2.20E-16 & 2.20E-16 & 2.20E-16   & NA       & 0.472 \\
+UCC        & 9.30E-16 & 3.83E-05 & 2.20E-16 & 7.36E-10 & 2.20E-16 & 5.73E-13 & 2.20E-16   & 9.29E-06 & NA    \\
+\end{tabular}
+\caption{For each pair of coverage criterions, lower left shows Wilcox
+Rank Sum Test, upper right shows $\hat{A}_{12}$.}
+\label{tab:crites}
+\end{table*}
+
+
+\begin{table*}[h]
+\begin{tabular}{lllllll}
+                         & Random   & Random Defaults & Directed Random & Directed Random Defaults & AVM      & AVM Defaults \\
+Random                   & NA       & 0.538
+&\cellcolor{gray!65} 0.740           &\cellcolor{gray!65} 0.789
+&\cellcolor{gray!25} 0.627    &\cellcolor{gray!45} 0.680        \\
+Random Defaults          & 6.59E-13 & NA              &
+\cellcolor{gray!45}0.673           &\cellcolor{gray!45} 0.701
+&\cellcolor{gray!25} 0.564    & \cellcolor{gray!25}0.617        \\
+Directed Random          & 2.20E-16 & 2.20E-16        & NA
+& 0.543                    &\cellcolor{gray!25} 0.360    &\cellcolor{gray!25} 0.435        \\
+Directed Random Defaults & 2.20E-16 & 2.20E-16        & 9.74E-16
+& NA                       &\cellcolor{gray!45} 0.328    &\cellcolor{gray!25} 0.395        \\
+AVM                      & 2.20E-16 & 2.20E-16        & 2.20E-16
+& 2.20E-16                 & NA       &\cellcolor{gray!25} 0.572        \\
+AVM Defaults             & 2.20E-16 & 2.20E-16        & 2.20E-16        & 2.20E-16                 & 2.20E-16 & NA
+\end{tabular}
+\caption{For each pair of Data Generators, lower left shows Wilcox Rank
+Sum Test, upper right shows $\hat{A}_{12}$.}
+\label{tab:datas}
+\end{table*}
