@@ -42,11 +42,9 @@
   Doubling integrity constraints is more challenging.  The FOREIGN KEY constraint, for instance, denotes a relationship
   between two tables, thus making it difficult to double without introducing extraneous database entities or cyclic
   dependencies.  Since a CHECK constraint can express arbitrary conditions, it is also challenging to double if the
-  meaning of each constraint must be considered to ensure
-  satisfiability.  Since a table can only contain one PRIMARY KEY, if a
-  schema contains five tables, then at most it can have five PRIMARY KEY
-  constraints, as adding more keys would require
-  increasing the number of tables, which should be avoided.
+  meaning of each constraint must be considered to ensure satisfiability.  Since a table can only contain one PRIMARY
+  KEY, if a schema contains five tables, then at most it can have five PRIMARY KEY constraints, as adding more keys
+  would require creating more tables, which should be avoided.
 
   % GMK QUESTION: So, **what are** the constraints that can be doubled in this fashion? This must be clarified.
   %CBK ANSWER: NOT NULL, UNIQUE, and CHECK
