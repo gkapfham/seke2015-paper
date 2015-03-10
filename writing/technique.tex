@@ -48,12 +48,14 @@
 
   % GMK QUESTION: So, **what are** the constraints that can be doubled in this fashion? This must be clarified.
 
-  Because of these issues, we focus our attention to constraints that can be doubled as follows: for every table, for
-  every constraint, duplicate that constraint and re-add it to the table.  We refer to this doubling strategy as,
-  semantic doubling.  Note that constraints doubled this way would not have an impact on what data the schema would
-  allow or disallow into a database, since semantic doubling amounts to a restatement of existing constraints.  However,
-  since the goal is to evaluate performance, the results should not be affected as long as the test-data generation tool
-  still performs work to process the constraints.
+  % We refer to this doubling strategy as, semantic doubling.  
+
+  Because of these issues, and others like them, we focus our attention on constraints that can be doubled as follows:
+  for every table and for every constraint, duplicate that constraint and re-add it to the table.  Constraints such as
+  NOT NULL, UNIQUE, and CHECK are amenable to doubling in this fashion.  It is worth noting that constraints doubled this way
+  would not have an impact on what data the schema would allow or disallow into a database, since they amount to a
+  restatement of existing constraints.  However, since the goal is to evaluate performance, the results should not be
+  affected as long as the test-data generation technique must still process and consider the additional constraints.
 
   % An example of a general semantic doubling is shown in
   % Figure~\ref{fig:generaldouble}.
