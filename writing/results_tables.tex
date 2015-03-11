@@ -11,14 +11,32 @@ shows the results of these tests for coverage criteria, and Table~\ref{tab:datas
 The Wilcoxon rank sum test is a nonparematric test for hypothesis
 testing.  If the result of the test is greater than the significance
 level ($0.05$ is frequently used), then the collections are
-indistingushable.  If however, then result is less, then the collections
+indistingushable.  If however, the result is less, then the collections
 are differentiable.  The $\hat{A}_{12}$ test is similar, but for drawing
 conclusions about the pratical differance between two collections of
-data.  The rank sum test reveals if the collections are statistically differant, while
-the $\hat{A}_{12}$ test determines if the collections are differant
-enough to have a noticeable impact in pratice.
+data.  A result $a=0.5$0 means that any differance is not pratically
+significant, while $a>0.56$ or $a<0.44$ signifies a small differnace,
+$a>0.64$ or $a<0.36$ denotes a medium differance, and $a>0.71$ or
+$a<0.29$ indicates a large differance. 
 
-% TODO: What do the tables tell us?
+Table~\ref{tab:crites} reveals that changing the criterion results in
+satistically significant differances in runtimes, with the excpetion of
+changing between four constraints at the top of the subsumption
+heirarchy, and two constraints at the bottom.  The $\hat{A}_{12}$
+results generally show a small to medium practical effect of switching
+between criterions at the high or low end of the herirchy, and small or
+no effect of switching between constraints at the same level of the
+heriarchy.
+
+% This table might be on the chopping block
+Table~\ref{tab:datas} shows a statistically significant differance
+between all pairs of data generators. The $\hat{A}_{12}$ results all
+choices in data generator have at least a small pratical impact, with
+the exeption of choosing between random and random defaults, and
+directed random and directed random defaults.  Change between these sets
+of data generators results in a large to medium effect, and compairing
+either AVM data generator to another primarily resulted in a small
+differance.
 
 \begin{table*}[h]
 \begin{tabular}{llllllllll}
