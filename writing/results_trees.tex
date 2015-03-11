@@ -1,6 +1,28 @@
 %!TEX root=seke.tex
 % mainfile: ../seke.tex
 
+% Box and whisker plots
+% Belongs to results_bwplots, but must be here for positioning reasons
+
+\begin{figure*}
+\centering
+\begin{subfigure}{0.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{diagrams/CriterionvsTime.pdf}
+  \caption{Coverage criterion versus runtime in minutes.}
+  \label{fig:crites}
+\end{subfigure}%
+\begin{subfigure}{0.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{diagrams/DataGeneratorvsTime.pdf}
+  \caption{Data generator versus runtime in minutes.}
+  \label{fig:datas}
+\end{subfigure}
+\label{fig:bwplots}
+\caption{Box and whisker plots for criterion and data
+  generator.}
+\end{figure*}
+
 To gain a more nuanced understanding of the results, we construct a
 regression tree using the \textit{ctree} package for the R langauge. A
 regression tree attempts to use the values of predictor variables to
@@ -27,13 +49,3 @@ predictor on the runtime of \textit{SchemaAnalyst}, the box and whisker
 plots produced as the leaves of the trees do not provide a detailed view
 of the choices within each predictor.  To gain a finer level of
 granularity, we produce box and wisker plots of our own.
-
-\begin{figure*}
-\centering
-  \centering
-  \includegraphics[width=.75\linewidth]{diagrams/AllTree.pdf}
-  \caption{Regression tree using all variables to predict runtime in
-  minutes. \vspace{-.15in}}
-  \label{fig:atree}
-  \vspace{-.15in}
-\end{figure*}
