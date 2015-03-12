@@ -20,19 +20,19 @@ defines integrity constraints ensuring the coherence of data. These constraints 
 that could violate requirements such as ``user names must be unique'' or ``the host name cannot be missing or unknown''.
 Prior work in this area proposed coverage criteria, derived from logic coverage criteria, that establish different
 levels of testing for the formulation of integrity constraints in a database schema~\cite{mcminn2015}. These range from
-simple criteria that mandate the testing of successful and unsuccessful INSERT statements into tables to more advanced
-criteria that test the formulation of complex integrity constraints such as multi-column PRIMARY KEYs and arbitrary
-CHECK constraints. This family of criteria has been organized into a subsumption hierarchy, with criteria such as {\em
-Clause-Based Active Integrity Constraint Coverage} (ClauseAICC) emerging as a stringent testing strategy. Since space
-constraints limit further commentary on testing methods for database schemas, the reader is referred
-to~\cite{mcminn2015} for more details.
+simple criteria that mandate the testing of successful and unsuccessful {\tt INSERT} statements into tables to more
+advanced criteria that test the formulation of complex integrity constraints such as multi-column {\tt PRIMARY~KEY}s and
+arbitrary {\tt CHECK} constraints. This family of criteria has been organized into a subsumption hierarchy, with
+criteria such as {\em Clause-Based Active Integrity Constraint Coverage} (ClauseAICC) emerging as a stringent testing
+strategy. Since space constraints limit further commentary on testing methods for database schemas, the reader is
+referred to~\cite{mcminn2015} for more details.
 
 % Since the quality of the test depends upon the characteristics of the data itself, test data generators systematically
 % produce test inputs according to a criterion.
 
 {\bf Search-Based Test Data Generation}. When testing a schema's integrity constraints for correctness, it is often
 necessary to provide input to the database and observe and evaluate its execution~\cite{kapfhammer2013}.  Since the
-database's behavior is dependant on the input from INSERTs, the input space must be sufficiently explored to ensure
+database's behavior is dependant on the input from {\tt INSERT}s, the input space must be sufficiently explored to ensure
 thorough testing.  Due to the fact that it is challenging to manually create input that supports high-quality testing,
 test data generation is used to automatically produce it according to a criterion, like ClauseAICC. A search-based test
 data generator is one that explores that input space using, among other components, a fitness function that rates the

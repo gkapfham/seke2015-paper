@@ -40,12 +40,12 @@
   % An alternative plan could be starting with a very large number of tables with no primary keys that could accommodate
   % doubling their number for many trials, but this introduces unnecessary performance concerns.
 
-  Doubling integrity constraints is more challenging.  The FOREIGN KEY constraint, for instance, denotes a relationship
+  Doubling integrity constraints is more challenging.  The {\tt FOREIGN KEY} constraint, for instance, denotes a relationship
   between two tables, thus making it difficult to double without introducing extraneous database entities or cyclic
-  dependencies.  Since a CHECK constraint can express arbitrary conditions, it is also challenging to double if the
-  meaning of each constraint must be considered to ensure satisfiability.  Since a table can only contain one PRIMARY
-  KEY, if a schema contains five tables, then at most it can have five PRIMARY KEY constraints, as adding more keys
-  would require creating more tables, which should be avoided.
+  dependencies.  Since a {\tt CHECK} constraint can express arbitrary conditions, it is also challenging to double if the
+  meaning of each constraint must be considered to ensure satisfiability.  Since a table can only contain one {\tt
+  PRIMARY KEY}, if a schema contains five tables, then at most it can have five {\tt PRIMARY KEY} constraints, as adding more
+  keys would require creating more tables, which should be avoided.
 
   % GMK QUESTION: So, **what are** the constraints that can be doubled in this fashion? This must be clarified.
   %CBK ANSWER: NOT NULL, UNIQUE, and CHECK
@@ -57,10 +57,11 @@
 
   Because of these issues, and others like them, we focus our attention on constraints that can be doubled as follows:
   for every table and for every constraint, duplicate that constraint and re-add it to the table.  Constraints such as
-  NOT NULL, UNIQUE, and CHECK are amenable to doubling in this fashion.  It is worth noting that constraints doubled this way
-  would not have an impact on what data the schema would allow or disallow into a database, since they amount to a
-  restatement of existing constraints.  However, since the goal is to evaluate performance, the results should not be
-  affected as long as the test-data generation technique must still process and consider the additional constraints.
+  {\tt NOT NULL}, {\tt UNIQUE}, and {\tt CHECK} are amenable to doubling in this fashion.  It is worth noting that
+  constraints doubled this way would not have an impact on what data the schema would allow or disallow into a database,
+  since they amount to a restatement of existing constraints.  However, since the goal is to evaluate performance, the
+  results should not be affected as long as the test-data generation technique must still process and consider the
+  additional constraints.
 
   \textbf{Automatic Experimentation}. To determine worst case complexity, an input $n$ is doubled until the ratio $f(2n)
   / f(n)$ converges to a stable value.  To account for random error, every time $n$ is doubled, $f(n)$ is recorded ten
