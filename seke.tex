@@ -29,7 +29,7 @@
 % \title{Empirically Evaluating the Efficiency of Search-based \\ Test Data
 % Generation for Relational Database Schemas\vspace*{-.1in}}
 
-\title{\vspace*{-.4in}Automatically Evaluating the Efficiency of Search-Based \\ Test Data
+\title{\vspace*{-.4in}Automatically Evaluating the Efficiency of \\ Search-Based Test Data
 Generation for Relational Database Schemas\vspace*{-.1in}}
 
 \author{Cody Kinneer \goallegheny                \and
@@ -57,15 +57,16 @@ Generation for Relational Database Schemas\vspace*{-.1in}}
 % After describing a way to systematically doubling the size of structured data, we report on a study demonstrating the
 % presented method's effectiveness.
 
-The characterization of an algorithm's worst-case time complexity is useful because it succinctly captures how algorithm
+The characterization of an algorithm's worst-case time complexity is useful because it succinctly captures how it's
 runtime will grow as the input size becomes arbitrarily large.  However, for certain algorithms---such as those
-performing search-based test data generation---a theoretical analysis to determine worst-case complexity is cumbersome
-and thus not reported in the literature.  This paper introduces a framework that empirically determines an algorithm's
-worst-case time complexity by doubling the size of the input and observing the change in runtime.  Since the relational
-database is a centerpiece of modern software and the database's schema is frequently untested, we apply the doubling
-technique to the domain of data generation for relational database schemas, a field where worst-case time complexities
-are unknown.  In addition to demonstrating the feasibility of suggesting the worst-case runtimes of the chosen
-algorithms and configurations, the results of our study reveal performance trade-offs in schema testing strategies.
+performing search-based test data generation---a theoretical analysis to determine worst-case complexity is difficult to
+generalize and thus not often reported in the literature.  This paper introduces a framework that empirically determines
+an algorithm's worst-case time complexity by doubling the size of the input and observing the change in runtime.  Since
+the relational database is a centerpiece of modern software and the database's schema is frequently untested, we apply
+the doubling technique to the domain of data generation for relational database schemas, a field where worst-case time
+complexities are unknown.  In addition to demonstrating the feasibility of suggesting the worst-case runtimes of the
+chosen algorithms and configurations, the results of our study reveal performance trade-offs in schema testing
+strategies.
 
 \end{abstract}
 
