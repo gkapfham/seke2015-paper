@@ -1,13 +1,17 @@
 %!TEX root=seke.tex
 % mainfile: ../seke.tex
 
-According to the decisions produced by the regression tree, the choice of coverage criterion and data generator have an
-impact on the runtime of \textit{SchemaAnalyst}. To show the effect of these choices, we present
-Figure~\ref{fig:crites}, which shows the effect of coverage criterion on runtime, and Figure~\ref{fig:datas}, which
+
+While the trees provide insight into the relative impact of each
+predictor on the runtime of \textit{SchemaAnalyst}, the box and whisker
+plots produced as the leaves of the trees do not provide a detailed view
+of the choices within each predictor.  To gain a finer level of
+granularity, we produce box and wisker plots of our own.
+Figure~\ref{fig:crites}, shows the effect of coverage criterion on runtime, and Figure~\ref{fig:datas},
 shows the effect of data generator on runtime.
 
-For coverage criteria, the most apparent pattern is that AUCC, ClauseAICC, and CondAICC seem to cause runtime to
-increase by about the same amount, with the other criterions taking roughly the same amount of time.
+Figure~\ref{fig:crites} shows that the coverage criterions at the top of the subsumption hierarchy: AUCC, ClauseAICC, and CondAICC cause runtime to
+increase.  Additionally, their is not a great distinction between criterions of the same level of the hierarchy.
 
-For data generator, the Random and Random Defaults generators took the most amount of time by a distinctive margin, and
+Figure~\ref{fig:datas} reavles the Random and Random Defaults generators took the most amount of time by a distinctive margin, and
 a less pronounced hierarchy between AVM, AVM defaults, Directed Random, and Directed Random Defaults can be observed.
