@@ -16,8 +16,8 @@ critical information~\cite{kapfhammer2007}. The relational database schema defin
 protects the integrity of the data. This makes testing the database schema necessary to avoid the corruption of data.
 Search-based algorithms, that use a fitness function to offer guidance to the correct solution, have been applied to
 this challenging problem~\cite{kapfhammer2013}. Although data generation for relational schemas may also be solved,
-albeit less effectively, with random generation schemes~\cite{mcminn2015}, the use of search-based methods ensures that
-data creation methods can actively seek out test inputs that best fulfill testing goals~\cite{mcminn2004a}.
+albeit less effectively, with random generation techniques~\cite{mcminn2015}, the use of search-based approaches ensures
+that data creation methods can actively seek out test inputs that best fulfill testing goals~\cite{mcminn2004a}.
 
 % GMK NOTE: Revised this content in the paragraph above and below
 
@@ -26,9 +26,10 @@ data creation methods can actively seek out test inputs that best fulfill testin
 % program’s input space, the data generator can actively seek out qualities of an input that best fulfills the test’s
 % goals~\cite{McMinn2004a}.
 
-Despite the effectiveness of search-based data generation methods, there is, to the best of our knowledge, no prior
+Despite the effectiveness of search-based data generation methods, there is, to the best of our knowledge, little prior
 research that fully studies their efficiency and characterizes their worst-case time complexity. In part, we attribute
-this dearth of prior work to the fact that these systems are complex and thus often difficult to analyze theoretically.
+this dearth of past work to the fact that these systems are complex, thus making generalizable theoretical analysis
+hard.
 
 In response to this lack of insight into the performance of search-based methods, this paper presents a fully automated
 performance evaluation framework that employs doubling experiments to suggest worst-case time complexities and
