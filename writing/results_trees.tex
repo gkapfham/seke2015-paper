@@ -1,28 +1,6 @@
 %!TEX root=seke.tex
 % mainfile: ../seke.tex
 
-% Box and whisker plots
-% Belongs to results_bwplots, but must be here for positioning reasons
-
-\begin{figure*}
-\centering
-\begin{subfigure}{0.5\textwidth}
-  \centering
-  \includegraphics[width=1\linewidth]{diagrams/CriterionvsTime.pdf}
-  \caption{Coverage criterion versus runtime in minutes.}
-  \label{fig:crites}
-\end{subfigure}%
-\begin{subfigure}{0.5\textwidth}
-  \centering
-  \includegraphics[width=1\linewidth]{diagrams/DataGeneratorvsTime.pdf}
-  \caption{Data generator versus runtime in minutes.}
-  \label{fig:datas}
-\end{subfigure}
-\label{fig:bwplots}
-\caption{Box and whisker plots for criterion and data
-  generator.}
-\end{figure*}
-
 To gain a more nuanced understanding of the results, we constructed a regression tree using the \textit{ctree} package
 for the R langauge. A regression tree attempts to use the values of predictor variables to predict the value of a
 responce variable. A regression tree accopmlishes this by repeadidily splitting the data according to what predictor

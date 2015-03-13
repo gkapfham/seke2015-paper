@@ -1,6 +1,28 @@
 %!TEX root=seke.tex
 % mainfile: ../seke.tex
 
+% Box and whisker plots
+% Belongs to results_bwplots, but must be here for positioning reasons
+
+\begin{figure*}[t!]
+\centering
+\begin{subfigure}{0.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{diagrams/CriterionOrder.pdf}
+  \caption{Coverage criterion versus runtime in minutes.}
+  \label{fig:crites}
+\end{subfigure}%
+\begin{subfigure}{0.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{diagrams/DataGeneratorOrder.pdf}
+  \caption{Data generator versus runtime in minutes.}
+  \label{fig:datas}
+\end{subfigure}
+\label{fig:bwplots}
+\caption{Box and whisker plots for criterion and data
+  generator.}
+\end{figure*}
+
 \textbf{Results}. Our experiments reveal that for the number of \texttt{Uniques, NotNulls, and Checks},
 \textit{SchemaAnalyst} displays linear or lineararithmic worst-case time complexity.  Out of the 699 experiments
 performed doubling these schema structures, $72\%$ converged to linear or linearithmic.  Another $8\%$ failed to
