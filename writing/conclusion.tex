@@ -3,8 +3,15 @@
 
 \section{Conclusions and Future Work}
 
-The automated doubling experiment was able to determine the worst case time complexity of \textit{SchemaAnalyst} with
-respect to the number of check constraints in the input schema, for the \textsc{constraintCACCoverage} criterion and the
-\textsc{directedRandom} data generator.  Additional experiments will be conducted on other criteria and data generators.
-Additionally, other factors that may influence the runtime of schema analysis, such as the number of primary keys,
-foreign keys, tables, columns, etc will be investigated.
+% The automated doubling experiment was able to determine the worst case time complexity of \textit{SchemaAnalyst} with
+% respect to the number of check constraints in the input schema, for the \textsc{constraintCACCoverage} criterion and the
+% \textsc{directedRandom} data generator.  Additional experiments will be conducted on other criteria and data generators.
+% Additionally, other factors that may influence the runtime of schema analysis, such as the number of primary keys,
+% foreign keys, tables, columns, etc will be investigated.
+
+This paper presented an automated method for empirically identifying the worst-case time complexity of search-based test
+data generation methods. Focusing on the domain of relational database schemas, our approach empirically repeatedly
+doubles the size of the input schema and observes the change in runtime. Although some results are inconclusive, we find
+that, in some cases, data generation is linear or linearithmic and, in others, it is cubic, quadratic, or worse.  Our
+automated method also revealed that, for all of the test adequacy criteria in the subsumption hierarchy presented by
+McMinn et al.~\cite{mcminn2015}, stronger criteria always necessitate more time for test data generation.
