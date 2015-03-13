@@ -9,9 +9,19 @@
 % Additionally, other factors that may influence the runtime of schema analysis, such as the number of primary keys,
 % foreign keys, tables, columns, etc will be investigated.
 
-This paper presented an automated method for empirically identifying the worst-case time complexity of search-based test
+This paper presented an automated method for empirically suggesting the worst-case time complexity of search-based test
 data generation methods. Focusing on the domain of relational database schemas, our approach repeatedly doubles the size
 of the input schema and observes the commensurate change in runtime. Although some results are inconclusive, we find
 that, in many cases, data generation is linear or linearithmic and, in others, it is cubic, quadratic, or worse.  Our
 automated method also revealed that, for all of the test adequacy criteria in the subsumption hierarchy presented by
 McMinn et al.~\cite{mcminn2015}, stronger criteria always necessitate more time for test data generation.
+
+Since this paper's technique did not consider the doubling of constraints like {\tt FOREIGN KEY}s, future work will
+focus on creating doublers for these unstudied constraints. Additionally, the current doubling mechanism avoids
+introducing semantically invalid constraints by restating existing constraints; in future work we plan to implement and
+evaluate more realistic ways to double relational schemas. Because certain experiments timed out before converging, we
+also want to re-run these configurations with longer time limits and more memory. Finally, we will investigate how
+automated parameter tuning can support choosing the convergence condition without manual study before running
+experiments in a new computational environment. Ultimately, the combination of the presented framework with the
+completed future work will yield an effective way to empirically understand the worst-case case time complexity
+of search-based test data generation techniques.
