@@ -84,15 +84,26 @@ paper is also contrasted with this prior work because it describes experiments i
 generation, where the method's worst-case time complexity is not known.
 
 Zhao et al.\ presented an empirical study of the performance of search-based test data generation for extended finite
-state machine (EFSM) models~\cite{zhao2010}. Although this paper focused on efficiency and made preliminary
-observations about the relationship between performance and the characteristics of an EFSM model, it did not, like our
-paper, use doubling experiments to suggest worst-case time complexities.  Lakhotia et al.\ also reported on an
-experimental analysis of the efficiency and effectiveness of search-based test data generation for C
-programs~\cite{lakhotia2013}.  While our paper looks at generator performance in a holistic manner, this prior work
-considered the number of fitness evaluations during data generation. Similar to our use of doublers that systematically
-increase the size of a relational schema, Mehrmand and Feldt empirically studied search-based data generation as the size
-of the program increases~\cite{mehrmand2010}. Yet, their focus is on the generator's success in covering
-source code branches instead of the efficiency of the data generation process.
+state machine (EFSM) models~\cite{zhao2010}. Although this paper focused on efficiency and made preliminary observations
+about the relationship between performance and the characteristics of an EFSM model, it did not, like our paper, use
+doubling experiments to suggest worst-case time complexities.  Lakhotia et al.\ also reported on an experimental
+analysis of the efficiency and effectiveness of search-based test data generation for C programs~\cite{lakhotia2013}.
+While our paper looks at generator performance in a holistic manner, this prior work considered the number of fitness
+evaluations during data generation. Similar to our use of doublers that systematically increase the size of a relational
+schema, Mehrmand and Feldt empirically studied search-based data generation as the size of the program
+increases~\cite{mehrmand2010}. Yet, their focus is on the generator's success in covering source code branches instead
+of the efficiency of the data generation process.
+
+% GMK NOTE: Adding in the references to the two papers suggested by PM
+
+The empirical work presented in this paper is complemented by theoretical runtime analyses in prior research.  For
+instance, Arcuri presented the first runtime analysis of a search-based test data generator called the alternating
+variable method (AVM) \cite{arcuri2009}, which is also studied in this paper. Arcuri proves the worst-case time
+complexity of AVM when it generates data for a simple program called ``triangle classification''. More recently, Kempka
+et al.\ extended the work of Arcuri with a theoretical and empirical runtime analysis revealing that the use of certain
+local search techniques with AVM yields better performance than AVM alone \cite{kempka2015}.  While our paper's
+automated framework can easily be applied to new schemas---and even other types of search-based test data
+generators---the results in these two aforementioned papers are more difficult to generalize.
 
 % GMK NOTE: I think that I will not cite the Yoo et al. paper right now, due to lack of space.
 
