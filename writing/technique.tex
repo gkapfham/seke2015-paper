@@ -63,11 +63,11 @@
   results should not be affected as long as the test data generation technique must still process and consider these
   additional constraints.
 
-  \textbf{Automatic Experimentation}. To determine worst case complexity, an input $n$ is doubled until the ratio $f(2n)
-  / f(n)$ converges to a stable value.  To account for random error, every time $n$ is doubled, $f(n)$ is recorded ten
-  times, and the median time is used for calculating the ratios.  We chose median to minimize the effect of outliers. If
-  mean is used instead, a single abnormally long run could have a large effect on the result. The overall structure of
-  the experiment is shown in Figure~\ref{fig:doublingexp}.
+  \textbf{Automatic Experimentation}. To determine worst-case complexity, an input $n$ is doubled until the ratio $f(2n)
+  / f(n)$ converges to a stable value.  To account for random error, every time $n$ is doubled, $f(n)$ is computed ten
+  times and the median time is used for calculating the ratios; we chose the median to minimize the effect of outliers.
+  If the mean is used instead, then a single abnormally long run could have an outsized impact on the result.
+  Figure~\ref{fig:doublingexp} shows the overall structure of the experimentation framework.
 
   Convergence checking is necessary because of the fact that worst-case time is only apparent for large values of $n$.
   If too few doubles are tried, then the experiment may terminate before $n$ reaches a value where the true worst-case
