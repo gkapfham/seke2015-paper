@@ -1,43 +1,33 @@
 %!TEX root=seke.tex
 % mainfile: ../seke.tex
 
-While the box and whisker plots allow us to see how choices between coverage criterions and data generators affects
+While the box and whisker plots allow us to see how choices between coverage criteria and data generators affects
 runtime, the question remains if these differences are statistically and practically significant. To answer this
 question, we calculate the Wilcoxon rank sum test and the $\hat{A}_{12}$ test.
 
-We perform these tests for every pair of coverage criterions, and every pair of data generators.  Table~\ref{tab:crites}
+We perform these tests for every pair of coverage criteria, and every pair of data generators.  Table~\ref{tab:crites}
 shows the results of these tests for coverage criteria, and Table~\ref{tab:datas} shows the results for data generators.
 
-The Wilcoxon rank sum test is a nonparematric test for hypothesis
-testing.  If the result of the test is greater than the significance
-level ($0.05$ is frequently used), then the collections are
-indistingushable.  If however, the result is less, then the collections
-are differentiable.  The $\hat{A}_{12}$ test is similar, but for drawing
-conclusions about the pratical differance between two collections of
-data.  A result $a=0.5$0 means that any differance is not pratically
-significant, while $a>0.56$ or $a<0.44$ signifies a small differnace,
-$a>0.64$ or $a<0.36$ denotes a medium differance, and $a>0.71$ or
-$a<0.29$ indicates a large differance. 
+The Wilcoxon rank sum test is a nonparematric test for hypothesis testing.  If the result of the test is greater than
+the significance level ($0.05$ is frequently used), then the collections are indistingushable.  If however, the result
+is less, then the collections are differentiable.  The $\hat{A}_{12}$ test is similar, but for drawing conclusions about
+the pratical differance between two collections of data.  A result $a=0.5$0 means that any differance is not pratically
+significant, while $a>0.56$ or $a<0.44$ signifies a small differnace, $a>0.64$ or $a<0.36$ denotes a medium differance,
+and $a>0.71$ or $a<0.29$ indicates a large differance.
 
-Table~\ref{tab:crites} reveals that changing the criterion results in
-satistically significant differances in runtimes, with the excpetion of
-changing between four constraints at the top of the subsumption
-heirarchy, and two constraints at the bottom.  The $\hat{A}_{12}$
-results generally show a small to medium practical effect of switching
-between criterions at the high or low end of the herirchy, and small or
-no effect of switching between constraints at the same level of the
-heriarchy.
+Table~\ref{tab:crites} reveals that changing the criterion results in satistically significant differances in runtimes,
+with the excpetion of changing between four constraints at the top of the subsumption heirarchy, and two constraints at
+the bottom.  The $\hat{A}_{12}$ results generally show a small to medium practical effect of switching between
+criteria at the high or low end of the herirchy, and small or no effect of switching between constraints at the same
+level of the heriarchy.
 
 % This table might be on the chopping block
-Table~\ref{tab:datas} shows a statistically significant differance
-between all pairs of data generators. The $\hat{A}_{12}$ results all
-choices in data generator have at least a small pratical impact, with
-the exeption of choosing between random and random defaults, and
-directed random and directed random defaults.  Change between these sets
-of data generators results in a large to medium effect, and compairing
-either AVM data generator to another primarily resulted in a small
-differance.
 
+Table~\ref{tab:datas} shows a statistically significant differance between all pairs of data generators. The
+$\hat{A}_{12}$ results all choices in data generator have at least a small pratical impact, with the exeption of
+choosing between random and random defaults, and directed random and directed random defaults.  Change between these
+sets of data generators results in a large to medium effect, and compairing either AVM data generator to another
+primarily resulted in a small differance.
 
 \begin{table*}[h]
   \centering

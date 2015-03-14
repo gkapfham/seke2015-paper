@@ -60,7 +60,7 @@
   {\tt NOT NULL}, {\tt UNIQUE}, and {\tt CHECK} are amenable to doubling in this fashion.  It is worth noting that
   constraints doubled this way would not have an impact on what data the schema would allow or disallow into a database,
   since they amount to a restatement of existing constraints.  However, since the goal is to evaluate performance, the
-  results should not be affected as long as the test-data generation technique must still process and consider the
+  results should not be affected as long as the test data generation technique must still process and consider the
   additional constraints.
 
   \textbf{Automatic Experimentation}. To determine worst case complexity, an input $n$ is doubled until the ratio $f(2n)
@@ -74,12 +74,9 @@
   time complexity is apparent. At the same time, for inefficient  algorithms, each additional doubling run incurs a
   substantial time overhead. For the sake of efficiently, the experiment should terminate as quickly as possible.
 
-  % CBK NOTE: Introducing the new equation for ratio with respect to
-  % time is helpful for explaining the convergence algorithm, but seems
-  % like a restatement of the ratio equation. 
-  % I considered only using this new equation when discussing the ratio
-  % for consistency, but it is unnecessarily complicated for earlier
-  % content
+  % CBK NOTE: Introducing the new equation for ratio with respect to time is helpful for explaining the convergence
+  % algorithm, but seems like a restatement of the ratio equation.  I considered only using this new equation when
+  % discussing the ratio for consistency, but it is unnecessarily complicated for earlier content
 
   To test for convergence, for every time $t$, where $t$ denotes the number of times the input has been doubled, we
   record the each doubling ratio $r_t = \frac{f(2^t n)}{f(2^{t-1}n)}$. The current ratio $r_c$ is compared to a previous
@@ -89,10 +86,10 @@
   The $\mathit{lookback}$ and $\mathit{tolerance}$ values are both configured before the experiment is run.
 
   Another consequence of worst-case time only being apparent for large $n$, is that a very small initial $n$ may appear
-  to converge to one, which indicates constant time complexity. To prevent the experiment from incorrectly terminating given a
-  small starting $n$, we require that a program under study display a ratio of one for a $\mathit{minimum}$ number of
-  times before judging that the ratio does in fact converge to one.  That is, if $r_c = 1$, $t > \mathit{minimum}$ must
-  be true in addition to the tolerance test before the experiment is declared convergent.  The $\mathit{minumum}$
-  parameter is also configured before an experiment.  Because a doubling ratio of one signifies constant or logarithmic
-  time complexity, requiring these doubles does not significantly increase the time needed to run the experiment, while
-  providing assurance that a small ratio is not due to an insufficiently small $n$.
+  to converge to one, which indicates constant time complexity. To prevent the experiment from incorrectly terminating
+  given a small starting $n$, we require that a program under study display a ratio of one for a $\mathit{minimum}$
+  number of times before judging that the ratio does in fact converge to one.  That is, if $r_c = 1$, $t >
+  \mathit{minimum}$ must be true in addition to the tolerance test before the experiment is declared convergent.  The
+  $\mathit{minimum}$ parameter is also configured before an experiment.  Because a doubling ratio of one signifies
+  constant or logarithmic time complexity, requiring these doubles does not significantly increase the time needed to
+  run the experiment, while providing assurance that a small ratio is not due to an insufficiently small $n$.

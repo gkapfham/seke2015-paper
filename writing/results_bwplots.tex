@@ -1,20 +1,19 @@
 %!TEX root=seke.tex
 % mainfile: ../seke.tex
 
+While the trees provide insight into the relative impact of each predictor on the runtime of \textit{SchemaAnalyst}, the
+box and whisker plots produced as the leaves of the trees do not provide a detailed view of the choices within each
+predictor.  To gain a finer level of granularity, we produce box and wisker plots of our own.  Figure~\ref{fig:crites},
+shows the effect of coverage criterion on runtime, and Figure~\ref{fig:datas}, shows the effect of data generator on
+runtime.
 
-While the trees provide insight into the relative impact of each
-predictor on the runtime of \textit{SchemaAnalyst}, the box and whisker
-plots produced as the leaves of the trees do not provide a detailed view
-of the choices within each predictor.  To gain a finer level of
-granularity, we produce box and wisker plots of our own.
-Figure~\ref{fig:crites}, shows the effect of coverage criterion on runtime, and Figure~\ref{fig:datas},
-shows the effect of data generator on runtime.
+Figure~\ref{fig:crites} shows that the coverage criteria at the top of the subsumption hierarchy: AUCC, ClauseAICC,
+and CondAICC cause runtime to increase.  Additionally, there is not a great distinction between criteria of the same
+level of the hierarchy.
 
-Figure~\ref{fig:crites} shows that the coverage criterions at the top of the subsumption hierarchy: AUCC, ClauseAICC, and CondAICC cause runtime to
-increase.  Additionally, there is not a great distinction between criterions of the same level of the hierarchy.
-
-Figure~\ref{fig:datas} reavles the Random and Random Defaults generators took the most amount of time by a distinctive margin, and
-a less pronounced hierarchy between AVM, AVM defaults, Directed Random, and Directed Random Defaults can be observed.
+Figure~\ref{fig:datas} reavles the Random and Random Defaults generators took the most amount of time by a distinctive
+margin, and a less pronounced hierarchy between AVM, AVM defaults, Directed Random, and Directed Random Defaults can be
+observed.
 
 \begin{table*}[th]
   \centering
@@ -43,7 +42,7 @@ ClauseAICC & 2.20E-16 & 2.20E-16 & \cellcolor{gray!65}2.72E-01 & 2.20E-16 & 1.40
 ICC        & 4.00E-03 & 2.20E-16 & 2.20E-16 &\cellcolor{gray!65} 1.83E-01 & 2.20E-16 & 2.20E-16 & 2.20E-16   & NA       & 0.472 \\
 UCC        & 9.30E-16 & 3.83E-05 & 2.20E-16 & 7.36E-10 & 2.20E-16 & 5.73E-13 & 2.20E-16   & 9.29E-06 & NA    \\
 \end{tabular}
-\caption{For each pair of coverage criterions, lower left shows Wilcox
+\caption{For each pair of coverage criteria, lower left shows Wilcox
 Rank Sum Test, upper right shows $\hat{A}_{12}$.}
 \label{tab:crites}
 \end{table*}
