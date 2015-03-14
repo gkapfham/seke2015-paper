@@ -87,9 +87,9 @@
 
   Another consequence of worst-case time only being apparent for large $n$, is that a very small initial $n$ may appear
   to converge to one, which indicates constant time complexity. To prevent the experiment from incorrectly terminating
-  given a small starting $n$, our method requires that a program under study display a ratio of one for a $\mathit{minimum}$
-  number of times before judging that the ratio does in fact converge to one.  That is, if $r_c = 1$, $t >
-  \mathit{minimum}$ must be true in addition to the tolerance test before the experiment is declared convergent.  The
-  $\mathit{minimum}$ parameter is also configured before an experiment.  Because a doubling ratio of one signifies
-  constant or logarithmic time complexity, requiring these doubles does not significantly increase the time needed to
-  run the experiment, while providing assurance that a small ratio is not due to an insufficiently small $n$.
+  given a small starting $n$, our method requires that a program under study display a ratio of one for a
+  $\mathit{minimum}$ number of times before judging that the ratio does in fact converge to one.  That is, if $r_c = 1$,
+  $t > \mathit{minimum}$ must be true in addition to the tolerance test before the experiment is declared convergent.
+  The $\mathit{minimum}$ parameter is also configured before an experiment.  Because a doubling ratio of one signifies
+  constant or logarithmic time complexity, requiring these doubles does not significantly increase the experimentation
+  time needed, all the while providing further assurance that a small ratio is not due to an insufficiently small $n$.
