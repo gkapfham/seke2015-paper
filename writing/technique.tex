@@ -53,14 +53,14 @@
   % GMK NOTE: I recognize that we always used this phrase. But, does it really add that much to the paper?
   % CBK NOTE: No I suppose not
 
-  % We refer to this doubling strategy as, semantic doubling.  
+  % We refer to this doubling strategy as, semantic doubling.
 
   Because of these issues, and others like them, we focus our attention on constraints that can be doubled as follows:
   for every table and for every constraint, duplicate that constraint and re-add it to the table.  Constraints such as
   {\tt NOT NULL}, {\tt UNIQUE}, and {\tt CHECK} are amenable to doubling in this fashion.  It is worth noting that
   constraints doubled this way would not have an impact on what data the schema would allow or disallow into a database,
   since they amount to a restatement of existing constraints.  However, since the goal is to evaluate performance, the
-  results should not be affected as long as the test data generation technique must still process and consider the
+  results should not be affected as long as the test data generation technique must still process and consider these
   additional constraints.
 
   \textbf{Automatic Experimentation}. To determine worst case complexity, an input $n$ is doubled until the ratio $f(2n)
