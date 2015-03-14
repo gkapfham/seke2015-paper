@@ -8,9 +8,9 @@
   \begin{figure*}
     \centering
     \input{writing/diagram}
-    \vspace*{-.1in}
+    % \vspace*{-.1in}
     \caption{Technique for conducting automatic doubling experiments.}~\label{fig:doublingexp}
-    \vspace*{-.1in}
+    \vspace*{-.3in}
   \end{figure*}
 
   % GMK NOTE: We need to make sure that at some point we also talk about the automated analysis of the results.
@@ -69,10 +69,10 @@
   If the mean is used instead, then a single abnormally long run could have an outsized impact on the result.
   Figure~\ref{fig:doublingexp} shows the overall structure of the experimentation framework.
 
-  Convergence checking is necessary because of the fact that worst-case time is only apparent for large values of $n$.
+  Convergence checking is necessary because of the fact that worst-case time is only evident for large values of $n$.
   If too few doubles are tried, then the experiment may terminate before $n$ reaches a value where the true worst-case
   time complexity is apparent. At the same time, for inefficient  algorithms, each additional doubling run incurs a
-  substantial time overhead. For the sake of efficiently, the experiment should terminate as quickly as possible.
+  substantial time overhead. For the sake of efficiency, the experiment should terminate as quickly as possible.
 
   % CBK NOTE: Introducing the new equation for ratio with respect to time is helpful for explaining the convergence
   % algorithm, but seems like a restatement of the ratio equation.  I considered only using this new equation when
@@ -87,7 +87,7 @@
 
   Another consequence of worst-case time only being apparent for large $n$, is that a very small initial $n$ may appear
   to converge to one, which indicates constant time complexity. To prevent the experiment from incorrectly terminating
-  given a small starting $n$, we require that a program under study display a ratio of one for a $\mathit{minimum}$
+  given a small starting $n$, our method requires that a program under study display a ratio of one for a $\mathit{minimum}$
   number of times before judging that the ratio does in fact converge to one.  That is, if $r_c = 1$, $t >
   \mathit{minimum}$ must be true in addition to the tolerance test before the experiment is declared convergent.  The
   $\mathit{minimum}$ parameter is also configured before an experiment.  Because a doubling ratio of one signifies
