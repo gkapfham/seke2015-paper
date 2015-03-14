@@ -3,12 +3,12 @@
 
 While the box and whisker plots allow us to see how choices between coverage criteria and data generators affects
 runtime, the question remains if these differences are statistically and practically significant. To answer this
-question, we calculate the Wilcoxon rank sum test and the $\hat{A}_{12}$ test.
+question, we calculate the Wilcoxon rank-sum test and the $\hat{A}_{12}$ test.
 
 We perform these tests for every pair of coverage criteria, and every pair of data generators.  Table~\ref{tab:crites}
 shows the results of these tests for coverage criteria, and Table~\ref{tab:datas} shows the results for data generators.
 
-The Wilcoxon rank sum test is a nonparematric test for hypothesis testing.  If the result of the test is greater than
+The Wilcoxon rank-sum test is a non-parametric test for hypothesis testing.  If the result of the test is greater than
 the significance level ($0.05$ is frequently used), then the collections are indistingushable.  If however, the result
 is less, then the collections are differentiable.  The $\hat{A}_{12}$ test is similar, but for drawing conclusions about
 the pratical differance between two collections of data.  A result $a=0.5$0 means that any differance is not pratically
@@ -48,7 +48,6 @@ AVM                      & 2.20E-16 & 2.20E-16        & 2.20E-16
 & 2.20E-16                 & NA       &\cellcolor{gray!25} 0.572        \\
 AVM Defaults             & 2.20E-16 & 2.20E-16        & 2.20E-16        & 2.20E-16                 & 2.20E-16 & NA
 \end{tabular}
-\caption{For each pair of Data Generators, lower left shows Wilcox Rank
-Sum Test, upper right shows $\hat{A}_{12}$.}
+\caption{For each pair of Data Generators, lower left shows Wilcoxon Rank-Sum Test, upper right shows $\hat{A}_{12}$.}
 \label{tab:datas}
 \end{table*}
