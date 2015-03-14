@@ -23,16 +23,16 @@
   generator.}
 \end{figure*}
 
-\textbf{Results}. Our experiments reveal that for the number of \texttt{Uniques, NotNulls, and Checks},
-\textit{SchemaAnalyst} displays linear or linearithmic worst-case time complexity.  Out of the 699 experiments
-performed doubling these schema structures, $72\%$ converged to linear or linearithmic.  Another $8\%$ failed to
-converge, and of these experiments, $80\%$ failed because of memory limitations, $13\%$ exceeded the maximum time limit,
-and for $8\%$ the reason for failure could not be determined.  The doubling ratios among these experiments were
-primarily linear or linerarithmic at the time they were terminated, however there were some that were quadratic and
-three that were cubic.  The experiments that failed to converge were primarily complicated schemas such as iTrust and
-BioSQL, and criteria at the top of the hierarchy, such as ANCC and AUCC. The remaining $20\%$ converged on constant or
-logarithmic.  Since there did not seem to be a pattern in which configurations converged this way compared to linear or
-linerarithmic, it is likely that these experiments terminated before the true worst-case time complexity was apparent.
+\textbf{Results}. Our experiments reveal that for the number of \texttt{UNIQUE}s, {\tt NOT NULL}s, and {\tt CHECK}s,
+\textit{SchemaAnalyst} displays linear or linearithmic worst-case time complexity.  Out of the 699 experiments performed
+doubling these schema structures, $72\%$ converged to linear or linearithmic.  Another $8\%$ failed to converge, and of
+these experiments, $80\%$ failed because of memory limitations, $13\%$ exceeded the maximum time limit, and for $8\%$
+the reason for failure could not be determined.  The doubling ratios among these experiments were primarily linear or
+linerarithmic at the time they were terminated, however there were some that were quadratic and three that were cubic.
+The experiments that failed to converge were primarily complicated schemas such as iTrust and BioSQL, and criteria at
+the top of the hierarchy, such as ANCC and AUCC. The remaining $20\%$ converged on constant or logarithmic.  Since there
+did not seem to be a pattern in which configurations converged this way compared to linear or linearithmic, it is
+likely that these experiments terminated before the true worst-case time complexity was apparent.
 
 For the schema structures tables and columns, the results were less conclusive. Doubling the number of tables in the
 schema caused the runtime of \textit{SchemaAnalyst} to increase much faster than the integrity constraints. As a result,
