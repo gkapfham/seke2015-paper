@@ -31,7 +31,14 @@
 \textbf{Experimental Design}. To gain a full picture of the performance trade-offs, we conducted an experiment for every
 configuration of the parameter space (i.e., schema, coverage criterion, data generator, and doubling technique).
 Table~\ref{tab:schemas} shows that the experiments focused on nine schemas that contain between 1 and 42 distinct
-tables, 3 to 309 columns, and up to 183 constraints.
+tables, 3 to 309 columns, and up to 183 constraints. Including all of the test adequacy criteria proposed by McMinn et
+al.~\cite{mcminn2015}, the experiments study ``weak'' criteria (i.e., APC, NCC, ICC, and UCC), ``moderately strong''
+ones (i.e., ANCC, AICC, and AUCC), and ``strong'' criteria (e.g., CondAICC and ClauseAICC). More details about each
+criterion, including its formal definition and relationship to the other criteria are available in~\cite{mcminn2015}. We
+used all six test data generators available in the {\em SchemaAnalyst} tool for automated test data
+generation~\cite{kapfhammer2013}, with four techniques employing a variant of random search and two based on Korel's
+alternating variable method. After a restart of the search for suitable test data, all of these data generators could
+start with either default or random values.
 
 In our study, we set $\mathit{tolerance}$ to $0.40$ and $\mathit{lookback}$ to $4$. These values were
 chosen by performing doubling experiments on various algorithms, with known worst-case time complexities, and observing
@@ -49,4 +56,23 @@ the 64-bit Redhat operating system.
 
 % Regression tree
 % Belongs with results_trees, but must be here for page placement within the paper
+
+\begin{figure*}[t!]
+\centering
+\begin{subfigure}{0.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{diagrams/CriterionOrder.pdf}
+  \caption{Coverage criterion versus runtime in minutes.}
+  \label{fig:crites}
+\end{subfigure}%
+\begin{subfigure}{0.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{diagrams/DataGeneratorOrder.pdf}
+  \caption{Data generator versus runtime in minutes.}
+  \label{fig:datas}
+\end{subfigure}
+\label{fig:bwplots}
+\caption{Box and whisker plots for criterion and data
+  generator.}
+\end{figure*}
 
