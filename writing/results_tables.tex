@@ -28,26 +28,3 @@ $\hat{A}_{12}$ results all choices in data generator have at least a small pract
 choosing between random and random defaults, and directed random and directed random defaults.  Change between these
 sets of data generators results in a large to medium effect, and comparing either AVM data generator to another
 primarily resulted in a small difference.
-
-\begin{table*}[h]
-  \centering
-  \small
-\begin{tabular}{lllllll}
-                         & Random   & Random Defaults & Directed Random & Directed Random Defaults & AVM      & AVM Defaults \\
-Random                   & NA       & 0.538
-&\cellcolor{gray!65} 0.740           &\cellcolor{gray!65} 0.789
-&\cellcolor{gray!25} 0.627    &\cellcolor{gray!45} 0.680        \\
-Random Defaults          & 6.59E-13 & NA              &
-\cellcolor{gray!45}0.673           &\cellcolor{gray!45} 0.701
-&\cellcolor{gray!25} 0.564    & \cellcolor{gray!25}0.617        \\
-Directed Random          & 2.20E-16 & 2.20E-16        & NA
-& 0.543                    &\cellcolor{gray!25} 0.360    &\cellcolor{gray!25} 0.435        \\
-Directed Random Defaults & 2.20E-16 & 2.20E-16        & 9.74E-16
-& NA                       &\cellcolor{gray!45} 0.328    &\cellcolor{gray!25} 0.395        \\
-AVM                      & 2.20E-16 & 2.20E-16        & 2.20E-16
-& 2.20E-16                 & NA       &\cellcolor{gray!25} 0.572        \\
-AVM Defaults             & 2.20E-16 & 2.20E-16        & 2.20E-16        & 2.20E-16                 & 2.20E-16 & NA
-\end{tabular}
-\caption{For each pair of Data Generators, lower left shows Wilcoxon Rank-Sum Test, upper right shows $\hat{A}_{12}$.}
-\label{tab:datas}
-\end{table*}
