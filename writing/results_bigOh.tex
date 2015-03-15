@@ -3,14 +3,15 @@
 
 \textbf{Results}. Our experiments reveal that, when doubling \texttt{UNIQUE}s, {\tt NOT NULL}s, and {\tt CHECK}s,
 \textit{SchemaAnalyst} displays linear or linearithmic worst-case time complexity.  Out of the 699 experiments performed
-doubling these schema structures, $72\%$ converged to linear or linearithmic.  Another $8\%$ failed to converge, and of
-these experiments, $80\%$ failed because of memory limitations, $13\%$ exceeded the maximum time limit, and for $8\%$
-the reason for failure could not be determined.  The doubling ratios among these experiments were primarily linear or
+to double these schema structures, $72\%$ converged to linear or linearithmic.  Another $8\%$ failed to converge, and of
+these experiments, $80\%$ failed because of memory limitations, $13\%$ exceeded the maximum time limit, and $8\%$ failed
+for reasons that could not be determined.  The doubling ratios among these experiments were primarily linear or
 linearithmic at the time they were terminated, however there were some that were quadratic and three that were cubic.
-The experiments that failed to converge were primarily complicated schemas such as iTrust and BioSQL, and criteria at
-the top of the hierarchy, such as ANCC and AUCC. The remaining $20\%$ converged on constant or logarithmic.  Since there
-did not seem to be a pattern in which configurations converged this way compared to linear or linearithmic, it is
-likely that these experiments terminated before the true worst-case time complexity was apparent.
+The experiments that failed to converge were primarily generating test data for complex schemas, such as iTrust and
+BioSQL, and the most stringent adequacy criteria, such as ANCC and AUCC. The remaining $20\%$ of the 699 experiments
+converged on constant or logarithmic.  Since there did not seem to be a pattern in which configurations converged this
+way compared to linear or linearithmic, it is likely that they terminated before the true worst-case time complexity was
+apparent.
 
 \begin{figure}[t]
 \centering
