@@ -3,7 +3,8 @@
 
 \begin{table}[t]
   \centering
-
+  
+  {\small
   \begin{tabular}{r | c c c}
                            Schema & Tables & Columns & Constraints \\ \hline
     BioSQL                        & 28     & 129     & 186 \\
@@ -15,9 +16,12 @@
     NistXTS749                    & 1      & 3       & 3 \\
     RiskIt                        & 13     & 57      & 36 \\
     UnixUsage                     & 8      & 32      & 24
-  \end{tabular}
+\end{tabular}}
 
+  \vspace*{-.05in}
   \caption{Database schemas used in the experiments.}~\label{tab:schemas}
+  \vspace*{-.2in}
+
 \end{table}
 
 \vspace{-.05in}
@@ -27,7 +31,7 @@
 \textbf{Experimental Design}. To gain a full picture of the performance trade-offs, we conducted an experiment for every
 configuration of the parameter space (i.e., schema, coverage criterion, data generator, and doubling technique).
 
-In our experimental study, we set $\mathit{tolerance}$ to $0.40$ and $\mathit{lookback}$ to $4$. These values were
+In our study, we set $\mathit{tolerance}$ to $0.40$ and $\mathit{lookback}$ to $4$. These values were
 chosen by performing doubling experiments on various algorithms, with known worst-case time complexities, and observing
 that the ratio converged to the correct value with this configuration.  In an effort to ensure good picks for
 parameters, we also conducted preliminary experiments. We set $\mathit{minimum}$ to $20$ after observing that
