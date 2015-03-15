@@ -5,26 +5,29 @@ While the box and whisker plots allow us to see how choices between coverage cri
 runtime, the question remains if these differences are statistically and practically significant. To answer this
 question, we calculate the Wilcoxon rank-sum test and the $\hat{A}_{12}$ test.
 
-We perform these tests for every pair of coverage criteria, and every pair of data generators.  Table~\ref{tab:crites}
-shows the results of these tests for coverage criteria, and Table~\ref{tab:datas} shows the results for data generators.
-
 The Wilcoxon rank-sum test is a non-parametric test for hypothesis testing.  If the result of the test is greater than
 the significance level ($0.05$ is frequently used), then the collections are indistinguishable.  If however, the result
 is less, then the collections are differentiable.  The $\hat{A}_{12}$ test is similar, but for drawing conclusions about
-the practical difference between two collections of data.  A result $a=0.5$0 means that any difference is not practically
+the practical difference between two collections of data.  A result
+$a=0.50$ means that any difference is not practically
 significant, while $a>0.56$ or $a<0.44$ signifies a small difference, $a>0.64$ or $a<0.36$ denotes a medium difference,
 and $a>0.71$ or $a<0.29$ indicates a large difference.
 
-Table~\ref{tab:crites} reveals that changing the criterion results in statistically significant differences in runtimes,
-with the exception of changing between four constraints at the top of the subsumption hierarchy, and two constraints at
+Table~\ref{tab:crites} shows the statistical tests calculated for every
+pair of coverage criterion. The Wilcoxon rank sum test reveals that changing the criterion results in statistically significant differences in runtimes,
+with the exception of changing between four constraints at the top of
+the subsumption hierarchy and two constraints at
 the bottom.  The $\hat{A}_{12}$ results generally show a small to medium practical effect of switching between criteria
 at the high or low end of the hierarchy, and small or no effect of switching between constraints at the same level of the
 hierarchy.
 
-% This table might be on the chopping block
-
-Table~\ref{tab:datas} shows a statistically significant difference between all pairs of data generators. The
-$\hat{A}_{12}$ results all choices in data generator have at least a small practical impact, with the exception of
-choosing between random and random defaults, and directed random and directed random defaults.  Change between these
-sets of data generators results in a large to medium effect, and comparing either AVM data generator to another
+The statistical tests were calculated for all pairs of data generators,
+but the resulting table was excluded due to space constraints. All
+combinations of data generators were statistically significant according
+to the Wilcoxon rank sum test. The $\hat{A}_{12}$ test shows all choices in
+data generator have at least a small practical impact, with the exception of
+choosing between random and random defaults, and directed random and
+directed random defaults.  Changing between these
+sets of data generators results in a large to medium effect, and
+comparing either of the AVM based data generators to another
 primarily resulted in a small difference.
