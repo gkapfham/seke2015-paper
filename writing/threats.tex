@@ -5,11 +5,10 @@
 
 \textbf{Threats to Validity}. Our technique for doubling the number of constraints in the schema is simply to duplicate
 the existing constraints. It is possible that \textit{SchemaAnalyst} does less work processing these redundant
-constraints than it would given non-restated ones. However, doubling the constraints in this way is easy to
-implement and, as the results show, good at revealing performance trade-offs.
-
-Additionally, since worst-case time is only apparent for large $n$, it is possible that the experiment terminated too
-quicly.  While we attempted to configure the parameters of our tool using algorithms with known worst-case complexities
-and conducting preliminary experiments with various settings under manual supervision, it is possible that our
-configuration was not optimized for use on the HPC cluster.
+constraints than it would given non-restated ones. However, doubling the constraints in this way is easy to implement
+and, as the results show, good at revealing performance trade-offs.  Additionally, since worst-case time is only
+apparent for large $n$, it is possible that the experiments terminated too quickly.  While we attempted to configure the
+parameters of our tool using algorithms with known worst-case complexities and conducting preliminary experiments with
+various settings and under manual supervision, it is possible that our configuration was not optimized for use on the HPC
+cluster.
 
