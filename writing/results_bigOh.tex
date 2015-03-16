@@ -23,17 +23,19 @@ apparent.
 \end{figure}
 
 When doubling the tables and columns in the schemas, the results were less conclusive. Doubling the number of tables in
-the schema caused the runtime of \textit{SchemaAnalyst} to increase much faster than it did for the other integrity constraints. As
-a result, $56\%$ of the 467 experiments doubling this schema feature were terminated before convergence because they
-exceeded the time limit.  Of the experiments that converged, 72 converged to quadratic and 10 converged to
+the schema caused the runtime of \textit{SchemaAnalyst} to increase much faster than it did for the other integrity
+constraints. As a result, $56\%$ of the 467 experiments doubling this schema feature were terminated before convergence
+because they exceeded the time limit.  Of the experiments that converged, 72 converged to quadratic and 10 converged to
 cubic.  Of the experiments that terminated before they converged, the doubling ratios for 205 indicated quadratic, 18
 suggested cubic, and 37 were worse than cubic.
 
-Experiments on the number of columns were also inconclusive.  208 experiments that converged showed linear or
-linearithmic time complexity, while 28 converged to quadratic and 2 cubic.  Another 203 experiments failed to converge,
-however unlike the experiments for the number of tables, the experiments for the number of columns most frequently
-failed by running out of memory rather than running out of time. The experiments that did not converge include 106
-ratios indicating quadratic behavior, 73 cubic, and 3 worse.
+Experiments on the number of columns were also inconclusive.  We noted that 208 of the converged experiments showed
+linear or linearithmic time complexity, while 28 converged to quadratic and 2 cubic.  Another 203 experiments failed to
+converge; however, unlike the experiments that doubled the number of tables, the experiments for doubling the number of
+columns most frequently failed by running out of memory rather than exceeded the time limit. The experiments that did not
+converge include 106 ratios indicating quadratic behavior, 73 cubic, and 3 worse.
+
+% GMK NOTE: These have now been moved to another file!
 
 % Box and whisker plots
 % Belongs to results_bwplots, but must be here for positioning reasons
