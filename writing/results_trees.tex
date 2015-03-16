@@ -2,11 +2,11 @@
 %!TEX root=seke.tex
 % mainfile: ../seke.tex
 
-To gain a more nuanced understanding of the results, we constructed a conditional inference tree model using the
+To gain a more nuanced understanding of the results, our tool constructed a conditional inference tree model using the
 \textit{ctree} package in the R language. These trees use the values of predictor variables (e.g., the adequacy
-criterion) to predict the value of a response variable (e.g., {\em SchemaAnalyst}'s runtime). A tree accomplishes this
+criterion) to model the value of a response variable (e.g., {\em SchemaAnalyst}'s runtime);~\textit{ctree} accomplishes this
 by repeatedly splitting the data according to what predictor variable has the most influence on the response variable.
-Each node in the tree represents a choice of predictor variable, and the level of the node indicates its importance to
+Each tree node represents a choice of predictor variable, and the level of the node indicates its importance to
 the prediction, with higher nodes being more important to predicting generation time.
 
 % \textit{ctree} produced the tree shown as Figure~\ref{fig:atree} to predict the runtime of \textit{SchemaAnalyst} with
