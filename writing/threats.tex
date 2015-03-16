@@ -3,10 +3,10 @@
 
 % CBK Note: 'unique' is a poor word choice since it's a constraint name
 
-\textbf{Threats to Validity}. Our technique for doubling the number of constraints on the schema is simply to duplicate
+\textbf{Threats to Validity}. Our technique for doubling the number of constraints in the schema is simply to duplicate
 the existing constraints. It is possible that \textit{SchemaAnalyst} does less work processing these redundant
-constraints than it would given unique constraints. However, doubling the check constraints in this way is an easy to
-implement, semantically significant way of evaluating \textit{SchemaAnalyst}.
+constraints than it would given non-restated ones. However, doubling the constraints in this way is easy to
+implement and, as the results show, good at revealing performance trade-offs.
 
 Additionally, since worst-case time is only apparent for large $n$, it is possible that the experiment terminated too
 quicly.  While we attempted to configure the parameters of our tool using algorithms with known worst-case complexities
