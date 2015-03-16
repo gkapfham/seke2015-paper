@@ -1,15 +1,25 @@
-%!TEX root=../seke.tex
-% mainfile: seke.tex
+% vim: ft=tex
+%!TEX root=seke.tex
+% mainfile: ../seke.tex
 
-To gain a more nuanced understanding of the results, we constructed a regression tree using the \textit{ctree} package
-for the R language. A regression tree attempts to use the values of predictor variables to predict the value of a
-response variable. A regression tree accomplishes this by repeatedly splitting the data according to what predictor
-variable has the most influence on the response variable. Each node in the tree represents a choice of predictor
-variable, and the level of the node indicates its importance to the prediction---higher being more important.
+To gain a more nuanced understanding of the results, we constructed a conditional inference tree model using the
+\textit{ctree} package in the R language. These trees use the values of predictor variables (e.g., the adequacy
+criterion) to predict the value of a response variable (e.g., {\em SchemaAnalyst}'s runtime). A tree accomplishes this
+by repeatedly splitting the data according to what predictor variable has the most influence on the response variable.
+Each node in the tree represents a choice of predictor variable, and the level of the node indicates its importance to
+the prediction, with higher nodes being more important to predicting generation time.
 
-\textit{ctree} produced the tree shown as Figure~\ref{fig:atree} to predict the runtime of \textit{SchemaAnalyst} with
-the predictor variables: tables, columns, {\tt UNIQUE}s, {\tt NOT NULL}s, {\tt CHECK}s, chosen criterion, and the data
-generator.  The regression tree confirms that the number of tables has the greatest impact on runtime, and also reveals
+% \textit{ctree} produced the tree shown as Figure~\ref{fig:atree} to predict the runtime of \textit{SchemaAnalyst} with
+% the predictor variables: tables, columns, {\tt UNIQUE}s, {\tt NOT NULL}s, {\tt CHECK}s, chosen criterion, and the data
+% generator.  The regression tree confirms that the number of tables has the greatest impact on runtime, and also reveals
+% that when the number of tables in the schema is small, the choice of coverage criterion is most significant.
+
+% \textit{ctree} produced the tree shown as Figure~\ref{fig:atree} to predict the runtime of \textit{SchemaAnalyst} with
+
+Using predictor variables for number of tables, columns, {\tt UNIQUE}s, {\tt NOT NULL}s, {\tt CHECK}s, the chosen
+criterion, and the data generator, \textit{ctree} produced the tree model in Figure~\ref{fig:atree}.
+
+The regression tree confirms that the number of tables has the greatest impact on runtime, and also reveals
 that when the number of tables in the schema is small, the choice of coverage criterion is most significant.
 
 While tables had a large impact when the number of tables was over 197 thousand, in practice schemas are unlikely to be
