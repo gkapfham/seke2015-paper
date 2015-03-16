@@ -1,7 +1,6 @@
+% vim: ft=tex
 %!TEX root=seke.tex
-% mainfile: seke.tex
-
-
+% mainfile: ../seke.tex
 
 While the trees provide insight into the relative impact of each predictor on the runtime of \textit{SchemaAnalyst}, the
 box and whisker plots produced as the leaves of the trees do not provide a detailed view of the choices within each
@@ -9,14 +8,12 @@ predictor.  To gain a finer level of granularity, we produce box and wisker plot
 shows the effect of coverage criterion on runtime, and Figure~\ref{fig:datas}, shows the effect of data generator on
 runtime.
 
-Figure~\ref{fig:crites} shows that the coverage criteria at the top of the subsumption hierarchy: AUCC, ClauseAICC,
-and CondAICC cause runtime to increase the most, followed by ANCC and
-AICC, and then the remaining constraints. Additionally, there is not a great distinction between criteria of the same
-level of the hierarchy.
+Figure~\ref{fig:crites} shows that the coverage criteria at the top of the subsumption hierarchy: AUCC, ClauseAICC, and
+CondAICC cause runtime to increase the most, followed by ANCC and AICC, and then the remaining constraints.
+Additionally, there is not a great distinction between criteria of the same level of the hierarchy.
 
 Figure~\ref{fig:datas} reveals the Random and Random Defaults generators took the most amount of time by a distinctive
-margin. A less pronounced hierarchy between the remaining
-generators can be observed, with default values consistintaly
+margin. A less pronounced hierarchy between the remaining generators can be observed, with default values consistintaly
 outperforming random.
 
 \begin{table*}[th]
