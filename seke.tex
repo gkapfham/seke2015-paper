@@ -25,6 +25,24 @@
 \newcommand{\gosheffield}{$^{\mbox{\footnotesize \ding{73}}}$}
 \newcommand{\gospace}{$\;$}
 
+\makeatletter
+\renewenvironment{thebibliography}[1]{%
+  \vspace*{-.1in}
+  \@xp\section\@xp*\@xp{\refname}%
+  % \normalfont\footnotesize\labelsep .5em\relax
+  \renewcommand\theenumiv{\arabic{enumiv}}\let\p@enumiv\@empty
+  \vspace*{-5pt}% NEW
+  \list{\@biblabel{\theenumiv}}{\settowidth\labelwidth{\@biblabel{#1}}%
+    \leftmargin\labelwidth \advance\leftmargin\labelsep
+    \usecounter{enumiv}}%
+  \sloppy \clubpenalty\@M \widowpenalty\clubpenalty
+  \sfcode`\.=\@m
+}{%
+  \def\@noitemerr{\@latex@warning{Empty `thebibliography' environment}}%
+  \endlist
+}
+\makeatother
+
 \begin{document}
 
 % \title{Empirically Evaluating the Efficiency of Search-based \\ Test Data
@@ -87,7 +105,7 @@ strategies.
 % \input{writing/relatedworks}
 
 \begingroup
-\setlength{\bibitemsep}{0pt}
+\setlength{\bibitemsep}{-1pt}
 {\footnotesize
   \bibliographystyle{IEEEtran}
 \bibliography{bibtex/seke}}
