@@ -6,11 +6,11 @@ While the trees provide insight into the relative impact of each predictor on th
 box and whisker plots shown in the leaves of the trees do not furnish a detailed view of the choices within each
 predictor.  To gain a finer-grained understanding, we created box and wisker plots of our own:  Figure~\ref{fig:crites}
 shows the influence of coverage criterion on runtime, while Figure~\ref{fig:datas} shows the effect of data generator on
-{\em SchemaAnalyst}'s execution time.
-
-Figure~\ref{fig:crites} shows that the coverage criteria at the top of the subsumption hierarchy: AUCC, ClauseAICC, and
-CondAICC cause runtime to increase the most, followed by ANCC and AICC, and then the remaining constraints.
-Additionally, there is not a great distinction between criteria of the same level of the hierarchy.
+{\em SchemaAnalyst}'s execution time.  Figure~\ref{fig:crites} shows that the coverage criteria at the ``top'' of the
+subsumption hierarchy (i.e., AUCC, ClauseAICC, and CondAICC) cause runtime to increase the most, followed by ANCC and
+AICC, and then the remaining criteria (i.e., APC through UCC).  We anticipiate that the stronger criteria always lead to
+higher time overheads because they force {\em SchemaAnalyst} to generate more tests. Additionally, criteria at the same
+level in the hierarchy cause similar runtimes. 
 
 Figure~\ref{fig:datas} reveals the Random and Random Defaults generators took the most amount of time by a distinctive
 margin. A less pronounced hierarchy between the remaining generators can be observed, with default values consistintaly
