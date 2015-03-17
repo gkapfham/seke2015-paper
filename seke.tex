@@ -9,7 +9,6 @@
 \usepackage{inconsolata}
 \usepackage{pifont}
 
-% \usepackage[numbers]{natbib}
 \usepackage{graphicx}
 \usepackage{algorithm}
 \usepackage{algorithmic}
@@ -20,6 +19,7 @@
 \usepackage{verbatim}
 
 \usepackage{subcaption}
+\usepackage{bibspacing}
 
 \newcommand{\goallegheny}{$^{\mbox{\footnotesize \ding{72}}}$}
 \newcommand{\gosheffield}{$^{\mbox{\footnotesize \ding{73}}}$}
@@ -86,9 +86,11 @@ strategies.
 % GMK NOTE: I removed this and moved it into the background section
 % \input{writing/relatedworks}
 
+\begingroup
+\setlength{\bibitemsep}{0pt}
 {\footnotesize
-\bibliographystyle{IEEEtran}
-\bibliography{bibtex/seke}
-}
+  \bibliographystyle{IEEEtran}
+\bibliography{bibtex/seke}}
+\endgroup
 
 \end{document}
