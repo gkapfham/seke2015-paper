@@ -12,9 +12,11 @@ AICC, and then the remaining criteria (i.e., APC through UCC).  We anticipate th
 higher time overheads because they force {\em SchemaAnalyst} to generate more tests. Additionally, criteria at the same
 level in the hierarchy cause similar runtimes.
 
-Figure~\ref{fig:datas} reveals the Random and Random Defaults generators took the most amount of time by a substantial
-margin. A less pronounced difference between the remaining generators can be observed, with default values consistently
-outperforming the use of random values at search restart.
+Figure~\ref{fig:datas} reveals that, by a substantial margin, the Random and Random Defaults generators took the most
+time to generate data. This counterintuitive result suggests that less effective data generators actually take longer to
+create data than those that are known to be more effective~\cite{kapfhammer2013}.  A less pronounced difference between
+the remaining generators can be observed, with the use of default values consistently being faster than the use of
+random values at restart.
 
 \begin{table*}[th]
   \centering
