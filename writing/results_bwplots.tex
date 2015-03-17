@@ -4,16 +4,16 @@
 
 While the trees provide insight into the relative impact of each predictor on the runtime of \textit{SchemaAnalyst}, the
 box and whisker plots shown in the leaves of the trees do not furnish a detailed view of the choices within each
-predictor.  To gain a finer-grained understanding, we created box and wisker plots of our own:  Figure~\ref{fig:crites}
+predictor.  To gain a finer-grained understanding, we created box and whisker plots of our own:  Figure~\ref{fig:crites}
 shows the influence of coverage criterion on runtime, while Figure~\ref{fig:datas} shows the effect of data generator on
 {\em SchemaAnalyst}'s execution time.  Figure~\ref{fig:crites} shows that the coverage criteria at the ``top'' of the
 subsumption hierarchy (i.e., AUCC, ClauseAICC, and CondAICC) cause runtime to increase the most, followed by ANCC and
-AICC, and then the remaining criteria (i.e., APC through UCC).  We anticipiate that the stronger criteria always lead to
+AICC, and then the remaining criteria (i.e., APC through UCC).  We anticipate that the stronger criteria always lead to
 higher time overheads because they force {\em SchemaAnalyst} to generate more tests. Additionally, criteria at the same
-level in the hierarchy cause similar runtimes. 
+level in the hierarchy cause similar runtimes.
 
-Figure~\ref{fig:datas} reveals the Random and Random Defaults generators took the most amount of time by a distinctive
-margin. A less pronounced hierarchy between the remaining generators can be observed, with default values consistintaly
+Figure~\ref{fig:datas} reveals the Random and Random Defaults generators took the most amount of time by a substantial
+margin. A less pronounced difference between the remaining generators can be observed, with default values consistently
 outperforming random.
 
 \begin{table*}[th]
@@ -45,7 +45,7 @@ UCC        & 9.30E-16 & 3.83E-05 & 2.20E-16 & 7.36E-10 & 2.20E-16 &
 5.73E-13 & 2.20E-16   & 9.29E-06 & NA    \\ \hline
 Legend: & Rank Sum: & significant & \fbox{insignifcant} & &
 $\hat{A}_{12}$: & none & \cellcolor{gray!25} small &
-\cellcolor{gray!45} medium & \cellcolor{gray!65} large 
+\cellcolor{gray!45} medium & \cellcolor{gray!65} large
 \end{tabular}
 
 \caption{For each pair of coverage criteria, lower left shows Wilcoxon Rank-Sum Test, upper right shows $\hat{A}_{12}$.}
