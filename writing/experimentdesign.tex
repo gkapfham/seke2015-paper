@@ -31,7 +31,7 @@
 \textbf{Experimental Design}. To gain a full picture of the performance trade-offs, we conducted an experiment for every
 configuration of the parameter space (i.e., schema, coverage criterion, data generator, and doubling technique).
 Table~\ref{tab:schemas} shows that the experiments focused on nine schemas that contain between 1 and 42 distinct
-tables, 3 to 309 columns, and up to 183 constraints. Including all of the test adequacy criteria proposed by McMinn et
+tables, 3 to 309 columns, and up to 186 constraints. Including all of the test adequacy criteria proposed by McMinn et
 al.~\cite{mcminn2015}, the experiments study ``weak'' criteria (i.e., APC, NCC, ICC, and UCC), ``moderately strong''
 ones (i.e., ANCC, AICC, and AUCC), and ``strong'' criteria (i.e., CondAICC and ClauseAICC). More details about each
 criterion, including its formal definition and relationship to the other criteria, are available in~\cite{mcminn2015}. We
@@ -48,11 +48,11 @@ In our study, we set $\mathit{tolerance}$ to $0.40$ and $\mathit{lookback}$ to $
 performing doubling experiments on various algorithms, with known worst-case time complexities, and observing that the
 ratio converged to the correct value with this configuration.  We set $\mathit{minimum}$ to $20$ after observing that
 \textit{SchemaAnalyst} stopped displaying constant behavior after around 5 doubles.  Preliminary studies showed that,
-while experiments for fast configurations could be completed in less than an hour, slower configurations required days.
-Since there are over four thousand possible configurations, the study needed a substantial amount of computational
-resources.  As a solution, we ran the experiments on a high-performance computing (HPC) cluster containing 195 worker
-nodes of various hardware configurations, ranging from 12 to 16 CPU cores and 24 to 256 GB of memory, and using the
-64-bit Redhat operating system.
+while experiments for ``fast'' configurations could be completed in less than an hour, ``slower'' configurations
+required days.  Since there are over four thousand possible configurations, the study needed a substantial amount of
+computational resources.  As a solution, we ran the experiments on a high-performance computing (HPC) cluster containing
+195 worker nodes of various hardware configurations, ranging from 12 to 16 CPU cores and 24 to 256 GB of memory, and
+using the 64-bit Redhat operating system.
 
 % GMK NOTE: It would be better to call this a tree model instead of a regression tree -- the word regression is also
 % used in the software testing literature to have a different meanining.
