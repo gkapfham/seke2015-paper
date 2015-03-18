@@ -4,17 +4,17 @@
 
 While the box and whisker plots show how choices between coverage criteria and data generators affect runtime, the
 question remains if these differences are statistically and practically significant. To answer this question, we employ
-the Wilcoxon rank-sum test and the $\hat{A}_{12}$ effect size.
+the Wilcoxon rank-sum test and the $\hat{A}_{12}$ effect size~\cite{mcminn2015}.
 
 The Wilcoxon rank-sum test is a non-parametric test for hypothesis testing.  If the result of the test is greater than
 the significance level ($0.05$ is frequently used), then the configurations are indistinguishable.  If, however, the
 result is less than the chosen level, then they are different.  The $\hat{A}_{12}$ test is similar, but for drawing
-conclusions about the practical difference between two collections of data.  A result $\hat{A}_{12}=0.50$ means that any
-difference is not practically significant, while $\hat{A}_{12}>0.56$ or $<0.44$ signifies a small difference,
+conclusions about the practical difference between two collections of data.  A result of $\hat{A}_{12}=0.50$ means that
+any difference is not practically significant, while $\hat{A}_{12}>0.56$ or $<0.44$ signifies a small difference,
 $\hat{A}_{12}>0.64$ or $<0.36$ denotes a medium difference, and $\hat{A}_{12}>0.71$ or $<0.29$ indicates a large
 difference.
 
-Table~\ref{tab:crites} shows the statistical tests calculated for every pair of coverage criterion. The Wilcoxon
+Table~\ref{tab:crites} shows the statistical tests calculated for every pair of coverage criteria. The Wilcoxon
 rank-sum test reveals that changing the criterion results in statistically significant differences in runtimes, with the
 exception of changing between four criteria at the top of the subsumption hierarchy and two criteria at the
 bottom.  The $\hat{A}_{12}$ results generally show a small to medium practical effect size when switching between criteria at
