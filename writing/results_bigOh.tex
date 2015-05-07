@@ -37,6 +37,29 @@ converge; however, unlike the experiments that doubled the number of tables, the
 columns most frequently failed by running out of memory rather than exceeding the time limit. The experiments that did not
 converge included 106 ratios indicating quadratic behavior, 73 cubic, and 3 worse.
 
+% CBK NOTE: moved them back, they really want to be in this file
+
+\begin{figure*}[t!]
+\vspace*{-.28in}
+\centering
+\begin{subfigure}{0.5\textwidth}
+  \centering
+  \includegraphics[width=.77\linewidth]{diagrams/CriterionOrder.pdf}
+  \caption{Coverage criterion versus runtime in minutes.}
+  \label{fig:crites}
+\end{subfigure}%
+\begin{subfigure}{0.5\textwidth}
+  \centering
+  \includegraphics[width=.77\linewidth]{diagrams/DataGeneratorOrder.pdf}
+  \caption{Data generator versus runtime in minutes.}
+  \label{fig:datas}
+\end{subfigure}
+\label{fig:bwplots}
+\caption{Box and whisker plots for criterion and data
+  generator.}
+  \vspace*{-.15in}
+\end{figure*}
+
 % GMK NOTE: These have now been moved to another file!
 
 % Box and whisker plots
