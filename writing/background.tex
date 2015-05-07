@@ -31,12 +31,12 @@ referred to~\cite{mcminn2015} for more details.
 % produce test inputs according to a criterion.
 
 {\bf Search-Based Test Data Generation}. When testing a schema's integrity constraints for correctness, it is often
-necessary to provide input to the database and observe and evaluate its execution~\cite{kapfhammer2013}.  Since the
+necessary to provide input to the database and then observe and evaluate its execution~\cite{kapfhammer2013}.  Since the
 database's behavior is dependant on the input from {\tt INSERT}s, the input space must be sufficiently explored to ensure
 thorough testing.  Due to the fact that it is challenging to manually create input that supports high-quality testing,
 test data generation is used to automatically produce it according to a criterion, like ClauseAICC. A search-based test
 data generator is one that explores that input space using, among other components, a fitness function that rates the
-data's quality, thus allowing it to improve by repeatedly searching for better inputs~\cite{mcminn2004a}.
+data's quality, thus allowing it to improve by repeatedly seeking better inputs~\cite{mcminn2004a}.
 
 {\bf Worst-Case Time Complexity}. A useful understanding of an algorithm's efficiency, the worst-case time complexity
 gives an upper bound on how an increase in the size of the input, denoted $n$, increases the execution time of the
@@ -102,7 +102,7 @@ increased~\cite{mehrmand2010}.
 
 The empirical work presented in this paper is complemented by theoretical runtime analyses in prior research.  For
 instance, Arcuri presented the first runtime analysis of a search-based test data generator called the alternating
-variable method (AVM) \cite{arcuri2009}, which is also studied in this paper. Arcuri proves the worst-case time
+variable method (AVM) \cite{arcuri2009}, which is also studied in this paper. Arcuri proved the worst-case time
 complexity of AVM when it generates data for a simple program called ``triangle classification''. More recently, Kempka
 et al.\ extended the work of Arcuri with a theoretical and empirical runtime analysis revealing that the use of certain
 local search techniques with AVM yields better performance than AVM alone \cite{kempka2015}.  While our paper's

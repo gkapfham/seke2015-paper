@@ -2,15 +2,15 @@
 %!TEX root=seke.tex
 % mainfile: ../seke.tex
 
-While the trees provide insight into the relative impact of each predictor on the runtime of \textit{SchemaAnalyst}, the
+While the trees provide insight into the relative impact of each predictor, the
 box and whisker plots shown in the leaves of the trees do not furnish a detailed view of the choices within each
 predictor.  To gain a finer-grained understanding, we created box and whisker plots of our own:  Figure~\ref{fig:crites}
-shows the influence of coverage criterion on runtime, while Figure~\ref{fig:datas} shows the effect of data generator on
-{\em SchemaAnalyst}'s execution time.  Figure~\ref{fig:crites} shows that the coverage criteria at the ``top'' of the
-subsumption hierarchy (i.e., AUCC, ClauseAICC, and CondAICC) cause runtime to increase the most, followed by ANCC and
-AICC, and then the remaining criteria (i.e., APC through UCC).  We anticipate that the stronger criteria always lead to
-higher time overheads because they force {\em SchemaAnalyst} to generate more tests. Additionally, criteria at the same
-level in the hierarchy engender similar runtimes.
+shows the influence of coverage criterion on runtime, while Figure~\ref{fig:datas} shows the effect of data generator
+on runtime.  Figure~\ref{fig:crites} shows that the coverage criteria in the subsumption hierarchy 
+(i.e., AUCC, ClauseAICC, and CondAICC) cause runtime to increase the most, followed by ANCC and AICC, and then the
+remaining criteria (i.e., APC through UCC).  We anticipate that the stronger criteria always lead to higher time
+overheads because they force {\em SchemaAnalyst} to generate more tests. Additionally, criteria at the same level in
+the hierarchy engender similar runtimes.
 
 Figure~\ref{fig:datas} reveals that, by a substantial margin, the Random and Random Defaults generators took the most
 time to generate data. This counterintuitive result suggests that less effective data generators actually take longer to
@@ -46,7 +46,7 @@ ClauseAICC & 2.20E-16 & 2.20E-16 & \fbox{2.72E-01} & 2.20E-16 & 1.40E-01 &
 ICC        & 4.00E-03 & 2.20E-16 & 2.20E-16 &\fbox{1.83E-01} & 2.20E-16 & 2.20E-16 & 2.20E-16   & NA       & 0.472 \\
 UCC        & 9.30E-16 & 3.83E-05 & 2.20E-16 & 7.36E-10 & 2.20E-16 &
 5.73E-13 & 2.20E-16   & 9.29E-06 & NA    \\ \hline
-Legend: & Rank-Sum: & significant & \fbox{insignifcant} & &
+& Rank-Sum: & significant & \fbox{insignificant} & &
 $\hat{A}_{12}$: & none & \cellcolor{gray!25} small &
 \cellcolor{gray!45} medium & \cellcolor{gray!65} large
 \end{tabular}

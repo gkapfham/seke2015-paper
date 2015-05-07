@@ -19,8 +19,8 @@ the prediction, with higher nodes being more important to predicting generation 
 Using predictor variables for the number of tables; columns; {\tt UNIQUE}s; {\tt NOT NULL}s; and {\tt CHECK}s, the chosen
 criterion, and the data generator, \textit{ctree} produced the tree model in Figure~\ref{fig:atree}.  In addition to
 confirming that the number of tables has the greatest impact on runtime, the tree also reveals that, when the number of
-tables in the schema is small, the choice of coverage criterion is most significant.  While tables had a large impact
-when the number of tables was over $197,000$, in practice schemas are unlikely to be this large. Another invocation of
+tables in the schema is small, the choice of coverage criterion is most
+significant.  While the number of tables had a large impact when over $197,000$, in practice schemas are unlikely to be this large. Another invocation of
 \textit{ctree}, excluding tables from the list of predictors, provided insight into the behavior of
 \textit{SchemaAnalyst} for more practical table sizes. In this tree, not shown due to space constraints, the coverage
 criterion emerged as the most important predictor for runtime, followed by the choice of data generator, and then the
