@@ -60,8 +60,8 @@
   {\tt NOT NULL}, {\tt UNIQUE}, and {\tt CHECK} are amenable to doubling in this fashion.  It is worth noting that,
   since they amount to a restatement of existing constraints, entities doubled this way would not have an impact on
   what data the schema would allow or disallow into a database, However, since the goal is to evaluate performance, the
-  timing results should not be adversely affected as long as the test data generation technique must still process and consider these
-  additional constraints.
+  timing results should not be adversely affected as long as the test data generation technique must still process and
+  consider these additional constraints.
 
   \textbf{Automatic Experimentation}. To determine worst-case complexity, an input $n$ is doubled until the ratio $f(2n)
   / f(n)$ converges to a stable value.  To account for random error, every time $n$ is doubled, $f(n)$ is computed ten
@@ -85,8 +85,8 @@
   to a $\mathit{tolerance}$ value, and the experiment is judged to have converged when $\mathit{difference}<\mathit{tolerance}$.
   The $\mathit{lookback}$ and $\mathit{tolerance}$ values are both configured before the experiment is run.
 
-  Another consequence of worst-case time only being apparent for large $n$, is that a very small initial $n$ may appear
-  to converge to 1, which indicates constant time complexity. To prevent the experiment from incorrectly terminating
+  Another consequence of worst-case time only being apparent for large $n$ is that a very small initial $n$ may appear
+  to converge to 1, which would indicate constant time complexity. To prevent the experiment from incorrectly terminating
   given a small starting $n$, our method requires that a program under study display a ratio of 1 for a
   $\mathit{minimum}$ number of times before judging that the ratio does in fact converge to 1.  That is, if $r_c = 1$,
   $t > \mathit{minimum}$ must be true, in addition to the tolerance test, before the experiment is declared convergent.
