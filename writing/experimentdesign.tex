@@ -31,14 +31,15 @@
 \textbf{Experimental Design}. To gain a full picture of the performance trade-offs, we conducted an experiment for every
 configuration of the parameter space (i.e., schema, coverage criterion, data generator, and doubling technique).
 Table~\ref{tab:schemas} shows that the experiments focused on nine
-database schemas that contain between 1 and 42 distinct
+database schemas containing between 1 and 42 distinct
 tables, 3 to 309 columns, and up to 186 constraints. Including all of the test adequacy criteria proposed by McMinn et
 al.~\cite{mcminn2015}, the experiments study ``weak'' criteria (i.e., APC, NCC, ICC, and UCC), ``moderately strong''
 ones (i.e., ANCC, AICC, and AUCC), and ``strong'' criteria (i.e., CondAICC and ClauseAICC). More details about each
-criterion, including its formal definition and relationship to the other criteria, are available in~\cite{mcminn2015}. We
+criterion, including its formal definition and relationship to the other
+criteria, are available in prior work~\cite{mcminn2015}. We
 used all six test data generators provided by the {\em SchemaAnalyst} tool for automated test data
 generation~\cite{kapfhammer2013}, with four techniques employing a variant of random search and two based on Korel's
-alternating variable method. After a restart of the search, all of these data generators could
+alternating variable method. After a restart of the search, each data generator could
 start with either default or random values.
 
 % GMK NOTE: Can we safely cut this sentence? I don't think that it is absolutely needed (I have already revised it)
