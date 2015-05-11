@@ -63,7 +63,8 @@
   timing results should not be adversely affected as long as the test data generation technique must still process and
   consider these additional constraints.
 
-  \textbf{Automatic Experimentation}. To determine worst-case complexity, an input $n$ is doubled until the ratio $f(2n)
+  \textbf{Automatic Experimentation}. To determine worst-case
+  complexity, an input of size $n$ is doubled until the ratio $f(2n)
   / f(n)$ converges to a stable value.  To account for random error, every time $n$ is doubled, $f(n)$ is computed ten
   times and the median time is used for calculating the ratios; we chose the median to minimize the effect of outliers.
   If the mean is used instead, then a single abnormally long run could have an outsized impact on the result.
