@@ -20,6 +20,9 @@
 
 \usepackage{subcaption}
 \usepackage{bibspacing}
+\usepackage{fancyhdr}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{doi}{\lfoot{DOI reference number: 10.18293/SEKE2015-205}}
 
 \usepackage[small,compact]{titlesec}
 % \usepackage{titlesec}
@@ -68,6 +71,8 @@ Generation for Relational Database Schemas\vspace*{-.1in}}
 }
 
 \maketitle
+
+\thispagestyle{doi}
 
 \begin{abstract}
 
