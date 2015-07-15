@@ -6,7 +6,7 @@ paper uses the LaTeX style files provided by the organizers of the conference an
 are normally standard with a modern LaTeX distribution such a TeXLive 2015.
 
 You are invited to use this repository as a means for learning more about preparing papers in the field of software
-engineering and as a way to verify the results and writing in our paper. If you find this example useful, could I
+engineering and as a way to investigate the results and writing in our paper. If you find this example useful, could I
 trouble you to star this repository and then acknowledge it in your own research efforts? If you would like to learn
 more about my research program, then you can checkout my
 [gkapfham/research-bibliography](https://github.com/gkapfham/research-bibliography).
@@ -27,9 +27,6 @@ pdflatex seke.tex
 ```
 
 Please note that this has been tested on an Ubuntu 15.04 workstation running a very recent version of LaTeX that was
-manually installed using the TeXLive installer. Additionally, you must install that your distribution has `minted`,
-`pygments`, and the `pygments-solarized` color scheme installed for your LaTeX distribution.  If you are unable to
-compile the presentation with your development tools and your execution environment, then please open a new issue and I
-will attempt to resolve your concerns.
-
-
+manually installed using the TeXLive installer.  It is also worth noting that you can also compile the paper using other
+LaTeX development tools, such as `latexmk`. If you are unable to compile the presentation with your development tools
+and your execution environment, then please open a new issue and I will attempt to resolve your concerns.
