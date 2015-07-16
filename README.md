@@ -28,5 +28,5 @@ pdflatex seke.tex
 
 Please note that this has been tested on an Ubuntu 15.04 workstation running a very recent version of LaTeX that was
 manually installed using the TeXLive installer.  It is also worth noting that you can also compile the paper using other
-LaTeX development tools, such as `latexmk`. If you are unable to compile the presentation with your development tools
-and your execution environment, then please open a new issue and I will attempt to resolve your concerns.
+LaTeX development tools, such as `latexmk`. If you are unable to compile the paper with your development tools and your
+execution environment, then please open a new issue and I will attempt to resolve your concerns.
